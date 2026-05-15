@@ -1,536 +1,616 @@
-﻿# =============================================================
-# CHECKPOINT 5 — PAPUA: DANAU SENTANI
-# =============================================================
-# CARA PAKAI:
-# 1. Taruh file ini di folder /game/ proyekmu
-# 2. Atau copy-paste isi file ini ke script.rpy bagian paling bawah
-#    (sebelum baris "return" terakhir)
-# 3. Dari akhir Checkpoint 4, tambahkan: jump cp5_intro
-#
-# PLACEHOLDER ASET (ganti dengan file asli saat sudah ada):
-#   bg_papua_danau.png       → background Danau Sentani (siang)
-#   bg_papua_pulau_asei.png  → background Pulau Asei / dermaga kayu
-#   bg_papua_lapangan.png    → background lapangan Barapen (malam, ada api)
-#   bg_papua_hutan.png       → background hutan Asmat yang gelap
-#   bg_papua_ending_good.png → background ending baik (danau cerah)
-#   bg_papua_ending_bad.png  → background ending buruk (gelap/sepi)
-#   mama_tita.png            → karakter Mama Tita (perempuan tua Asmat)
-#   perempuan_tua_asei.png   → karakter Perempuan Tua Asei (di dermaga)
-#   tetua_asei.png           → karakter Tetua Asei (pria tua, pemimpin)
-#   warga_papua.png          → karakter warga Papua (generik)
-#   garuda_papua.png         → Garuda (pakai asset Garuda yang sudah ada)
-# =============================================================
+﻿# ===================================================================
+# CHAPTER PAPUA - DANAU SENTANI
+# Checkpoint 5
+# ===================================================================
+default player_points = 0
 
-# ── DEKLARASI KARAKTER BARU ──────────────────────────────────
-# (taruh ini di bagian atas script.rpy bersama define lainnya,
-#  atau biarkan di sini — Ren'Py tetap bisa membacanya)
+# ===================================================================
+# KARAKTER
+# ===================================================================
 
-define perempuan_tua = Character("Perempuan Tua", who_color = "#c8a06a")
-define tetua_asei = Character("Tetua Asei", who_color = "#d4a050")
-define mama_tita = Character("Mama Tita", who_color = "#8fbf8f")
-define warga_papua = Character("Warga", who_color = "#aaaaaa")
-define garuda = Character("Garuda", who_color = "#e8c97a")
+define Mama_Tita = Character("Mama Tita", who_color="#8B4513")
+define Tetua_Asei = Character("Tetua Asei", who_color="#5C3317")
+define Tetua_Asmat = Character("Tetua Asmat", who_color="#654321")
+define Perempuan_Tua = Character("Perempuan Tua", who_color="#8B4513")
+define Pemuda_Yoboi = Character("Pemuda Yoboi", who_color="#6B8E23")
 
+# ===================================================================
+# SPRITE KARAKTER
+# ===================================================================
 
-# ── DEKLARASI IMAGE PLACEHOLDER ──────────────────────────────
-# Ganti path string-nya saat aset asli sudah siap.
-# Kalau belum ada file-nya, Ren'Py akan error saat scene itu
-# dijalankan — jadi buat dulu file PNG kosong dengan nama itu,
-# atau pakai solid color sementara.
+# WIRA
+image wira_bingung = "wira dewasa bingung.png"
+image wira_terharu = "wira dewasa terharu.png"
+image wira_sinis = "wira dewasa sinis.png"
 
-image bg_papua_danau = Solid("#0a1e2c")   # biru gelap = danau malam
-image bg_papua_pulau_asei = Solid("#0d2035")   # biru lebih gelap
-image bg_papua_lapangan = Solid("#1a0800")   # merah gelap = api barapen
-image bg_papua_hutan = Solid("#060e06")   # hijau hitam = hutan Asmat
-image bg_papua_ending_good = Solid("#0a2830")  # teal gelap = danau damai
-image bg_papua_ending_bad = Solid("#0a0508")  # hampir hitam
+# GARUDA
+image garuda_berdiri = "garuda_default.png"
+image garuda_terbang = "garuda_terbang.png"
+image garuda_berbicara = "garuda_berbicara.png"
 
-# Karakter placeholder: pakai transform warna solid sampai
-# sprite asli ada. Hapus baris image di bawah ini dan ganti
-# dengan: image mama_tita = "mama_tita.png"  dll.
-image perempuan_tua_asei_sprite = Solid("#c8a06a")
-image tetua_asei_sprite = Solid("#d4a050")
-image mama_tita_sprite = Solid("#8fbf8f")
+# TETUA
+image perempuan_tua = "perempuan_tua.png"
+image mama_tita = "mama_tita.png"
+image tetua_asei = "tetua_asei.png"
+image tetua_asmat = "tetua_asmat.png"
+image pemuda_yoboi = "pemuda_yoboi.png"
 
+# ===================================================================
+# BACKGROUND
+# ===================================================================
 
-# ── TRANSFORM POSISI (sesuaikan dengan yang sudah ada) ───────
-transform cp5_center:
-    xalign 0.5
-    yalign 1.0
+image bg_danau_sentani = im.Scale("danau_sentani.png", 1920, 1080)
+image bg_pulau_asei = im.Scale("pulau_asei.png", 1920, 1080)
+image bg_kampung_ayapo = im.Scale("kampung_ayapo.png", 1920, 1080)
+image bg_barapen = im.Scale("lapangan_barapen.png", 1920, 1080)
+image bg_hutan_yoboi = im.Scale("hutan_yoboi.png", 1920, 1080)
+image bg_rawa_asmat = im.Scale("sungai_rawa_asmat.png", 1920, 1080)
+image bg_gua_air_suci = im.Scale("gua_air_suci.png", 1920, 1080)
 
-transform cp5_left:
-    xalign 0.2
-    yalign 1.0
+# ===================================================================
+# VISUAL PILIHAN
+# ===================================================================
 
-transform cp5_right:
-    xalign 0.8
-    yalign 1.0
+# SCENE 2
+image pilihan2_a_idle = im.Scale("danau_sentani.png", 350, 220)
+image pilihan2_a_hover = im.Scale("danau_sentani.png", 370, 240)
 
-transform cp5_char_kiri:
-    xalign 0.25
-    yalign 0.85
-    zoom 0.55
+image pilihan2_b_idle = im.Scale("kampung_ayapo.png", 350, 220)
+image pilihan2_b_hover = im.Scale("kampung_ayapo.png", 370, 240)
 
-transform cp5_char_kanan:
-    xalign 0.75
-    yalign 0.85
-    zoom 0.55
+image pilihan2_c_idle = im.Scale("hutan_yoboi.png", 350, 220)
+image pilihan2_c_hover = im.Scale("hutan_yoboi.png", 370, 240)
 
+# SCENE 3
+image pilihan3_a_idle = im.Scale("lapangan_barapen.png", 350, 220)
+image pilihan3_a_hover = im.Scale("lapangan_barapen.png", 370, 240)
 
-# ── VARIABEL POIN ─────────────────────────────────────────────
-# Jika checkpoint lain sudah punya sistem poin sendiri,
-# sesuaikan nama variabel dengan yang dipakai tim.
-# Kalau belum ada: variabel ini akan dibuat otomatis saat dipakai.
+image pilihan3_b_idle = im.Scale("pulau_asei.png", 350, 220)
+image pilihan3_b_hover = im.Scale("pulau_asei.png", 370, 240)
 
-default poin_papua = 0
+image pilihan3_c_idle = im.Scale("sungai_rawa_asmat.png", 350, 220)
+image pilihan3_c_hover = im.Scale("sungai_rawa_asmat.png", 370, 240)
 
+# SCENE 4
+image pilihan4_a_idle = im.Scale("gua_air_suci.png", 350, 220)
+image pilihan4_a_hover = im.Scale("gua_air_suci.png", 370, 240)
 
-# =============================================================
-# LABEL UTAMA — ENTRY POINT CHECKPOINT 5
-# Panggil dengan: jump cp5_intro
-# =============================================================
+image pilihan4_b_idle = im.Scale("kampung_ayapo.png", 350, 220)
+image pilihan4_b_hover = im.Scale("kampung_ayapo.png", 370, 240)
 
-label cp5_intro:
+image pilihan4_c_idle = im.Scale("sungai_rawa_asmat.png", 350, 220)
+image pilihan4_c_hover = im.Scale("sungai_rawa_asmat.png", 370, 240)
 
-    $ poin_papua = 0
+# ===================================================================
+# ENDING
+# ===================================================================
 
-    scene bg_papua_danau
+image ending_baik_papua = im.Scale("danau_sentani.png", 1920, 1080)
+image ending_netral_papua = im.Scale("kampung_ayapo.png", 1920, 1080)
+image ending_buruk_papua = im.Scale("sungai_rawa_asmat.png", 1920, 1080)
+
+# ===================================================================
+# SCREEN PILIHAN SCENE 2
+# ===================================================================
+
+screen pilihan_pendekatan_suku():
+
+    modal True
+    default hovered = None
+
+    hbox:
+        spacing 60
+        xalign 0.5
+        yalign 0.72
+
+        # A
+        vbox:
+            spacing 10
+
+            imagebutton:
+                idle "pilihan2_a_idle"
+                hover "pilihan2_a_hover"
+                action Jump("pilihan_pendekatan_a")
+
+            text "PILIHAN A\nDATANGI\nSATU PER SATU":
+                xalign 0.5
+                text_align 0.5
+                size 24
+
+        # B
+        vbox:
+            spacing 10
+
+            imagebutton:
+                idle "pilihan2_b_idle"
+                hover "pilihan2_b_hover"
+                action Jump("pilihan_pendekatan_b")
+
+            text "PILIHAN B\nSAMPAIKAN\nPESAN":
+                xalign 0.5
+                text_align 0.5
+                size 24
+
+        # C
+        vbox:
+            spacing 10
+
+            imagebutton:
+                idle "pilihan2_c_idle"
+                hover "pilihan2_c_hover"
+                action Jump("pilihan_pendekatan_c")
+
+            text "PILIHAN C\nPAKSA\nBERHENTI":
+                xalign 0.5
+                text_align 0.5
+                size 24
+
+# ===================================================================
+# SCREEN PILIHAN SCENE 3
+# ===================================================================
+
+screen pilihan_barapen():
+
+    modal True
+
+    hbox:
+        spacing 60
+        xalign 0.5
+        yalign 0.72
+
+        # A
+        vbox:
+            spacing 10
+
+            imagebutton:
+                idle "pilihan3_a_idle"
+                hover "pilihan3_a_hover"
+                action Jump("pilihan_barapen_a")
+
+            text "PILIHAN A\nIKUTI\nADAT":
+                xalign 0.5
+                text_align 0.5
+                size 24
+
+        # B
+        vbox:
+            spacing 10
+
+            imagebutton:
+                idle "pilihan3_b_idle"
+                hover "pilihan3_b_hover"
+                action Jump("pilihan_barapen_b")
+
+            text "PILIHAN B\nTUMPUK\nSEMUA":
+                xalign 0.5
+                text_align 0.5
+                size 24
+
+        # C
+        vbox:
+            spacing 10
+
+            imagebutton:
+                idle "pilihan3_c_idle"
+                hover "pilihan3_c_hover"
+                action Jump("pilihan_barapen_c")
+
+            text "PILIHAN C\nTIGA BATU\nSAJA":
+                xalign 0.5
+                text_align 0.5
+                size 24
+
+# ===================================================================
+# SCREEN PILIHAN SCENE 4
+# ===================================================================
+
+screen pilihan_ukiran_asmat():
+
+    modal True
+
+    hbox:
+        spacing 60
+        xalign 0.5
+        yalign 0.72
+
+        # A
+        vbox:
+            spacing 10
+
+            imagebutton:
+                idle "pilihan4_a_idle"
+                hover "pilihan4_a_hover"
+                action Jump("pilihan_ukiran_a")
+
+            text "PILIHAN A\nRENUNGI\nUKIRAN":
+                xalign 0.5
+                text_align 0.5
+                size 24
+
+        # B
+        vbox:
+            spacing 10
+
+            imagebutton:
+                idle "pilihan4_b_idle"
+                hover "pilihan4_b_hover"
+                action Jump("pilihan_ukiran_b")
+
+            text "PILIHAN B\nTANYA\nWARGA":
+                xalign 0.5
+                text_align 0.5
+                size 24
+
+        # C
+        vbox:
+            spacing 10
+
+            imagebutton:
+                idle "pilihan4_c_idle"
+                hover "pilihan4_c_hover"
+                action Jump("pilihan_ukiran_c")
+
+            text "PILIHAN C\nPAKSA\nTETUA":
+                xalign 0.5
+                text_align 0.5
+                size 24
+
+# ===================================================================
+# LABEL UTAMA
+# ===================================================================
+
+label chapter_papua:
+
+    scene bg_danau_sentani
     with fade
 
-    narrator "Dari ketinggian, Danau Sentani terbentang luas di bawah langit Papua yang gelap. Perahu-perahu kecil tersebar di permukaan air yang tenang."
+    narrator "Dari POV Wira, danau luas membentang. Gunung ada di kejauhan dan kabut tipis melayang di atas permukaan air."
 
-    narrator "Tapi malam ini, ketenangan itu terasa palsu."
+    show wira_bingung at wleft_small
+    with dissolve
 
-    with vpunch
-
-    narrator "Tiba-tiba — suara teriakan. Kayu beradu. Lima suku di tepi danau sedang beradu mulut soal batas wilayah tangkap ikan."
+    narrator "Terdengar suara percikan air. Tiba-tiba suara teriakan dan perkelahian memecah suasana."
 
     wira "Loh, itu ada apa? Aku harus sembunyi sekarang."
 
-    narrator "Wira berlindung di balik pohon besar di tepi danau. Setelah beberapa saat, keadaan sedikit mereda — tapi Garuda masih belum muncul."
+    pause 1.0
+
+    narrator "Setelah beberapa lama bersembunyi, keadaan sedikit mereda tetapi Garuda belum muncul."
 
     wira "Mana sih Garuda, kok nggak muncul-muncul. Masa aku harus ngelewatin misi ini sendirian?"
 
-    # Garuda muncul dengan cahaya keemasan
-    with flash
+    hide wira_bingung
 
-    show wira sinis at chara_wira_sinis
+    show garuda_terbang at wright_small
+    with dissolve
+
+    show wira_bingung at wleft_small
     with dissolve
 
     garuda "Halo Wira, selamat datang di misi terakhirmu."
 
-    wira "Terakhir?!"
+    garuda "Seperti yang kamu lihat, ada pertikaian antara 5 suku yang tinggal di sekitar Danau Sentani karena permasalahan wilayah tangkap ikan."
 
-    garuda "Ada pertikaian antara 5 suku yang tinggal di sekitar Danau Sentani — masalah wilayah tangkap ikan. Kamu adalah satu-satunya kunci agar konflik ini bisa selesai."
+    garuda "Kamu adalah satu-satunya kunci agar konflik ini dapat selesai dan kehidupan mereka kembali normal."
 
     wira "Jadi aku harus apa, Gar? Nemuin mereka satu per satu? Aku orang luar, apa mereka mau dengerin pendapatku?"
 
-    garuda "Pilihan ada di tanganmu seorang. Ingat... caramu mendekati mereka akan menentukan nasib danau ini."
+    garuda "Pilihan ada di tanganmu seorang. Ingat, caramu mendekati mereka akan menentukan nasib danau ini."
 
-    jump cp5_scene_asei
+# ===================================================================
+# SCENE 2
+# ===================================================================
 
-
-# =============================================================
-# SCENE 2 — PULAU ASEI: PEREMPUAN TUA DI DERMAGA
-# =============================================================
-
-label cp5_scene_asei:
-
-    scene bg_papua_pulau_asei
+    scene bg_pulau_asei
     with dissolve
 
-    narrator "Wira mendayung menuju sebuah pulau kecil — Pulau Asei, hanya seukuran lapangan bola, dipenuhi pepohonan rindang."
+    narrator "Wira menaiki perahu kecil menuju Pulau Suku Asei."
 
-    narrator "Di dermaga kayu tua, seorang perempuan tua duduk tenang. Tangannya menenun anyaman sambil menatap permukaan danau."
+    show perempuan_tua at wright_small
+    show wira_terharu at wleft_small
+    with dissolve
 
     wira "Selamat siang, Nenek. Maaf mengganggu."
 
-    perempuan_tua "Kamu orang baru. Perahumu tidak seperti perahu kami."
+    Perempuan_Tua "Kamu orang baru. Perahumu tidak seperti perahu kami."
 
     wira "Aku dari jauh, Nenek. Aku datang dengan hati yang ingin belajar."
 
-    perempuan_tua "Belajar? Belajar apa? Tidak ada yang menarik di sini."
+    Perempuan_Tua "Belajar? Belajar apa? Tidak ada yang menarik di sini."
 
     wira "Aku ingin belajar tentang danau ini. Tentang suku-suku di sini. Aku dengar... ada konflik? Mungkin aku bisa membantu."
 
-    perempuan_tua "Membantu? Banyak orang datang mau membantu. Semua pergi setelah dapat apa yang mereka mau. Kamu juga akan begitu."
+    Perempuan_Tua "Membantu? Banyak orang datang mau membantu. Semua pergi setelah dapat apa yang mereka mau."
 
     wira "Tidak, Nek. Aku akan menunjukkan bahwa aku benar-benar berbeda dari mereka."
 
-    narrator "Wira melihat sekeliling. Ada tumpukan daun sagu berat di belakang dermaga yang harus dipindahkan sebelum hujan."
+    narrator "Wira membantu memindahkan daun sagu hingga pekerjaannya selesai."
 
-    wira "Tidak apa, Nek. Tunjukkan saja di mana letak daun sagunya."
+    Perempuan_Tua "Kamu orang asing. Mau bantu kami berdamai?"
 
-    narrator "Wira mengangkut daun sagu yang berat, bolak-balik hingga selesai. Peluh membasahi wajahnya. Perempuan tua itu mengamati dalam diam."
+    Perempuan_Tua "Kamu mau pakai cara apa?"
 
-    perempuan_tua "Kamu orang asing. Mau bantu kami berdamai? Hati-hati... lima suku ini keras kepala."
+    call screen pilihan_pendekatan_suku
 
-    perempuan_tua "Ada yang butuh dibujuk, ada yang butuh dibantu, ada yang butuh dihormati, ada yang butuh ditakuti."
+# ===================================================================
+# PILIHAN SCENE 2
+# ===================================================================
 
-    perempuan_tua "Kamu mau pakai cara apa?"
+label pilihan_pendekatan_a:
 
-    menu:
-        "A — Mendatangi satu per satu dan mendengarkan mereka":
-            $ poin_papua += 25
-            jump cp5_pilihan1_a
+    scene bg_kampung_ayapo
+    with dissolve
 
-        "B — Sampaikan pesan batas wilayah lewat pesan, tidak perlu repot":
-            $ poin_papua += 0
-            jump cp5_pilihan1_b
+    show wira_terharu at wleft_small
+    show garuda_berbicara at wright_small
 
-        "C — Kumpulkan paksa, ancam mereka supaya berhenti bertengkar":
-            $ poin_papua -= 25
-            jump cp5_pilihan1_c
-
-
-label cp5_pilihan1_a:
+    wira "Aku akan mendatangi mereka satu per satu, Nek."
 
     garuda "Langkah yang lambat, tapi seringkali paling pasti, Wira."
 
-    narrator "Wira mendatangi rumah adat satu per satu. Duduk bersama warga. Minum teh bersama mereka. Mengangguk mendengarkan setiap keluhan."
+    narrator "Wira duduk bersama tiap suku dan mendengarkan semua keluhan mereka."
 
-    wira "Saya mengerti, Bapak. Batas jaring itu memang penting untuk keluarga Bapak."
+    narrator "Semua suku akhirnya merasa dihargai."
 
-    narrator "Semua suku akhirnya merasa dihargai. Mereka setuju untuk berkumpul dan memulai ritual perdamaian."
+    $ player_points += 25
 
-    jump cp5_scene_barapen
+    jump scene_barapen
 
+label pilihan_pendekatan_b:
 
-label cp5_pilihan1_b:
-
-    garuda "Efisien. Tapi ingat, Wira, manusia bukan sekadar angka di atas peta."
-
-    narrator "Wira membagikan kertas pembagian wilayah dari atas perahunya, tanpa banyak bicara."
-
-    wira "Ini batasnya. Jangan dilewati. Besok kumpul di tengah danau untuk tanda tangan kesepakatan adat."
-
-    narrator "Semua suku setuju berkumpul — tapi wajah mereka dingin. Tidak ada senyuman. Tidak ada kehangatan."
-
-    jump cp5_scene_barapen
-
-
-label cp5_pilihan1_c:
-
-    garuda "Wira! Kesombongan hanya akan membakar jembatan yang belum sempat kamu bangun!"
-
-    wira "Kalian ini bodoh sekali! Tinggal bagi saja daerah-daerah perairan di sini, apa susahnya?! Kumpul sekarang atau kalian semua rugi!"
-
-    warga_papua "Hei orang asing! Berani sekali kau mengatur kami di tanah kami sendiri!"
-
-    narrator "Semua suku marah besar. Mereka mengusir Wira — batu dan kayu dilempar ke arah perahunya."
-
-    wira "Aw! Hei! Tunggu dulu!"
-
-    garuda "Sudah kubilang, Wira! Kita gagal!"
-
-    narrator "Wira terpaksa mundur. Konflik tidak selesai, bahkan memburuk."
-
-    jump cp5_ending_bad
-
-
-# =============================================================
-# SCENE 3 — BARAPEN: RITUAL BAKAR BATU
-# =============================================================
-
-label cp5_scene_barapen:
-
-    scene bg_papua_lapangan
+    scene bg_kampung_ayapo
     with dissolve
 
-    narrator "Lapangan terbuka di tepi danau. Batu-batu membara kemerahan. Asap mengepul ke langit malam."
+    show wira_bingung at wleft_small
+    show garuda_berbicara at wright_small
 
-    narrator "Kelima perwakilan suku sudah duduk melingkar dalam lingkaran yang dibentuk oleh api dan batu."
+    wira "Aku akan sampaikan pesan saja ke ketua tiap suku."
 
-    garuda "Sekarang sudah saatnya mereka melakukan ritual perdamaian Barapen — bakar batu. Kamu diminta untuk menjadi pemimpin upacaranya. Ini simbol penyatuan."
+    garuda "Efisien. Tapi manusia bukan sekadar angka di atas peta."
 
-    wira "Tapi aku tidak tahu caranya, Gar! Aku hanya diberi tahu sedikit tentang upacara ini!"
+    narrator "Pertemuan berlangsung dingin dan tanpa kehangatan."
 
-    garuda "Tenang saja, ikuti intuisimu. Mereka akan mengarahkanmu lewat isyarat."
+    jump scene_barapen
 
-    tetua_asei "Nak Wira. Kamu yang menyatukan mereka. Sekarang kamu yang memimpin Barapen."
+label pilihan_pendekatan_c:
 
-    tetua_asei "Batu dari utara, selatan, timur, barat, dan tengah sudah siap. Doa sudah siap. Makanan sudah siap."
-
-    tetua_asei "Sekarang... bagaimana cara kamu memimpin? Apakah kamu akan mengikuti adat dengan benar? Atau kamu punya cara sendiri?"
-
-    menu:
-        "A — Mulai dari batu Timur, memutar, akhiri batu Tengah sebagai penyatu":
-            $ poin_papua += 25
-            jump cp5_pilihan2_a
-
-        "B — Tumpuk semua batu di tengah sekaligus, yang penting cepat selesai":
-            $ poin_papua += 0
-            jump cp5_pilihan2_b
-
-        "C — Ambil tiga batu saja, skip doa, langsung masak":
-            $ poin_papua -= 25
-            jump cp5_pilihan2_c
-
-
-label cp5_pilihan2_a:
-
-    wira "(dalam hati) Aku harus berhati-hati. Utamakan persatuan."
-
-    wira "Mari kita mulai dari batu Timur — tempat matahari terbit. Lalu memutar... dan terakhir batu Tengah, yang menyatukan kita semua di danau ini."
-
-    narrator "Wira menyusun batu dengan penuh penghormatan. Asap membubung tinggi membentuk siluet indah di langit malam."
-
-    tetua_asei "Leluhur kita tersenyum hari ini. Kau menghormati arah, kau menghormati kehidupan."
-
-    narrator "Para suku terharu. Mereka makan bersama sambil berbincang tentang masa lalu yang indah sebelum konflik. Suasana hangat dan penuh harapan."
-
-    jump cp5_scene_asmat
-
-
-label cp5_pilihan2_b:
-
-    wira "(dalam hati) Yang penting batunya panas dan makanannya matang."
-
-    wira "Baiklah, tumpuk semua batunya di tengah sekalian, taruh daun dan dagingnya. Mari kita masak."
-
-    narrator "Ritual berjalan biasa saja. Tidak ada yang salah, tapi tidak ada maknanya."
-
-    warga_papua "Makanannya matang... tapi rasanya ada yang kurang."
-
-    narrator "Perdamaian tertulis tercapai, namun tidak ada suasana kekeluargaan. Dingin — seolah masing-masing tidak mengakui keberadaan suku lain."
-
-    jump cp5_scene_asmat
-
-
-label cp5_pilihan2_c:
-
-    wira "(dalam hati) Panas sekali di sini, aku ingin cepat selesai."
-
-    wira "Ambil tiga batu saja, itu sudah cukup panas! Tidak usah repot-repot berdoa panjang lebar, kita semua lapar. Masukkan umbinya sekarang!"
-
-    narrator "Batu susunan Wira runtuh. Makanan tidak matang sempurna. Warga berdiri dengan marah."
-
-    tetua_asei "Ini penghinaan! Batu dari selatan kau buang, doa kau lupakan! Kau tidak menghargai roh nenek moyang kami!"
-
-    narrator "Beberapa ketua marah dan meninggalkan lapangan. Barapen dianggap tidak sah. Perdamaian hancur berantakan."
-
-    garuda "Sudah kubilang, Wira!"
-
-    jump cp5_ending_bad
-
-
-# =============================================================
-# SCENE 4 — HUTAN ASMAT: UKIRAN & AIR SUCI
-# =============================================================
-
-label cp5_scene_asmat:
-
-    scene bg_papua_hutan
+    scene bg_kampung_ayapo
     with dissolve
 
-    narrator "Garuda membawa Wira menuju wilayah Asmat — hutan lebat di selatan danau. Pohon-pohon menjulang tinggi, cahaya bulan hampir tidak tembus ke lantai hutan."
+    show wira_sinis at wleft_small
+    show garuda_berbicara at wright_small
 
-    narrator "Di depan sebuah pondok tua, seorang perempuan tua berdiri dengan tongkat kayu berukir. Tatapannya tajam seperti elang."
+    garuda "Wira! Kesombongan hanya akan membakar jembatan!"
 
-    mama_tita "Kamu. Orang asing. Dari mana?"
+    wira "Kalian ini bodoh sekali!"
 
-    wira "(menunduk hormat) Dari Danau Sentani, Mama. Aku Wira."
+    with hpunch
 
-    mama_tita "Sentani? Jauh. Apa yang kamu cari di sini?"
+    narrator "Wira diusir dari kampung setelah memaksa para suku."
 
-    wira "Air Suci, Mama. Kami butuh air suci untuk menyempurnakan perdamaian di Sentani."
+    $ player_points -= 25
 
-    narrator "Perempuan tua itu tertawa kecil. Tawanya pahit."
+    jump ending_checkpoint_papua
 
-    mama_tita "Air Suci. Banyak yang cari. Tiga orang sebelum kamu. Dua gila. Satu mati."
+# ===================================================================
+# SCENE 3 BARAPEN
+# ===================================================================
 
-    mama_tita "Kamu yakin mau coba?"
+label scene_barapen:
 
-    wira "(menggigil, tapi mengangguk) Aku yakin, Mama."
+    scene bg_barapen
+    with fade
 
-    mama_tita "Aku Tetua Asmat. Panggil Mama Tita. Kalau kamu mau cari Air Suci... kamu harus pecahkan teka-teki ukiran ini dulu."
+    narrator "Batu-batu panas membara. Kelima suku duduk melingkar."
 
-    narrator "Mama Tita mengulurkan sebatang kayu ukiran sepanjang lengan. Motifnya berlapis-lapis — binatang di bawah, manusia di tengah, lalu lingkaran kosong di ujung atas."
+    show tetua_asei at wright_small
+    show wira_bingung at wleft_small
 
-    mama_tita "Ukiran ini bicara. Tapi dia hanya bicara pada yang mau mendengar. Bukan dengan telinga... tapi dengan hati dan ingatan."
+    garuda "Sekarang sudah saatnya ritual Barapen."
 
-    mama_tita "Bawa ini. Pecahkan maknanya. Kalau sudah tahu... kembali padaku."
+    wira "Tapi aku tidak tau caranya, Gar!"
 
-    menu:
-        "A — Duduk tenang berjam-jam, renungkan semua pelajaran dari suku-suku sebelumnya":
-            $ poin_papua += 25
-            jump cp5_pilihan3_a
+    Tetua_Asei "Sekarang kamu yang memimpin."
 
-        "B — Keliling desa, tanya orang-orang yang lewat sambil bawa ukiran":
-            $ poin_papua += 0
-            jump cp5_pilihan3_b
+    call screen pilihan_barapen
 
-        "C — Lempar ukiran, paksa Mama Tita tunjukkan airnya sekarang":
-            $ poin_papua -= 25
-            jump cp5_pilihan3_c
+# ===================================================================
+# PILIHAN BARAPEN
+# ===================================================================
 
+label pilihan_barapen_a:
 
-label cp5_pilihan3_a:
-
-    wira "Aku butuh waktu untuk memahami ini, Gar."
-
-    narrator "Wira duduk bersila di bawah pohon besar. Menutup mata. Mengusap permukaan ukiran itu perlahan."
-
-    wira "(dalam hati) Binatang... manusia... bersatu. Tapi kenapa di ujungnya kosong? Kosong... tempat yang tidak ada di peta para suku Sentani tadi."
-
-    narrator "Wira mengingat semua yang dia pelajari — batas wilayah, rawa-rawa, cerita para tetua. Lalu dia sadar."
-
-    wira "Lingkaran kosong itu... rawa tanpa nama di belakang desa lama. Wilayah netral yang tak bertuan!"
-
-    narrator "Wira berlari ke sana. Menyelam ke dasar rawa yang dingin. Di balik bebatuan tersembunyi sebuah gua kristal kecil."
-
-    narrator "Wira keluar dari gua membawa botol bambu. Air di dalamnya memancarkan cahaya biru yang lembut dan jernih."
-
-    garuda "Luar biasa, Wira! Auranya sangat murni!"
-
-    narrator "Dengan air ini, perdamaian di Sentani akan abadi — mengikat jiwa semua suku dalam harmoni."
-
-    jump cp5_ending_good
-
-
-label cp5_pilihan3_b:
-
-    wira "(menggaruk kepala) Aduh, aku paling tidak bisa teka-teki sastra begini."
-
-    narrator "Wira keliling desa menanyai orang-orang yang lewat sambil membawa ukiran itu. Tidak sabar duduk lama."
-
-    narrator "Akhirnya, saat lelah dan bersandar di dinding batu, Wira terpeleset — dan menemukan gua di balik air terjun kecil di pinggir desa."
-
-    narrator "Wira keluar membawa air yang warnanya abu-abu keruh. Tidak ada cahaya."
-
-    garuda "Wira... air apa ini? Mengapa rasanya hampa?"
-
-    narrator "Air sucinya keruh. Terkutuk oleh kelalaian. Jika digunakan, perdamaian di Sentani hanya akan bertahan seumur jagung sebelum perang pecah kembali."
-
-    jump cp5_ending_mid
-
-
-label cp5_pilihan3_c:
-
-    narrator "Wira melempar ukiran itu ke tanah dengan kesal."
-
-    wira "Ini tidak masuk akal! Ukiran kayu kok disuruh bicara?! Katakan padaku di mana air sucinya, Nenek tua! Jangan buang waktuku atau aku akan menghancurkan ukiran kesayanganmu ini!"
-
-    mama_tita "(menatap tajam, lalu menghela napas panjang) Orang sombong selalu menemukan jalannya sendiri menuju kehancuran."
-
-    narrator "Mama Tita membawa Wira ke sebuah gua kecil yang gelap di kaki bukit. Lalu meninggalkan Wira sendirian."
-
-    narrator "Tangan Wira gemetar saat menciduk air. Air itu hitam pekat, kental, dan mengeluarkan asap berbau busuk."
-
-    wira "(terbatuk-batuk) Uhuk! Bau sekali seperti darah dan bangkai ikan!"
-
-    garuda "Wira, buang itu! Itu kutukan rawa mati!"
-
-    narrator "Air suci yang didapat berwarna hitam pekat. Sangat terkutuk. Jika dibawa kembali, ini akan membawa wabah penyakit bagi 5 suku di Danau Sentani."
-
-    jump cp5_ending_bad
-
-
-# =============================================================
-# ENDING BAIK — Skor tinggi (≥ 50)
-# =============================================================
-
-label cp5_ending_good:
-
-    scene bg_papua_ending_good
+    scene bg_barapen
     with dissolve
 
-    narrator "Semua suku berkumpul di tengah Danau Sentani untuk terakhir kalinya malam itu."
+    show wira_terharu at wleft_small
 
-    narrator "Air suci dari botol bambu dituangkan perlahan ke permukaan danau. Cahaya biru menyebar seperti bintang yang jatuh."
+    wira "Mari kita mulai dari batu Timur."
 
-    narrator "Dalam diam yang khidmat, kelima tetua berdiri, saling bergenggaman tangan untuk pertama kalinya dalam bertahun-tahun."
+    narrator "Ritual berjalan penuh penghormatan."
 
-    garuda "Checkpoint Papua selesai, Wira. Total poinmu: [poin_papua]."
+    show tetua_asei at wright_small
 
-    if poin_papua >= 60:
-        garuda "Kamu tidak hanya menyelesaikan konflik. Kamu baru saja belajar bahwa perdamaian yang nyata tidak bisa dibeli, dipaksa, atau disingkat. Ia hanya bisa dihadirkan oleh mereka yang berani duduk bersama dan menaruh hati di tempat yang tepat."
-    else:
-        garuda "Kamu sudah mencoba, Wira. Ada momen di mana kamu menunjukkan niat yang baik. Bawa itu ke perjalanan berikutnya."
+    Tetua_Asei "Leluhur kita tersenyum hari ini."
 
-    narrator "..."
+    $ player_points += 25
 
-    wira "Garuda... gue mulai ngerti kenapa lo bawa gue ke tempat-tempat ini."
+    jump scene_ukiran_asmat
 
-    garuda "Belum sepenuhnya. Tapi kamu sudah di jalan yang benar."
+label pilihan_barapen_b:
 
-    narrator "{i}Kearifan sejati tidak hanya mendamaikan dunia luar... melainkan juga mempertemukan kita kembali dengan bagian diri kita yang paling murni.{/i}"
-
-    jump cp5_closing
-
-
-# =============================================================
-# ENDING SEDANG — Skor tengah (0–49, pilihan 3B)
-# =============================================================
-
-label cp5_ending_mid:
-
-    scene bg_papua_ending_good
+    scene bg_barapen
     with dissolve
 
-    narrator "Danau Sentani kembali tenang. Namun entah untuk berapa lama."
+    show wira_bingung at wleft_small
 
-    narrator "Air keruh yang Wira bawa disebarkan ke danau dengan tata cara seadanya. Para tetua suku mengangguk pelan — mereka menerima, meski tanpa antusias."
+    wira "Tumpuk semua batunya di tengah."
 
-    garuda "Checkpoint Papua selesai, Wira. Total poinmu: [poin_papua]."
+    narrator "Ritual berjalan biasa saja tanpa makna mendalam."
 
-    garuda "Kamu sudah mencoba, Wira. Dan di sebagian besar perjalanan ini, kamu menunjukkan niat yang baik. Tapi ada momen di mana kamu berhenti di tepi, padahal satu langkah lagi bisa membuat segalanya berbeda."
+    jump scene_ukiran_asmat
 
-    garuda "Papua tidak menghukummu. Ia hanya bertanya: apakah lain kali kamu akan berani lebih dalam?"
+label pilihan_barapen_c:
 
-    jump cp5_closing
-
-
-# =============================================================
-# ENDING BURUK — Skor rendah (< 0)
-# =============================================================
-
-label cp5_ending_bad:
-
-    scene bg_papua_ending_bad
+    scene bg_barapen
     with dissolve
 
-    narrator "Danau Sentani kembali sunyi dalam ketegangan."
+    show wira_sinis at wleft_small
 
-    narrator "Perahu-perahu suku yang berbeda tidak lagi saling menyapa. Air danau tetap gelap, menyimpan amarah yang belum selesai."
+    wira "Ambil tiga batu saja!"
 
-    narrator "Garuda menatap Wira dalam diam yang panjang."
+    with hpunch
 
-    garuda "Checkpoint Papua selesai, Wira. Total poinmu: [poin_papua]."
+    show tetua_asei at wright_small
 
-    garuda "Wira... kamu melewati tanah leluhur dengan tangan yang kosong. Bukan karena kamu tidak mampu — tapi karena kamu memilih untuk tidak hadir sepenuhnya."
+    Tetua_Asei "Ini penghinaan!"
 
-    garuda "Danau Sentani masih menunggu. Pertanyaannya: kapan kamu siap untuk benar-benar mendengar?"
+    narrator "Perdamaian gagal total."
 
-    narrator "{i}Ketika kita memaksa dunia untuk tunduk pada keegoisan kita... kita hanya akan mewariskan kehancuran — baik di tanah orang lain, maupun di rumah kita sendiri.{/i}"
+    $ player_points -= 25
 
-    jump cp5_closing
+    jump ending_checkpoint_papua
 
+# ===================================================================
+# SCENE 4
+# ===================================================================
 
-# =============================================================
-# PENUTUP — Kembali ke rumah Nenek
-# Sambungkan ke scene closing yang sudah ada di script.rpy
-# Ganti jump di bawah dengan label closing yang sesuai
-# =============================================================
+label scene_ukiran_asmat:
 
-label cp5_closing:
+    scene bg_hutan_yoboi
+    with fade
+
+    show mama_tita at wright_small
+    show wira_bingung at wleft_small
+
+    Mama_Tita "Kamu. Orang asing. Dari mana?"
+
+    wira "Dari Danau Sentani, Mama."
+
+    Mama_Tita "Kalau kamu mau cari Air Suci, pecahkan teka-teki ukiran ini."
+
+    call screen pilihan_ukiran_asmat
+
+# ===================================================================
+# PILIHAN UKIRAN
+# ===================================================================
+
+label pilihan_ukiran_a:
+
+    scene bg_hutan_yoboi
+    with dissolve
+
+    show wira_terharu at wleft_small
+
+    narrator "Wira merenungkan makna ukiran itu selama berjam-jam."
+
+    scene bg_rawa_asmat
+    with dissolve
+
+    narrator "Dia menemukan rawa tanpa nama."
+
+    scene bg_gua_air_suci
+    with dissolve
+
+    show garuda_berbicara at wright_small
+
+    garuda "Auranya sangat murni!"
+
+    narrator "Wira mendapatkan air suci bercahaya."
+
+    $ player_points += 25
+
+    jump ending_checkpoint_papua
+
+label pilihan_ukiran_b:
+
+    scene bg_hutan_yoboi
+    with dissolve
+
+    show wira_bingung at wleft_small
+
+    narrator "Wira mencari jawaban dengan bertanya pada warga."
+
+    scene bg_gua_air_suci
+    with dissolve
+
+    show garuda_berbicara at wright_small
+
+    garuda "Mengapa air ini terasa hampa?"
+
+    narrator "Air yang ditemukan keruh dan tidak suci."
+
+    jump ending_checkpoint_papua
+
+label pilihan_ukiran_c:
+
+    scene bg_hutan_yoboi
+    with dissolve
+
+    show wira_sinis at wleft_small
+    show mama_tita at wright_small
+
+    wira "Katakan padaku di mana air sucinya!"
+
+    Mama_Tita "Orang sombong selalu menuju kehancuran."
+
+    scene bg_rawa_asmat
+    with dissolve
+
+    narrator "Mama Tita membawa Wira ke rawa gelap."
+
+    scene bg_gua_air_suci
+    with dissolve
+
+    show garuda_berbicara at wright_small
+
+    garuda "Itu kutukan rawa mati!"
+
+    narrator "Air yang ditemukan hitam dan berbau busuk."
+
+    $ player_points -= 25
+
+    jump ending_checkpoint_papua
+
+# ===================================================================
+# ENDING
+# ===================================================================
+
+label ending_checkpoint_papua:
 
     scene black
-    with dissolve
+    with fade
 
-    narrator "..."
+    pause 1.0
 
-    narrator "Cahaya keemasan menyelimuti Wira. Danau Sentani memudar di kejauhan."
+    if player_points >= 65:
 
-    narrator "Garuda mengepakkan sayap untuk terakhir kalinya."
+        scene ending_baik_papua
+        with dissolve
 
-    garuda "Perjalanan sudah selesai, Wira. Saatnya pulang."
+        show garuda_berbicara at wcenter_small
 
-    # ── Sambungkan ke scene closing / epilog yang sudah ada ──
-    # Ganti baris di bawah dengan label epilog kalian, misalnya:
-    # jump epilog_rumah_nenek
-    # atau jika langsung ke ending:
-    # jump good_ending / bad_ending
+        garuda "Perdamaian lahir ketika seseorang mau mendengar dan menghormati tradisi."
 
-    jump closing   # <-- GANTI dengan label closing yang benar di script.rpy kalian
+    elif player_points >= 15:
 
+        scene ending_netral_papua
+        with dissolve
+
+        show garuda_berbicara at wcenter_small
+
+        garuda "Perdamaian tercapai, tetapi belum sepenuhnya menyatu."
+
+    else:
+
+        scene ending_buruk_papua
+        with dissolve
+
+        show garuda_berbicara at wcenter_small
+
+        garuda "Kamu menghancurkan kepercayaan yang membutuhkan generasi untuk dibangun."
+
+    narrator "Checkpoint 5 Selesai: Papua — Danau Sentani"
+    narrator "Total poin akhir: [player_points]"
+
+    return
