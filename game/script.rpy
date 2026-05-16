@@ -1044,32 +1044,15 @@ label chapter_jawa_betawi:
     garuda "Kamu ada di tengah-tengah. Tentukan cara kamu merespons konflik ini."
 
     # ===== PILIHAN FESTIVAL KAMPUNG =====
-    show pilihana_festivalkampung_button at xcenter, yalign(0.3)
-    show pilihanb_festivalkampung_button at xcenter, yalign(0.5)
-    show pilihanc_festivalkampung_button at xcenter, yalign(0.7)
+    menu:
+        "Duduk bersama dan cari format yang menjaga akar.":
+            jump pilihan_festival_a
+        "Pertahankan format lama tanpa perubahan.":
+            jump pilihan_festival_b
+        "Putuskan festival hybrid tanpa musyawarah.":
+            jump pilihan_festival_c
 
-imagebutton:
-        idle pilihana_festivalkampung_button
-        hover pilihana_festivalkampung_button
-        action Jump("pilihan_festival_a")
-        xalign 0.5
-        yalign 0.3
-
-imagebutton:
-        idle pilihanb_festivalkampung_button
-        hover pilihanb_festivalkampung_button
-        action Jump("pilihan_festival_b")
-        xalign 0.5
-        yalign 0.5
-
-imagebutton:
-        idle pilihanc_festivalkampung_button
-        hover pilihanc_festivalkampung_button
-        action Jump("pilihan_festival_c")
-        xalign 0.5
-        yalign 0.7
-
-    label pilihan_festival_a:
+label pilihan_festival_a:
         $ player_points += 25
         hide pilihana_festivalkampung_button
         hide pilihanb_festivalkampung_button
@@ -1093,7 +1076,7 @@ imagebutton:
         window show
         jump lanjut_ke_wayang
 
-    label pilihan_festival_b:
+label pilihan_festival_b:
         $ player_points -= 15
         hide pilihana_festivalkampung_button
         hide pilihanb_festivalkampung_button
@@ -1111,7 +1094,7 @@ imagebutton:
         window show
         jump lanjut_ke_wayang
 
-    label pilihan_festival_c:
+label pilihan_festival_c:
         $ player_points -= 5
         hide pilihana_festivalkampung_button
         hide pilihanb_festivalkampung_button
@@ -1127,7 +1110,7 @@ imagebutton:
         pause 1.0
         window show
 
-    label lanjut_ke_wayang:
+label lanjut_ke_wayang:
 
     # ===== SCENE WAYANG YANG DIANGGAP KUNO =====
     scene pilihana_wayang_idle
@@ -1155,33 +1138,15 @@ imagebutton:
     garuda "Wira, ini momen penting. Pak Sugeng butuh pembelaan, tetapi Dimas butuh jembatan, bukan tembok. Bagaimana kamu merespons?"
 
     # ===== PILIHAN WAYANG =====
-    show pilihana_wayang_idle at xcenter, yalign(0.3)
-    show pilihanb_wayang_idle at xcenter, yalign(0.5)
-    show pilihanc_wayang_idle at xcenter, yalign(0.7)
+    menu:
+        "Jelaskan wayang dengan bahasa anak muda.":
+            jump pilihan_wayang_a
+        "Paksa Dimas menghormati wayang.":
+            jump pilihan_wayang_b
+        "Ubah cerita wayang agar kekinian.":
+            jump pilihan_wayang_c
 
-
-
-    imagebutton:
-        idle pilihanb_wayang_idle
-        hover pilihanb_wayang_hover
-        action Jump("pilihan_wayang_b")
-        xalign 0.5
-        yalign 0.5
-
-    imagebutton:
-        idle pilihanc_wayang_idle
-        hover pilihanc_wayang_hover
-        action Jump("pilihan_wayang_c")
-        xalign 0.5
-        yalign 0.7
-
-    label pilihan_wayang_a:
-        imagebutton:
-        idle pilihana_wayang_idle
-        hover pilihana_wayang_hover
-        action Jump("pilihan_wayang_a")
-        xalign 0.5
-        yalign 0.3
+label pilihan_wayang_a:
         $ player_points += 25
         hide pilihana_wayang_idle
         hide pilihanb_wayang_idle
@@ -1203,7 +1168,7 @@ imagebutton:
         window show
         jump lanjut_ke_keraton
 
-    label pilihan_wayang_b:
+label pilihan_wayang_b:
         $ player_points -= 10
         hide pilihana_wayang_idle
         hide pilihanb_wayang_idle
@@ -1220,7 +1185,7 @@ imagebutton:
         window show
         jump lanjut_ke_keraton
 
-    label pilihan_wayang_c:
+label pilihan_wayang_c:
         $ player_points -= 15
         hide pilihana_wayang_idle
         hide pilihanb_wayang_idle
@@ -1236,7 +1201,7 @@ imagebutton:
         pause 1.0
         window show
 
-    label lanjut_ke_keraton:
+label lanjut_ke_keraton:
 
     # ===== TRANSISI MEMASUKI KERATON JAWA =====
     scene visualmasuk_keratonjawa
@@ -1288,32 +1253,15 @@ imagebutton:
     garuda "Wira, Kanjeng Raden akan melewatimu. Apa yang kamu lakukan?"
 
     # ===== PILIHAN TATA KRAMA =====
-    show pilihana_scenetatakrama_button at xcenter, yalign(0.3)
-    show pilihanb_scenetatakrama_button at xcenter, yalign(0.5)
-    show pilihanc_scenetatakrama_button at xcenter, yalign(0.7)
+    menu:
+        "Bertanya dan belajar tata krama.":
+            jump pilihan_krama_a
+        "Tetap berdiri tanpa memberi jalan.":
+            jump pilihan_krama_b
+        "Menyingkir dan membungkuk tanpa bertanya.":
+            jump pilihan_krama_c
 
-    imagebutton:
-        idle pilihana_scenetatakrama_button
-        hover pilihana_scenetatakrama_button
-        action Jump("pilihan_krama_a")
-        xalign 0.5
-        yalign 0.3
-
-    imagebutton:
-        idle pilihanb_scenetatakrama_button
-        hover pilihanb_scenetatakrama_button
-        action Jump("pilihan_krama_b")
-        xalign 0.5
-        yalign 0.5
-
-    imagebutton:
-        idle pilihanc_scenetatakrama_button
-        hover pilihanc_scenetatakrama_button
-        action Jump("pilihan_krama_c")
-        xalign 0.5
-        yalign 0.7
-
-    label pilihan_krama_a:
+label pilihan_krama_a:
         $ player_points += 30
         hide pilihana_scenetatakrama_button
         hide pilihanb_scenetatakrama_button
@@ -1334,7 +1282,7 @@ imagebutton:
         window show
         jump lanjut_ke_dialog_bagas
 
-    label pilihan_krama_b:
+label pilihan_krama_b:
         $ player_points -= 20
         hide pilihana_scenetatakrama_button
         hide pilihanb_scenetatakrama_button
@@ -1351,7 +1299,7 @@ imagebutton:
         window show
         jump lanjut_ke_dialog_bagas
 
-    label pilihan_krama_c:
+label pilihan_krama_c:
         $ player_points += 10
         hide pilihana_scenetatakrama_button
         hide pilihanb_scenetatakrama_button
@@ -1367,7 +1315,7 @@ imagebutton:
         pause 1.0
         window show
 
-    label lanjut_ke_dialog_bagas:
+label lanjut_ke_dialog_bagas:
 
     # ===== SCENE DIALOG RADEN MAS BAGAS =====
     scene visual_hormatdenganmaubelajar
