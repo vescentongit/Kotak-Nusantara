@@ -13,7 +13,7 @@ init python:
 
 ## Enable checks for invalid or unstable properties in screens or transforms
 define config.check_conflicting_properties = True
-define gui.show_name = True
+define gui.show_name = False
 define config.name = _('Kotak Nusantara')
 define gui.about = _('Sebuah visual novel oleh kelompok 3')
 

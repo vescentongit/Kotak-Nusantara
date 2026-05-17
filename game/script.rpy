@@ -3,11 +3,11 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define narrator =  Character("???", who_color = "#000000")
+define narrator =  Character("Narator", who_color = "#000000")
 define wira = Character("Wira", who_color = "#ffffff")
-define ibu = Character("Ibu", who_color = "#ffacc2")
-define ayah = Character("Ayah", who_color = "#b5e5ff")
-define garuda = Character("Garuda", who_color = "#ffd978")
+define ibu = Character("Ibu", who_color = "#ffffff")
+define ayah = Character("Ayah", who_color = "#ffffff")
+define garuda = Character("Garuda", who_color = "#ffffff")
 define narasi = Character(None, what_italic = True)
 define made = Character("Made", who_color = "#ffffff")
 define nyoman = Character("Bu Nyoman", who_color = "#ffffff")
@@ -20,22 +20,22 @@ define paman_darius = Character("Paman Darius", who_color = "#ffffff", size=37)
 define nenek_rante = Character("Nenek Rante", who_color = "#ffffff", size=37)
 define nenek = Character("Nenek", who_color = "#ffffff")
 define rena = Character("Rena", who_color = "#ffffff")
-define Datuak = Character("Datuak",who_color ="#9E7B54" )
-define Buya_Hamid = Character("Buya Hamid",who_color ="#224989" )
-define Dr_Sari = Character("Dr Sari",who_color ="#961A2E" )
-define Rosma = Character("Ibu Rosma",who_color ="#23781E" )
-define Amelia = Character("Amelia",who_color ="#FF69B4" )
-define Rizky = Character("Rizky",who_color ="#881e1e" )
+define Datuak = Character("Datuak",who_color ="#ffffff" )
+define Buya_Hamid = Character("Buya Hamid",who_color ="#ffffff" )
+define Dr_Sari = Character("Dr Sari",who_color ="#ffffff" )
+define Rosma = Character("Ibu Rosma",who_color ="#ffffff" )
+define Amelia = Character("Amelia",who_color ="#ffffff" )
+define Rizky = Character("Rizky",who_color ="#ffffff" )
 
 # CHAPTER JAWA BETAWI
-define Bang_Rojak = Character("Bang Rojak",who_color ="#D4A574" )
-define Sari = Character("Sari",who_color ="#6B4E9D" )
-define Engkong_Ali = Character("Engkong Ali",who_color ="#8B7355" )
-define Pak_Sugeng = Character("Pak Sugeng",who_color ="#A0522D" )
-define Kanjeng_Raden = Character("Kanjeng Raden",who_color ="#D4AF37" )
-define Raden_Mas_Bagas = Character("Raden Mas Bagas",who_color ="#8B4513" )
-define Dimas = Character("Dimas",who_color ="#4A4A4A" )
-define Teman_Dimas = Character("Teman Dimas",who_color ="#b00404" )
+define Bang_Rojak = Character("Bang Rojak",who_color ="#ffffff" )
+define Sari = Character("Sari",who_color ="#ffffff" )
+define Engkong_Ali = Character("Engkong Ali",who_color ="#ffffff" )
+define Pak_Sugeng = Character("Pak Sugeng",who_color ="#ffffff" )
+define Kanjeng_Raden = Character("Kanjeng Raden",who_color ="#ffffff" )
+define Raden_Mas_Bagas = Character("Raden Mas Bagas",who_color ="#ffffff" )
+define Dimas = Character("Dimas",who_color ="#ffffff" )
+define Teman_Dimas = Character("Teman Dimas",who_color ="#ffffff" )
 
 # ================= SISTEM POIN =================
 default player_points = 0
@@ -1202,7 +1202,7 @@ label chapter_jawa_betawi:
     pause 1.0
 
     # Visual: Layar gelap dengan cahaya kuning menyeruak perlahan
-    narrator "Cahaya kuning menyeruak perlahan dari kegelapan. Wira berdiri di sebuah Kampung Betawi di pinggiran kota. Dinding bercat putih kusam dihiasi ornamen khas Betawi - motif gigi balang, pucuk rebung, dan warna merah hijau yang mencolok."
+    narrator "Cahaya kuning menyeruak perlahan dari kegelapan. Wira berdiri di sebuah Kampung Betawi di pinggiran kota. Dinding bercat putih kusam dihiasi ornamen khas Betawi, motif gigi balang, pucuk rebung, dan warna merah hijau yang mencolok."
 
     window hide
     pause 2.0
@@ -1356,6 +1356,7 @@ label lanjut_ke_wayang:
     Pak_Sugeng "Anak muda…kamu punya pendapat tentang ini?"
 
     garuda "Wira, ini momen penting. Pak Sugeng butuh pembelaan, tetapi Dimas butuh jembatan, bukan tembok. Bagaimana kamu merespons?"
+    stop sound fadeout 1.0
     stop sound fadeout 1.0
     # ===== PILIHAN WAYANG =====
     show screen show_points
@@ -4203,6 +4204,7 @@ label closing_good_ending:
     with dissolve
     pause 0.5
 
+    play sound "sound/percakapan_warga_goodend.mp3" fadein 1.0   # suara percakapan warga + tawa anak-anak
     scene closing_good_teras
     with dissolve
 
@@ -4214,7 +4216,6 @@ label closing_good_ending:
 
     pause 1.0
 
-    play sound "sound/Kota BGM.mp3"    # suara percakapan warga + tawa anak-anak
 
     window show
     narrator "Suara tawa anak anak mengalir dari ujung gang. Seseorang menyapa tetangganya. Ada yang berbagi makanan di teras sebelah."
@@ -4256,7 +4257,6 @@ label closing_good_ending:
     window show
     narrator "Wira terdiam. Dia merasa neneknya tahu lebih dari yang dia kira."
     window hide
-
     # --- Scene 3: Taman Belakang, Pipit Datang ---
     scene closing_good_taman
     with dissolve
