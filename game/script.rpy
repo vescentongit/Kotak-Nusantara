@@ -2019,11 +2019,11 @@ screen toraja_scene3_pilih:
 
 default papua_points = 0
 
-define Mama_Tita     = Character("Mama Tita",       who_color="#8B4513")
-define Tetua_Asei    = Character("Tetua Asei",      who_color="#5C3317")
-define Tetua_Asmat   = Character("Tetua Asmat",     who_color="#654321")
-define Perempuan_Tua = Character("Perempuan Tua",   who_color="#8B4513")
-define Pemuda_Yoboi  = Character("Pemuda Yoboi",    who_color="#6B8E23")
+define Mama_Tita     = Character("Mama Tita",       who_color="#ffffff")
+define Tetua_Asei    = Character("Tetua Asei",      who_color="#ffffff")
+define Tetua_Asmat   = Character("Tetua Asmat",     who_color="#ffffff")
+define Perempuan_Tua = Character("Perempuan Tua",   who_color="#ffffff")
+define Pemuda_Yoboi  = Character("Pemuda Yoboi",    who_color="#ffffff")
 
 image wira_terharu    = "wira_dewasa_terharu.png"
 image wira_sinis      = "wira_dewasa_sinis.png"
