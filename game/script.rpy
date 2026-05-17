@@ -804,6 +804,187 @@ label pilihan_rumahgadang_c:
                 text "PILIHAN C":
                     xalign 0.5
                     size 20
+                    
+# ================= SCREEN PILIHAN FESTIVAL KAMPUNG =================
+    screen pilihan_festival_kampung():
+        
+        modal True
+
+        default hovered = None
+
+        hbox:
+            spacing 60
+            xalign 0.5
+            yalign 0.5
+
+            # ================= A =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 15
+                imagebutton:
+                    idle "pilihana_festivalkampung" 
+                    hover "pilihana_festivalkampung" 
+                    at ukuransetengah
+                    action Jump("pilihan_festival_a")
+                    hovered SetScreenVariable("hovered", "A")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN A":
+                    xalign 0.5
+                    size 20
+
+            # ================= B =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 15
+                imagebutton:
+                    idle "pilihanb_festivalkampung" 
+                    hover "pilihanb_festivalkampung"
+                    at ukuransetengah
+                    action Jump("pilihan_festival_b")
+                    hovered SetScreenVariable("hovered", "B")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN B":
+                    xalign 0.5
+                    size 20
+
+            # ================= C =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 15
+                imagebutton:
+                    idle "pilihanc_festivalkampung" 
+                    hover "pilihanc_festivalkampung" 
+                    at ukuransetengah
+                    action Jump("pilihan_festival_c")
+                    hovered SetScreenVariable("hovered", "C")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN C":
+                    xalign 0.5
+                    size 20
+
+# ================= SCREEN PILIHAN WAYANG =================
+    screen pilihan_wayang():
+        
+        modal True
+
+        default hovered = None
+
+        hbox:
+            spacing 60
+            xalign 0.5
+            yalign 0.5
+
+            # ================= A =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 10
+                imagebutton:
+                    idle "pilihana_wayang_idle" 
+                    hover "pilihana_wayang_hover"
+                    at ukuranseperempat
+                    action Jump("pilihan_wayang_a")
+                    hovered SetScreenVariable("hovered", "A")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN A":
+                    xalign 0.5
+                    size 20
+
+            # ================= B =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 10
+                imagebutton:
+                    idle "pilihanb_wayang_idle"
+                    hover "pilihanb_wayang_hover"
+                    at ukuranseperempat
+                    action Jump("pilihan_wayang_b")
+                    hovered SetScreenVariable("hovered", "B")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN B":
+                    xalign 0.5
+                    size 20
+
+            # ================= C =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 10
+                imagebutton:
+                    idle "pilihanc_wayang_idle"
+                    hover "pilihanc_wayang_hover"
+                    at ukuranseperempat
+                    action Jump("pilihan_wayang_c")
+                    hovered SetScreenVariable("hovered", "C")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN C":
+                    xalign 0.5
+                    size 20
+
+# ================= SCREEN PILIHAN TATA KRAMA =================
+    screen pilihan_tata_krama():
+        
+        modal True
+
+        default hovered = None
+
+        hbox:
+            spacing 60
+            xalign 0.5
+            yalign 0.5
+
+            # ================= A =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 15
+                imagebutton:
+                    idle "pilihana_scenetatakrama" 
+                    hover "pilihana_scenetatakrama"
+                    at ukuransetengah 
+                    action Jump("pilihan_krama_a")
+                    hovered SetScreenVariable("hovered", "A")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN A":
+                    xalign 0.5
+                    size 20
+
+            # ================= B =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 15
+                imagebutton: 
+                    idle "pilihanb_scenetatakrama" 
+                    hover "pilihanb_scenetatakrama"
+                    at ukuransetengah
+                    action Jump("pilihan_krama_b")
+                    hovered SetScreenVariable("hovered", "B")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN B":
+                    xalign 0.5
+                    size 20
+
+            # ================= C =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 15
+                imagebutton:
+                    idle "pilihanc_scenetatakrama"
+                    hover "pilihanc_scenetatakrama"
+                    at ukuransetengah
+                    action Jump("pilihan_krama_c")
+                    hovered SetScreenVariable("hovered", "C")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN C":
+                    xalign 0.5
+                    size 20
+
 
     # ================= SCENE PASAR - KRISIS =================
 label scene_pasar_krisis:
@@ -1754,7 +1935,11 @@ transform wright_lower:
     yalign 0.8                                                                             
     zoom 0.6                                                                                   
                         
+transform ukuransetengah :
+    zoom 0.5
 
+transform ukuranseperempat :
+    zoom 0.25
 
 # ASET PASAR - PILIHAN BUTTONS
 image pasar_a_idle = im.Scale("pasar_a_idle.png", 700, 800)
