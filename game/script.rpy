@@ -41,6 +41,12 @@ default player_points = 0
 
 image black = "black-bg.jpg"
 
+init python:
+    renpy.music.register_channel("ambient", "sfx", loop=True)
+    renpy.music.register_channel("clock", "sfx", loop=True)
+    renpy.music.register_channel("bird", "sfx", loop=True)
+    renpy.music.register_channel("sfx2", "sfx", loop=False)
+
 
 # =============================================================
 # PROLOG / TERAS PAGI
@@ -1628,11 +1634,18 @@ image pasar_c_hover = im.Scale("pasar_c_hover.png", 700, 800)
 
 
 label start:
-    jump closing_good_ending
-
     # ==========================================================================================================================
     # PROLOG / TERAS PAGI
     # ==========================================================================================================================
+    stop music fadeout 1.0
+    stop ambient fadeout 1.0
+    stop clock fadeout 1.0
+    stop bird fadeout 1.0
+    play music "sound/MUSIC BOX BGM.mp3" fadein 1.5 volume 0.55
+    play ambient "sound/Angin SFX.mp3" fadein 1.0 volume 0.35
+    play clock "sound/Clock SFX.mp3" fadein 1.0 volume 0.22
+    play bird "sound/Suara pipit SFX.mp3" fadein 1.0 volume 0.28
+
     scene bg_prolog_teras_pagi
     show pipit standing at pipit_initial
     with fade
@@ -1657,6 +1670,8 @@ label start:
 
     pause 0.3
     show pipit terbang at pipit_initial with dissolve
+    play sound "sound/Suara pipit SFX.mp3" volume 0.65
+    play sfx2 "sound/Flapping Wing SFX.mp3" volume 0.45
     pause 0.5
 
     scene bg_prolog_teras_pagi
@@ -1695,6 +1710,12 @@ label start:
     # PROLOG / TAMAN KOTA SORE
     # ==========================================================================================================================
 
+    stop music fadeout 1.0
+    stop clock fadeout 1.0
+    stop bird fadeout 1.0
+    play music "sound/MUSIC BOX BGM.mp3" fadein 1.5 volume 0.42
+    play ambient "sound/Angin SFX.mp3" fadein 1.0 volume 0.45
+
     scene taman
     with dissolve
 
@@ -1713,6 +1734,7 @@ label start:
     pause 1.0
     window show
     wira "Aku buka ya pintunya? Tapi kamu jangan terbang tinggi tinggi... aku takut nggak bisa liat kamu lagi."
+    play sound "sound/PINTU ISEKAI SFX.mp3" volume 0.35
     wira "Ayo... keluar sebentar..."
 
     window hide
@@ -1721,6 +1743,7 @@ label start:
     show wira ketiup angin at wira_ketiup_angin
     show pipit hinggap di sangkar at pipit_sangkar
     with dissolve
+    play sound "sound/AnginKuat SFX.mp3" volume 0.65
 
 
     pause 1.0
@@ -1735,6 +1758,8 @@ label start:
     show wira ngejar at wira_ketiup_angin
     show pipit terbang at atas_sangkar
     with dissolve
+    play sound "sound/Flapping Wing SFX.mp3" volume 0.7
+    play sfx2 "sound/Suara pipit SFX.mp3" volume 0.8
     pause 0.5
 
     show pipit terbang at pipit_leaving
@@ -1753,19 +1778,25 @@ label start:
 
     pause 2.0
 
+    stop ambient fadeout 1.0
+    stop music fadeout 2.0
+    stop clock fadeout 1.0
+    stop bird fadeout 1.0
     scene black
     with dissolve
     narrator "...."
     narrator "Pipit terbang.... entah kemana..."
 
-    =============================================================
-    PROLOG : KAMAR WIRA
-    =============================================================
+    # =============================================================
+    # PROLOG : KAMAR WIRA
+    # =============================================================
 
+    play ambient "sound/Clock SFX.mp3" fadein 1.0 volume 0.35
     scene kamarwira
     with dissolve
 
     show wira sinis at chara_wira_sinis
+    play sound "sound/Phone Ringing SFX.mp3" volume 0.8
     narrator "(Telepon berdering)"
     show wira bingung at chara_wira_sinis
     with dissolve
@@ -1782,6 +1813,7 @@ label start:
     # wira "(Mengepalkan tangan, ekspresi kesal)"
     wira "Apa-apaan sih? Kok jadi ngancem gitu?!"
     ibu "Ini untuk kebaikanmu, Sayang. Besok berangkat ya. Dadah!"
+    play sound "sound/TUT TUT SFX.mp3" volume 0.7
     # wira "(Membanting HP ke kasur)"
     wira "Males deh, selalu aja kayak gini."
 
@@ -1789,6 +1821,7 @@ label start:
     # SCENE 5: GUDANG NENEK - KOTAK "PETUALANGAN NUSANTARA"
     # =============================================================
 
+    stop ambient fadeout 1.0
     scene bg_gudang_nenek
     show wira murung at left_placeholder
     with fade
@@ -1809,6 +1842,7 @@ label start:
 
     # TODO IMAGE: Wira membuka tutup kotak.
     # TODO SFX: Suara logam tua/engsel kotak terbuka.
+    play sound "sound/PINTU ISEKAI SFX.mp3" volume 0.85
     hide kotak_petualangan_nusantara
     show vfx_cahaya_kotak
     with Dissolve(0.4)
@@ -1824,6 +1858,8 @@ label start:
     show vfx_golden_vortex at center_placeholder
     show wira panik at center_placeholder
     with Fade(0.2, 0.3, 0.6)
+    play ambient "sound/AnginKuat SFX.mp3" fadein 0.5 volume 0.75
+    play sound "sound/Flapping Wing (Berat) SFX.mp3" volume 0.8
 
     # TODO SFX: Angin menderu, gesekan logam ajaib, sayap mengepak sangat keras.
     wira "H-hei! Apa-apaan ini?! Lantainya... lantainya ilang?!"
@@ -1837,6 +1873,7 @@ label start:
 
     scene black
     with fade
+    stop ambient fadeout 1.0
 
     narasi "Beberapa pintu dibuka untuk melarikan diri... tapi kotak ini dibuka untuk membuatmu kembali."
 
@@ -1847,11 +1884,14 @@ label start:
     scene bg_pulau_terapung
     show wira bingung at left_placeholder
     with fade
+    play music "sound/MUSIC BOX BGM.mp3" fadein 1.5 volume 0.45
+    play ambient "sound/Angin SFX.mp3" fadein 1.0 volume 0.4
 
     wira "Gue... gue di mana? Barusan tadi... gue di gudang..."
     wira "Gue masuk ke dalem game?! Gak mungkin, ini pasti gara-gara gue kurang tidur..."
 
     # TODO SFX: Kepakan sayap besar mendarat tepat di belakang Wira.
+    play sound "sound/Flapping Wing (Berat) SFX.mp3" volume 0.85
     show garuda megah at garuda_stage
     with vpunch
 
@@ -1886,6 +1926,7 @@ label start:
     garuda "Ayo, naiklah ke punggungku. Kita lihat, apakah amarahmu itu memang tameng, atau hanya beban yang menghambatmu."
 
     # TODO SFX: Wings flapping, kepakan sayap besar yang berwibawa.
+    play sound "sound/Flapping Wing (Berat) SFX.mp3" volume 0.75
     wira "Hah?! Naik ke punggung lo?! Ogah! Gue gak mau jadi penunggang burung!"
     wira "Jangan mimpi! Gue gak sudi! Balikin gue sekarang!"
 
@@ -1904,6 +1945,8 @@ label start:
 
     # TODO SFX: Takeoff, kepakan sayap besar dan angin menderu.
     # TODO IMAGE: Garuda terbang tinggi membawa Wira menuju checkpoint pertama.
+    play sound "sound/Flapping Wing (Berat) SFX.mp3" volume 0.9
+    play sfx2 "sound/AnginKuat SFX.mp3" volume 0.75
     scene bg_pulau_terapung
     show garuda megah at center_placeholder
     with Fade(0.2, 0.4, 0.8)
@@ -1924,6 +1967,10 @@ label start:
         garuda "Wira... di setiap pilihan yang kamu anggap pragmatis, kamu sebenarnya sedang membiarkan sesuatu yang orang lain jaga dengan nyawa mereka selama berabad-abad runtuh perlahan. Adat bukan museum."
 
     # Continue to the next merged checkpoint.
+    stop ambient fadeout 1.0
+    stop clock fadeout 1.0
+    stop bird fadeout 1.0
+    stop music fadeout 1.5
     jump minangkabau_intro
 
 # DAERAH 3 : BALI
