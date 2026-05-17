@@ -1193,6 +1193,7 @@ image pilihanc_scenetatakrama_button = im.Scale("pilihanc_scenetatakrama.png", 7
 label chapter_jawa_betawi:
 
     # ===== TRANSISI MEMASUKI BETAWI & KERATON JAWA =====
+    $ jawa_start_points = player_points
     stop music fadeout 1.0
     stop ambient fadeout 1.0
     play music "sound/jalijali.MP3" fadein 1.0 loop
@@ -1561,7 +1562,8 @@ label lanjut_ke_dialog_bagas:
 
     # ===== AKHIR CHECKPOINT =====
     # Menampilkan skor akhir
-    $ skor_akhir = player_points
+    $ jawa_points = player_points - jawa_start_points
+    $ skor_akhir = jawa_points
 
     if skor_akhir >= 50:
         scene skor_tinggi_daerahjawa
@@ -1581,7 +1583,8 @@ label lanjut_ke_dialog_bagas:
     window show
 
     narrator "Checkpoint 2 Selesai: Betawi & Keraton Jawa"
-    narrator "Poin yang dikumpulkan: [player_points]"
+    narrator "Poin yang dikumpulkan: [jawa_points]"
+    narrator "Total poin sementara: [player_points]"
 
     stop music fadeout 1.0
     jump bali_intro
@@ -2522,8 +2525,7 @@ label start:
     # =============================================================
     # FEEDBACK GARUDA - PREVIEW MEKANISME POIN
     # =============================================================
-    # Variabel contoh untuk sistem poin. Nanti bisa diubah oleh pilihan pemain.
-    $ poin_karakter = 50
+    $ poin_karakter = player_points
 
     if poin_karakter >= 65:
         garuda "Kamu mulai memahami bahwa demokrasi yang sesungguhnya bukan tentang suara terbanyak. Ini tentang keselarasan semua unsur dan bahwa prinsip bukan penghalang kemajuan, ini adalah kompas yang memastikan kita tidak tersesat di tengah perjalanan."
@@ -2542,6 +2544,7 @@ label start:
 # DAERAH 3 : BALI
 label bali_intro:
     # BALI INTRODUCTION   JATILUWIH & SUBAK
+    $ bali_points = 0
     play music "sound/Gambuh Gamelan BGM.mp3"
     scene bg_bali_terasering_sore
     with fade
@@ -3445,12 +3448,15 @@ label bali_ending:
 
     narrator "Cahaya emas menyilaukan. Wira dan GARUDA terangkat, melayang di atas hamparan sawah Bali yang indah."
 
+    $ player_points += bali_points
+
     with fade
 
     jump toraja_intro
 
 # DAERAH 4 : TORAJA
 label toraja_intro:
+    $ toraja_points = 0
     stop music fadeout 1.0
     play music "sound/Pa_Pompang BGM.MP3" fadein 1.0
     window hide
@@ -4131,6 +4137,8 @@ label toraja_end:
     pause 2.0
 
     narrator "Cahaya senja Toraja memudar. Tongkonan siluet di balik langit merah. Wira dan Garuda berdiri berdampingan, kecil di bawah langit yang luas."
+
+    $ player_points += toraja_points
 
     with fade
 
