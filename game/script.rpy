@@ -471,7 +471,8 @@ label pilihan_a:
     with dissolve
     window show
     
-    narrator "Wira duduk tenang di sudut ruangan, mendengarkan satu per satu pendapat semua tokoh dengan seksama, tidak menyela, dan mencatat dalam ingatannya sebelum mengambil kesimpulan apa pun."
+    narrator "Wira duduk tenang di sudut ruangan, mendengarkan satu per satu pendapat semua tokoh dengan seksama, tidak menyela,"
+    narrator "dan mencatat dalam ingatannya sebelum mengambil kesimpulan apa pun."
     
     pause 1.0
     
@@ -530,7 +531,8 @@ label pilihan_b:
     with dissolve
     show garuda_berbicara at wcenter_small
     with dissolve
-    garuda "Adat Minangkabau bukan hierarki buta, Wira. Ia adalah harmoni. Ketika kamu memilih untuk hanya mendengar satu suara, kamu merusak keseimbangan yang dibangun berabad abad."
+    garuda "Adat Minangkabau bukan hierarki buta, Wira. Ia adalah harmoni."
+    garuda "Ketika kamu memilih untuk hanya mendengar satu suara, kamu merusak keseimbangan yang dibangun berabad abad."
     
     window hide
     pause 1.0
@@ -561,7 +563,8 @@ label pilihan_c:
     scene black
     show garuda_berbicara at wcenter_small
     with dissolve
-    garuda "Wira....Kehadiranmu di ruangan ini punya arti. Ketika kamu memilih untuk tidak hadir sepenuhnya, kamu membiarkan konflik tumbuh tanpa ada yang mau memahami semua sisi."
+    garuda "Wira....Kehadiranmu di ruangan ini punya arti. Ketika kamu memilih untuk tidak hadir sepenuhnya,"
+    garuda "kamu membiarkan konflik tumbuh tanpa ada yang mau memahami semua sisi."
     
     window hide
     pause 1.0
@@ -587,7 +590,7 @@ label scene_rumahgadang_krisis:
    
     play music "sound/langkahtanah.mp3" fadein 1.0 loop
     play sound "sound/angin.mp3" fadein 1.0 loop
-    Amelia "Pak Rizky, saya setuju dindingnya harus diperbaiki. Tapi saya rasa kita bisa sekalian renovasi total. Tambah kaca panoramik di sisi timuR, ganti material atap dengan bahan modern yang lebih tahan lama, dan buat interior yang lebih minimalis." 
+    Amelia "Pak Rizky, saya setuju dindingnya harus diperbaiki. Tapi saya rasa kita bisa sekalian renovasi total. Tambah kaca panoramik di sisi timur, ganti material atap dengan bahan modern yang lebih tahan lama, dan buat interior yang lebih minimalis." 
     Amelia "Lebih estetik dan fungsional!"
     stop music fadeout 1.0
     stop sound fadeout 1.0
@@ -604,7 +607,9 @@ label scene_rumahgadang_krisis:
     scene percakapan_awal_rumahgadang
     Amelia "Tapi bu, struktur bangunannya sudah tidak aman! Kalau tidak diperbaiki sekarang, bisa roboh. Lebih baik diperbarui daripada dibiarkan rusak."
     Rosma "Setiap ukiran di dinding itu punya nama. Punya cerita. Kalau diganti dengan kaca dan beton, yang tersisa hanya bentuknya saja. Bukan Rohnya."
-    garuda "Rumah Gadang bukan sekadar bangunan, Wira. Ia adalah silsilah keluarga yang tertulis dalam kayu. Setiap ruangan mencerminkan posisi perempuan sebagai pemegang harta pusaka. Setiap ukiran adalah bahasa yang berbicara tentang falsafah hidup."
+    garuda "Rumah Gadang bukan sekadar bangunan, Wira. Ia adalah silsilah keluarga yang tertulis dalam kayu." 
+    garuda "Setiap ruangan mencerminkan posisi perempuan sebagai pemegang harta pusaka."
+    garuda "Setiap ukiran adalah bahasa yang berbicara tentang falsafah hidup."
     wira "Tapi kalau memang sudah mau roboh...?"
     garuda "Tepat sekali pertanyaannya. Di sinilah keputusanmu diuji"
    
@@ -628,7 +633,8 @@ label pilihan_rumahgadang_a:
     
     Rosma "Anak ini...mengerti bahwa warisan buka beban. Warisan adalah identitas."
     Amelia "Mungkin, saya terlalu fokus pada yang rusak, sampai lupa apa yang masih utuh dan berharga. Baiklah, kita cari ahli restorasi."
-    garuda "Kamu baru saja memahami bahwa menjaga identitas budaya bukan berarti menolak perubahan. Ini berarti memastikan perubahan tidak menghapus siapa kita."
+    garuda "Kamu baru saja memahami bahwa menjaga identitas budaya bukan berarti menolak perubahan."
+    garuda "Ini berarti memastikan perubahan tidak menghapus siapa kita."
     
     window hide
     pause 1.0
@@ -646,7 +652,8 @@ label pilihan_rumahgadang_b:
     window show
     
     wira "Mungkin bisa diambil jalan tengah? Bagian yang lapuk diganti material modern, tetapi ukirannya tetap dipertahankan. Jadi lebih aman tetapi masih ada nuansa tradisionalnya."
-    garuda "Niatmu baik, Wira. Tapi jalan tengah yang tidak dipikirkan matang bisa menjadi solusi yang tidak memuaskan semua pihak. Warisan budaya butuh perlindungan penuh, bukan kompromi setengah hati"
+    garuda "Niatmu baik, Wira. Tapi jalan tengah yang tidak dipikirkan matang bisa menjadi solusi yang tidak memuaskan semua pihak."
+    garuda "Warisan budaya butuh perlindungan penuh, bukan kompromi setengah hati"
     
     window hide
     pause 1.0
@@ -995,7 +1002,8 @@ label pilihan_pasar_b:
     
     pause 1.0
 
-    garuda "Diam di antara yang benar dan salah, Wira, bukan kebijaksanaan. Itu kebimbangan yang membiarkan yang salah berjalan terus. Kadang, keberanian terbesar adalah berani mengambil sikap."
+    garuda "Diam di antara yang benar dan salah, Wira, bukan kebijaksanaan. Itu kebimbangan yang membiarkan yang salah berjalan terus."
+    garuda "Kadang, keberanian terbesar adalah berani mengambil sikap."
     stop music fadeout 1.0
     stop sound fadeout 1.0
     window hide
@@ -1044,7 +1052,8 @@ label ending_minangkabau:
         with dissolve
         
         
-        garuda "Kamu mulai memahami bahwa demokrasi yang sesungguhnya bukan tentang suara terbanyak. Ini tentang keselarasan semua unsur dan bahwa prinsip bukan penghalang kemajuan, ini adalah kompas yang memastikan kita tidak tersesat di tengah perjalanan."
+        garuda "Kamu mulai memahami bahwa demokrasi yang sesungguhnya bukan tentang suara terbanyak."
+        garuda "Ini tentang keselarasan semua unsur dan bahwa prinsip bukan penghalang kemajuan, ini adalah kompas yang memastikan kita tidak tersesat di tengah perjalanan."
         
     elif player_points >= 25:
         # POIN SEDANG (2560)
@@ -1053,7 +1062,8 @@ label ending_minangkabau:
         with dissolve
         
         
-        garuda "Ada momen di mana kamu membuka matamu dan momen di mana kamu masih memilih jalan yang mudah. Nagari ini mengajarkan bahwa setengah hadir lebih berbahaya dari tidak hadir sama sekali."
+        garuda "Ada momen di mana kamu membuka matamu dan momen di mana kamu masih memilih jalan yang mudah."
+        garuda "Nagari ini mengajarkan bahwa setengah hadir lebih berbahaya dari tidak hadir sama sekali."
         
     else:
         # POIN RENDAH (<25)
@@ -1062,7 +1072,8 @@ label ending_minangkabau:
         with dissolve
         
         
-        garuda "Wira...di setiap piluhan yang kamu anggap pragmatis, kamu sebenarnya sedang membiarkan sesuatu yang orang lain jaga dengan nyawa mereka selama berabadabad runtuh perlahan. Adat bukan museum."
+        garuda "Wira...di setiap piluhan yang kamu anggap pragmatis, kamu sebenarnya sedang membiarkan sesuatu yang orang lain jaga dengan nyawa mereka selama berabadabad runtuh perlahan."
+        garuda "Adat bukan museum."
     
     window hide
     pause 2.0
@@ -1173,7 +1184,8 @@ label chapter_jawa_betawi:
     play music "sound/berdebat.mp3" fadein 1.0 loop
     narrator "Sore menjelang petang. Di halaman rumah di kampung, warga berkumpul mengelilingi meja kayu penuh kertas dan jadwal."
     
-    Bang_Rojak "(marah) Sudah dari dulu festivalnya pakai format yang sama! Lenong, tanjidor, ondel ondel, lalu makan bersama. Itu sudah pakem! Sari mau nubah apa lagi?"
+    Bang_Rojak "(marah) Sudah dari dulu festivalnya pakai format yang sama! Lenong, tanjidor, ondel ondel, lalu makan bersama."
+    Bang_Rojak "Itu sudah pakem! Sari mau nGubah apa lagi?"
     
     Sari "Bang, tahun lalu cuma dua puluh orang yang nonton sampai selesai! Generasi muda nggak tertarik kalau formatnya gitu gitu aja."
     Sari "Saya usul kita gabungin sama pertunjukan modern, ada sesi story telling dan dokumentasi di media sosial."
