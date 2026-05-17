@@ -21,6 +21,7 @@ define Pak_Sugeng = Character("Pak Sugeng",who_color ="#A0522D" )
 define Kanjeng_Raden = Character("Kanjeng Raden",who_color ="#D4AF37" )
 define Raden_Mas_Bagas = Character("Raden Mas Bagas",who_color ="#8B4513" )
 define Dimas = Character("Dimas",who_color ="#4A4A4A" )
+define Teman_Dimas = Character("Teman Dimas",who_color ="#b00404" )
 
 # ================= SISTEM POIN =================
 default player_points = 0
@@ -75,7 +76,12 @@ transform terasnew:
     yalign 0.72
     zoom 0.65
 
-# ASET PASAR - PILIHAN BUTTONS
+transform ukuransetengah :
+    zoom 0.5
+
+transform ukuranseperempat :
+    zoom 0.25
+# ASET PASAR  PILIHAN BUTTONS
 image pasar_a_idle = im.Scale("pasar_a_idle.png", 700, 800)
 image pasar_a_hover = im.Scale("pasar_a_hover.png", 700, 800)
 image pasar_b_idle = im.Scale("pasar_b_idle.png", 700, 800)
@@ -162,7 +168,7 @@ label start:
 
     show wira_bingung at wleft_small
     with dissolve 
-
+    
     wira " Itu..rumahnya kok atapnya kayak tanduk kerbau gitu? "
     wira "Bangunannya gede banget! Tapi kelihatannya udah lama nggak dirawat." 
 
@@ -172,7 +178,8 @@ label start:
     pause 0.5
     window show
     hide wira_bingung
-
+    play music "sound/talempongminang1.mp3" fadein 2 
+    play sound "sound/aliran air.mp3" fadein 1.0 loop
     garuda "Selamat datang di Nagari Minangkabau, Wira!"
     hide garuda_berdiri
 
@@ -196,7 +203,8 @@ label start:
     show garuda_ceria at wcenter_small
 
     garuda "Tepat sekali! Itulah kenapa kamu ada di sini."
-
+    stop music fadeout 1.0
+    stop sound fadeout 1.0
     #Penjelasan MISI oleh Garuda
     image bg_misi = im.Scale("dalam_gadang.png", 1920, 1080)
     image peta_penuh = "peta_penuh.png"
@@ -211,7 +219,7 @@ label start:
     with dissolve
     window show
     show garuda_berbicara at wright_small
-    
+    play music "sound/talempongminang2.mp3" fadein 2
     garuda "Inilah misimu di Minangkaubau, Wira. Nagari ini sedang di persimpangan. Terdapat tiga krisis yang harus kamu hadapi."
     hide garuda_berbicara
     show wira_bingung at wleft_small
@@ -248,7 +256,7 @@ label start:
     garuda " Ingat "
     garuda "Setiap pilihanmu akan mencerminkan siapa dirimu sebenarnya."
     window hide
-
+    stop music fadeout 2.0
     image forum = im.Scale("forum.png", 1920, 1080)
     image forum2 = im.Scale("forum_2.png", 1920, 1080)
     image forum3 = im.Scale("forum_3.png", 1920, 1080)
@@ -261,13 +269,16 @@ label start:
     image pilihan_c = im.Scale("pilihan_c.png",1920,1080)
     image saling_kecewa = im.Scale("saling_kecewa.png",1920,1080)
 
-    # ASET RUMAH GADANG - OPENING DAN PILIHAN
+    # ASET RUMAH GADANG  OPENING DAN PILIHAN
     image openingscene_rumahgadang = im.Scale("openingscene_rumahgadang.png",1920,1080)
     image aset_pilihana_rumahgadang = im.Scale("aset_pilihana_rumahgadang.png",1920,1080)
     image aset_pilihanb_rumahgadang = im.Scale("aset_pilihanb_rumahgadang.png",1920,1080)
     image aset_pilihanc_rumahgadang = im.Scale("aset_pilihanc_rumahgadang.png",1920,1080)
+    define audio.audioaliranair = "audio/aliran_air.mp3"
+    define audio.talempongminang1 = "audio/talempong_minang1.mp3"
+    define audio.talempongminang2 = "audio/talempong_minang2.mp3"
 
-    # ASET PASAR - OPENING DAN PILIHAN
+    # ASET PASAR  OPENING DAN PILIHAN
     image visual_awal_scenepasar = im.Scale("visual_awal_scenepasar.png",1920,1080)
     image percakapan_awal_scenepasar = im.Scale("percakapan_awal_scenepasar.png",1920,1080)
     image perdebatanpanas_pasar = im.Scale("perdebatanpanas_pasar.png",1920,1080)
@@ -284,11 +295,15 @@ label start:
     scene forum
     with dissolve
     window show
+    play music "sound/langkahkayu.mp3" fadein 1.0
+
+    
     garuda "Perkenalkan empat pilar nagari."
     garuda "Datuak Rajo Nan Sati, Niniak Mamak, penjaga garis keturunan dan hukum adat."
     garuda "Buya Hamid, Alim Ulama, penjaga syariat Islam dalam kehidupan masyarakat."
     garuda "Dr. Sari Rahmawati, Cadiak Pandai, kaum intelektual yang membawa pengetahuan dunia luar."
     garuda "Ibu Rosma, Bundo Kanduang, simbol kebijaksanaan perempuan dalam nagari."
+    stop music fadeout 1.0
 
     wira "Kok mereka kelihatan kayak mau berantem?"
 
@@ -450,7 +465,7 @@ label start:
     window hide
     call screen pilihan_sirih
 
-    # PILIHAN A - MENDENGARKAN SEMUA UNSUR
+    # PILIHAN A  MENDENGARKAN SEMUA UNSUR
 label pilihan_a:
     scene pilihan_a
     with dissolve
@@ -487,7 +502,7 @@ label pilihan_a:
     
     jump scene_rumahgadang_krisis
 
-    # PILIHAN B - HANYA MENDENGARKAN TETUA
+    # PILIHAN B  HANYA MENDENGARKAN TETUA
 label pilihan_b:
     scene pilihan_b
     with dissolve
@@ -521,12 +536,12 @@ label pilihan_b:
     pause 1.0
     window show
     
-    $ player_points -= 10
+    $ player_points = 10
     narrator "Anda kehilangan 10 poin! Total poin: [player_points]"
     
     jump scene_rumahgadang_krisis
 
-    # PILIHAN C - MENGABAIKAN FORUM
+    # PILIHAN C  MENGABAIKAN FORUM
 label pilihan_c:
     scene pilihan_c
     with dissolve
@@ -552,7 +567,7 @@ label pilihan_c:
     pause 1.0
     window show
     
-    $ player_points -= 20
+    $ player_points = 20
     narrator "Anda kehilangan 20 poin! Total poin: [player_points]"
     
     jump scene_rumahgadang_krisis
@@ -569,8 +584,13 @@ label scene_rumahgadang_krisis:
     with dissolve
     window show
     
-    Amelia "Pak Rizky, saya setuju dindingnya harus diperbaiki. Tapi saya rasa kita bisa sekalian renovasi total. Tambah kaca panoramik di sisi timuR, ganti material atap dengan bahan modern yang lebih tahan lama, dan buat interior yang lebih minimalis. Lebih estetik dan fungsional!"
-    
+   
+    play music "sound/langkahtanah.mp3" fadein 1.0 loop
+    play sound "sound/angin.mp3" fadein 1.0 loop
+    Amelia "Pak Rizky, saya setuju dindingnya harus diperbaiki. Tapi saya rasa kita bisa sekalian renovasi total. Tambah kaca panoramik di sisi timuR, ganti material atap dengan bahan modern yang lebih tahan lama, dan buat interior yang lebih minimalis." 
+    Amelia "Lebih estetik dan fungsional!"
+    stop music fadeout 1.0
+    stop sound fadeout 1.0
     Rizky "Secara teknis bisa dan lebih efisien biayanya dibanding restorasi ukiran lama satu per satu."
     pause 1.0
     
@@ -653,7 +673,7 @@ label pilihan_rumahgadang_c:
     pause 1.0
     window show
     
-    $ player_points -= 25
+    $ player_points = 25
     narrator "Anda kehilangan 25 poin! Total poin: [player_points]"
     
     jump scene_pasar_krisis
@@ -715,7 +735,187 @@ label pilihan_rumahgadang_c:
                     xalign 0.5
                     size 20
 
-    # ================= SCENE PASAR - KRISIS =================
+    # ================= SCREEN PILIHAN FESTIVAL KAMPUNG =================
+    screen pilihan_festival_kampung():
+        
+        modal True
+
+        default hovered = None
+
+        hbox:
+            spacing 60
+            xalign 0.5
+            yalign 0.5
+
+            # ================= A =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 15
+                imagebutton:
+                    idle "pilihana_festivalkampung" 
+                    hover "pilihana_festivalkampung" 
+                    at ukuransetengah
+                    action Jump("pilihan_festival_a")
+                    hovered SetScreenVariable("hovered", "A")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN A":
+                    xalign 0.5
+                    size 20
+
+            # ================= B =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 15
+                imagebutton:
+                    idle "pilihanb_festivalkampung" 
+                    hover "pilihanb_festivalkampung"
+                    at ukuransetengah
+                    action Jump("pilihan_festival_b")
+                    hovered SetScreenVariable("hovered", "B")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN B":
+                    xalign 0.5
+                    size 20
+
+            # ================= C =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 15
+                imagebutton:
+                    idle "pilihanc_festivalkampung" 
+                    hover "pilihanc_festivalkampung" 
+                    at ukuransetengah
+                    action Jump("pilihan_festival_c")
+                    hovered SetScreenVariable("hovered", "C")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN C":
+                    xalign 0.5
+                    size 20
+
+    # ================= SCREEN PILIHAN WAYANG =================
+    screen pilihan_wayang():
+        
+        modal True
+
+        default hovered = None
+
+        hbox:
+            spacing 60
+            xalign 0.5
+            yalign 0.5
+
+            # ================= A =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 10
+                imagebutton:
+                    idle "pilihana_wayang_idle" 
+                    hover "pilihana_wayang_hover"
+                    at ukuranseperempat
+                    action Jump("pilihan_wayang_a")
+                    hovered SetScreenVariable("hovered", "A")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN A":
+                    xalign 0.5
+                    size 20
+
+            # ================= B =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 10
+                imagebutton:
+                    idle "pilihanb_wayang_idle"
+                    hover "pilihanb_wayang_hover"
+                    at ukuranseperempat
+                    action Jump("pilihan_wayang_b")
+                    hovered SetScreenVariable("hovered", "B")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN B":
+                    xalign 0.5
+                    size 20
+
+            # ================= C =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 10
+                imagebutton:
+                    idle "pilihanc_wayang_idle"
+                    hover "pilihanc_wayang_hover"
+                    at ukuranseperempat
+                    action Jump("pilihan_wayang_c")
+                    hovered SetScreenVariable("hovered", "C")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN C":
+                    xalign 0.5
+                    size 20
+
+    # ================= SCREEN PILIHAN TATA KRAMA =================
+    screen pilihan_tata_krama():
+        
+        modal True
+
+        default hovered = None
+
+        hbox:
+            spacing 60
+            xalign 0.5
+            yalign 0.5
+
+            # ================= A =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 15
+                imagebutton:
+                    idle "pilihana_scenetatakrama" 
+                    hover "pilihana_scenetatakrama"
+                    at ukuransetengah 
+                    action Jump("pilihan_krama_a")
+                    hovered SetScreenVariable("hovered", "A")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN A":
+                    xalign 0.5
+                    size 20
+
+            # ================= B =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 15
+                imagebutton: 
+                    idle "pilihanb_scenetatakrama" 
+                    hover "pilihanb_scenetatakrama"
+                    at ukuransetengah
+                    action Jump("pilihan_krama_b")
+                    hovered SetScreenVariable("hovered", "B")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN B":
+                    xalign 0.5
+                    size 20
+
+            # ================= C =================
+            vbox:
+                xalign 0.5
+                yalign 0.5
+                spacing 15
+                imagebutton:
+                    idle "pilihanc_scenetatakrama"
+                    hover "pilihanc_scenetatakrama"
+                    at ukuransetengah
+                    action Jump("pilihan_krama_c")
+                    hovered SetScreenVariable("hovered", "C")
+                    unhovered SetScreenVariable("hovered", None)
+                text "PILIHAN C":
+                    xalign 0.5
+                    size 20
+
+    # ================= SCENE PASAR  KRISIS =================
 label scene_pasar_krisis:
     scene black
     with fade
@@ -730,13 +930,14 @@ label scene_pasar_krisis:
     narrator "Setelah mengatasi situasi Rumah Gadang, Garuda membawa Wira ke pasar nagari. Suasana begitu ramai dan hidup..."
     
     pause 1.0
-    
+    play music "sound/suara_pasar.mp3" fadein 1.0 loop
+    play sound "sound/talempongminang1.mp3" fadein 1.0 loop
     show garuda_berbicara at wcenter_small
     with dissolve
     
     garuda "Ini adalah tantangan terakhir, Wira. Sebuah perusahaan besar dari kota menawarkan investasi besar untuk nagari."
     
-    pause 0.5
+    pause 1.0
     
     garuda "Tapi ada yang janggal. Mereka ingin mengubah cara hidup masyarakat di sini. Semua orang menjadi bingung."
     
@@ -747,6 +948,7 @@ label scene_pasar_krisis:
     
     narrator "Setiap keputusan akan menentukan masa depan ekonomi nagari. Wira harus memilih dengan bijak."
     
+
     pause 1.0
     
     # ================= PILIHAN PASAR =================
@@ -772,7 +974,8 @@ label pilihan_pasar_a:
     Datuak "Anak muda ini... berbicara dengan lidah orang berprinsip. Jarang ada yang berani menolak uang dengan cara yang terhormat seperti itu."
     Buya_Hamid "Kekayaan yang dibangun di atas kerusakan akhlak bukan kemakmuran. Itu bencana yang tertunda."
     garuda "Kamu baru saja memahami sesuatu yang paling sulit bahwa integritas adalah pilihan aktif bukan kondisi pasif dan paling keras diuji ketika godaannya paling besar."
-    
+    stop music fadeout 1.0
+    stop sound fadeout 1.0
     window hide
     pause 1.0
     window show
@@ -793,11 +996,13 @@ label pilihan_pasar_b:
     pause 1.0
 
     garuda "Diam di antara yang benar dan salah, Wira, bukan kebijaksanaan. Itu kebimbangan yang membiarkan yang salah berjalan terus. Kadang, keberanian terbesar adalah berani mengambil sikap."
+    stop music fadeout 1.0
+    stop sound fadeout 1.0
     window hide
     pause 1.0
     window show
     
-    $ player_points -= 5
+    $ player_points = 5
     narrator "Anda kehilangan 5 poin! Total poin: [player_points]"
     
     jump ending_minangkabau
@@ -809,10 +1014,13 @@ label pilihan_pasar_c:
     window show
 
     garuda "Wira...kamu baru saja memvalidasi penghancuran fondasi sebuah nagari dengan tangan kamu sendiri"
+    
     garuda "Nagari yang kehilangan prinsipnya bukan lagi nagari yang sama. Ia hanya nama tanpa jiwa."
+    stop music fadeout 1.0
+    stop sound fadeout 1.0
     pause 0.5
     
-    $ player_points -= 30
+    $ player_points = 30
     narrator "Anda kehilangan 30 poin! Total poin: [player_points]"
     
     jump ending_minangkabau
@@ -821,7 +1029,7 @@ label pilihan_pasar_c:
 label ending_minangkabau:
     scene black
     with fade
-    
+    play music "sound/talempongminang2.mp3" fadein 1.0 loop
     window hide
     pause 1.5
     
@@ -830,7 +1038,7 @@ label ending_minangkabau:
     window show
     
     if player_points >= 65:
-        # POIN TINGGI (65-75)
+        # POIN TINGGI (6575)
         hide garuda_berbicara
         scene poin_tinggi
         with dissolve
@@ -839,7 +1047,7 @@ label ending_minangkabau:
         garuda "Kamu mulai memahami bahwa demokrasi yang sesungguhnya bukan tentang suara terbanyak. Ini tentang keselarasan semua unsur dan bahwa prinsip bukan penghalang kemajuan, ini adalah kompas yang memastikan kita tidak tersesat di tengah perjalanan."
         
     elif player_points >= 25:
-        # POIN SEDANG (25-60)
+        # POIN SEDANG (2560)
         hide garuda_berbicara
         scene poin_sedang
         with dissolve
@@ -854,12 +1062,12 @@ label ending_minangkabau:
         with dissolve
         
         
-        garuda "Wira...di setiap piluhan yang kamu anggap pragmatis, kamu sebenarnya sedang membiarkan sesuatu yang orang lain jaga dengan nyawa mereka selama berabad-abad runtuh perlahan. Adat bukan museum."
+        garuda "Wira...di setiap piluhan yang kamu anggap pragmatis, kamu sebenarnya sedang membiarkan sesuatu yang orang lain jaga dengan nyawa mereka selama berabadabad runtuh perlahan. Adat bukan museum."
     
     window hide
     pause 2.0
-    
-    return
+    stop music fadeout 1.0
+    jump chapter_jawa_betawi
 
 
 #Jawa dan Betawi
@@ -898,16 +1106,17 @@ image visualpilihanC_pakrojakmarah = im.Scale("visualpilihanC_pakrojakmarah.png"
 image visualpilihanC_wiraberide = im.Scale("visualpilihanC_wiraberide.png", 1920, 1080)
 image visualpilihanc_wiramembujukadaptasi = im.Scale("visualpilihanc_wiramembujukadaptasi.png", 1920, 1080)
 image wira_disambutraden = im.Scale("wira_disambutraden.png", 1920, 1080)
+image visual_awal_betawi = im.Scale("visual_awal_betawi.png", 1920, 1080)
+# ASET PILIHAN  FESTIVAL KAMPUNG
+image pilihana_festivalkampung = "pilihana_festivalkampung.png"
+image pilihanb_festivalkampung = "pilihanb_festivalkampung.png"
+image pilihanc_festivalkampung = "pilihanc_festivalkampung.png"
 
-# ASET PILIHAN - FESTIVAL KAMPUNG
-image pilihana_festivalkampung_button = im.Scale("pilihana_festivalkampung.png", 700, 800)
-image pilihanb_festivalkampung_button = im.Scale("pilihanb_festivalkampung.png", 700, 800)
-image pilihanc_festivalkampung_button = im.Scale("pilihanc_festivalkampung.png", 700, 800)
-
-# ASET PILIHAN - SCENE TATA KRAMA (KERATON JAWA)
-image pilihana_scenetatakrama_button = im.Scale("pilihana_scenetatakrama.png", 700, 800)
-image pilihanb_scenetatakrama_button = im.Scale("pilihanb_scenetatakrama.png", 700, 800)
-image pilihanc_scenetatakrama_button = im.Scale("pilihanc_scenetatakrama.png", 700, 800)
+# ASET PILIHAN  SCENE TATA KRAMA (KERATON JAWA)
+image pilihana_scenetatakrama  = "pilihana_scenetatakrama.png"
+image pilihanb_scenetatakrama = "pilihanb_scenetatakrama.png"
+image pilihanc_scenetatakrama = "pilihanc_scenetatakrama.png"
+image ending_jawabetawi = im.Scale("ending_jawabetawi.png", 1920, 1080)
 
 call chapter_jawa_betawi
 
@@ -918,13 +1127,14 @@ call chapter_jawa_betawi
 label chapter_jawa_betawi:
     
     # ===== TRANSISI MEMASUKI BETAWI & KERATON JAWA =====
-    scene bg_pewayangan_pilihan
+    scene visual_awal_betawi
     with fade
     pause 1.0
-    
+    play sound "sound/adzan.mp3" fadein 1.0 
     # Visual: Layar gelap dengan cahaya kuning menyeruak perlahan
-    narrator "Cahaya kuning menyeruak perlahan dari kegelapan. Wira berdiri di sebuah Kampung Betawi di pinggiran kota. Dinding bercat putih kusam dihiasi ornamen khas Betawi - motif gigi balang, pucuk rebung, dan warna merah hijau yang mencolok."
-    
+    narrator "Cahaya kuning menyeruak perlahan dari kegelapan. Wira berdiri di sebuah Kampung Betawi di pinggiran kota. Dinding bercat putih kusam dihiasi ornamen khas Betawi (motif gigi balang, pucuk rebung, dan warna merah hijau yang mencolok.)"
+    stop sound fadeout 1.0
+    play music "sound/jalijali.mp3" fadein 1.0 loop
     window hide
     pause 2.0
     window show
@@ -934,13 +1144,13 @@ label chapter_jawa_betawi:
     
     wira "Masalah apa?"
     
-    garuda "Kamu akan segera melihatnya sendiri. Di sinilah petualanganmu dimulai. Setelah ini…kita akan melanjutkan ke jantung Keraton Jawa."
+    garuda "Kamu akan segera melihatnya sendiri. Di sinilah petualanganmu dimulai. Setelah ini kita akan melanjutkan ke jantung Keraton Jawa."
     
     wira "Dua tempat sekaligus?"
     
     garuda "Karena keduanya berbagi satu pertanyaan yang sama yaitu bagaimana seni dan budaya bisa bertahan ketika dunia terus berubah?"
     garuda "Di Betawi, kamu akan menyaksikan pergulatan itu dari luar. Di Keraton, kamu akan masuk ke dalamnya."
-    
+    stop music fadeout 1.0
     # ===== PENJELASAN MISI OLEH GARUDA =====
     scene penjelasan_misi_betawi
     with dissolve
@@ -952,75 +1162,50 @@ label chapter_jawa_betawi:
     garuda "Setiap pilihanmu akan meninggalkan bekas."
     
     wira "Oke..."
-    
+    stop music fadeout 1.0
     window hide
     pause 1.0
     window show
     
     # ===== SCENE FESTIVAL KAMPUNG (KEPANITIAAN YANG RETAK) =====
-    scene penjelasan_misi_betawi
+    scene rapat_awal_betawi
     with fade
-    
+    play music "sound/berdebat.mp3" fadein 1.0 loop
     narrator "Sore menjelang petang. Di halaman rumah di kampung, warga berkumpul mengelilingi meja kayu penuh kertas dan jadwal."
     
-    Bang_Rojak "(marah) Sudah dari dulu festivalnya pakai format yang sama! Lenong, tanjidor, ondel-ondel, lalu makan bersama. Itu sudah pakem! Sari mau nubah apa lagi?"
+    Bang_Rojak "(marah) Sudah dari dulu festivalnya pakai format yang sama! Lenong, tanjidor, ondel ondel, lalu makan bersama. Itu sudah pakem! Sari mau nubah apa lagi?"
     
-    Sari "Bang, tahun lalu cuma dua puluh orang yang nonton sampai selesai! Generasi muda nggak tertarik kalau formatnya gitu-gitu aja."
+    Sari "Bang, tahun lalu cuma dua puluh orang yang nonton sampai selesai! Generasi muda nggak tertarik kalau formatnya gitu gitu aja."
     Sari "Saya usul kita gabungin sama pertunjukan modern, ada sesi story telling dan dokumentasi di media sosial."
     
     Bang_Rojak "Itu bukan festival budaya! Itu konten TikTok! Budaya bukan tontonan, budaya adalah kehidupan!"
     
     Sari "Tapi kalau nggak ada yang nonton, siapa yang akan mewarisi?"
+    scene rapat_betawi_wira_datang
+    Engkong_Ali "Kamu...anak baru di kampung ini ya?"
     
-    Engkong_Ali "Kamu…anak baru di kampung ini ya?"
-    
-    wira "Saya…nggak mau ganggu, Ngkong."
+    wira "Saya...nggak mau ganggu, Ngkong."
     
     Engkong_Ali "(tersenyum) Justru kamu yang paling nggak mengganggu di sini. Dua orang itu sudah lupa caranya mendengar. Kamu, anak muda, belum lupa."
     
     garuda "Ini masalah yang lebih dalam dari sekadar format festival. Bang Rojak mewakili mereka yang takut kehilangan akar. Sari mewakili mereka yang takut mati karena tidak relevan."
-    garuda "Kamu ada di tengah-tengah. Tentukan cara kamu merespons konflik ini."
-    
+    garuda "Kamu ada di tengahtengah. Tentukan cara kamu merespons konflik ini."
+    stop music fadeout 1.0
     # ===== PILIHAN FESTIVAL KAMPUNG =====
-    show pilihana_festivalkampung_button at xcenter, yalign(0.3)
-    show pilihanb_festivalkampung_button at xcenter, yalign(0.5)
-    show pilihanc_festivalkampung_button at xcenter, yalign(0.7)
-    
-imagebutton:
-        idle pilihana_festivalkampung_button
-        hover pilihana_festivalkampung_button
-        action Jump("pilihan_festival_a")
-        xalign 0.5
-        yalign 0.3
-    
-imagebutton:
-        idle pilihanb_festivalkampung_button
-        hover pilihanb_festivalkampung_button
-        action Jump("pilihan_festival_b")
-        xalign 0.5
-        yalign 0.5
-    
-imagebutton:
-        idle pilihanc_festivalkampung_button
-        hover pilihanc_festivalkampung_button
-        action Jump("pilihan_festival_c")
-        xalign 0.5
-        yalign 0.7
+    show screen show_points
+    call screen pilihan_festival_kampung
     
     label pilihan_festival_a:
         $ player_points += 25
-        hide pilihana_festivalkampung_button
-        hide pilihanb_festivalkampung_button
-        hide pilihanc_festivalkampung_button
         
-        wira "Bang Rojak, Kak Sari…dua-duanya ada benarnya."
+        wira "Bang Rojak, Kak Sari...dua duanya ada benarnya."
         wira "Kalau boleh, kita duduk bareng dulu. Bang Rojak bisa ceritain bagian mana dari festival yang paling penting untuk dijaga."
         wira "Kak Sari bisa kasih tau inovasinya yang mana yang bisa jalan tanpa ngorbanin inti acara."
         wira "Engkong Ali bisa jadi penengah. Kita cari format yang jaga akar tapi nggak ngusir generasi baru."
         
-        Engkong_Ali "(tersenyum lebar) Anak ini…tahu caranya membuat orang merasa didengar sebelum meminta mereka mendengar. Ayo, kita coba cara anak ini."
+        Engkong_Ali "(tersenyum lebar) Anak ini...tahu caranya membuat orang merasa didengar sebelum meminta mereka mendengar. Ayo, kita coba cara anak ini."
         
-        Bang_Rojak "Baiklah…tapi lenong tetap harus ada."
+        Bang_Rojak "Baiklah...tapi lenong tetap harus ada."
         
         Sari "Setuju, Bang. Lenong tetap jadi bintang utama. Saya hanya ingin lebih banyak orang yang kenal bintangnya."
         
@@ -1032,12 +1217,9 @@ imagebutton:
         jump lanjut_ke_wayang
     
     label pilihan_festival_b:
-        $ player_points -= 15
-        hide pilihana_festivalkampung_button
-        hide pilihanb_festivalkampung_button
-        hide pilihanc_festivalkampung_button
+        $ player_points = 15
         
-        wira "Menurut gue, Bang Rojak yang bener. Festival tradisional ya harus tradisional. Format lama dipertahanin aja, nggak perlu diubah-ubah."
+        wira "Menurut gue, Bang Rojak yang bener. Festival tradisional ya harus tradisional. Format lama dipertahanin aja, nggak perlu diubah ubah."
         
         Sari "(kecewa, pergi dengan ekspresi marah)"
         
@@ -1050,10 +1232,7 @@ imagebutton:
         jump lanjut_ke_wayang
     
     label pilihan_festival_c:
-        $ player_points -= 5
-        hide pilihana_festivalkampung_button
-        hide pilihanb_festivalkampung_button
-        hide pilihanc_festivalkampung_button
+        $ player_points = 5
         
         wira "Udah, gini aja. Gue punya ide. Kita bikin festival hybrid, separuh tradisional separuh modern, terus live streaming semuanya. Nggak perlu debat panjang."
         
@@ -1068,69 +1247,46 @@ imagebutton:
     label lanjut_ke_wayang:
     
     # ===== SCENE WAYANG YANG DIANGGAP KUNO =====
-    scene pilihana_wayang_idle
+    scene bg_pewayangan_pilihan
     with dissolve
     
-    narrator "Malam hari, festival sudah berdiri. Lampu kelap-kelip menghiasi panggung. Terdapat sekelompok remaja di depan panggung menonton namun tidak antusias."
-    
-    Dimas "Bro, ini acara apaan sih. Bayangannya doang yang keliatan, suaranya lebay, nggak ngerti ceritanya apa. Nonton anime aja lebih seru."
-    
+    narrator "Malam hari, festival sudah berdiri. Lampu kelap kelip menghiasi panggung. Terdapat sekelompok remaja di depan panggung menonton namun tidak antusias."
     window hide
     pause 0.5
     window show
+
+    scene scenewayang_kekecewaanPakSugeng
+    play sound "sound/gamelanpelan.mp3" fadein 1.0 loop
+    Dimas "Bro, ini acara apaan sih. Bayangannya doang yang keliatan, suaranya lebay, nggak ngerti ceritanya apa. Nonton anime aja lebih seru."
+    Teman_Dimas "Ssst...nanti didenger Pak Sugeng."
     
     Pak_Sugeng "Sudah tiga generasi keluargaku menjaga wayang ini. Kakekku yang mengukir Arjuna itu. Kalau aku pergi nanti, tidak ada yang meneruskan."
     
     garuda "Ini lebih dari sekadar pertunjukan, Wira. Pak Sugeng adalah dalang terakhir di kampung ini. Wayang bukan hanya seni, ia adalah ensiklopedia filsafat Jawa."
-    garuda "Lakon Mahabharata dan Ramayana mengandung ajaran tentang dharma, keadilan, dan kesetiaan yang bertahan ribuan tahun. Tapi kalau tidak ada yang mau belajar…"
+    garuda "Lakon Mahabharata dan Ramayana mengandung ajaran tentang dharma, keadilan, dan kesetiaan yang bertahan ribuan tahun. Tapi kalau tidak ada yang mau belajar..."
     
     wira "...semuanya hilang."
     
     garuda "Tepat. Dimas bukan musuhnya. Ia hanya tidak tahu. Belum ada yang pernah jelaskan kepadanya."
     
-    Pak_Sugeng "Anak muda…kamu punya pendapat tentang ini?"
+    Pak_Sugeng "Anak muda...kamu punya pendapat tentang ini?"
     
     garuda "Wira, ini momen penting. Pak Sugeng butuh pembelaan, tetapi Dimas butuh jembatan, bukan tembok. Bagaimana kamu merespons?"
-    
+    stop sound fadeout 1.0
     # ===== PILIHAN WAYANG =====
-    show pilihana_wayang_idle at xcenter, yalign(0.3)
-    show pilihanb_wayang_idle at xcenter, yalign(0.5)
-    show pilihanc_wayang_idle at xcenter, yalign(0.7)
-    
-    
-    
-    imagebutton:
-        idle pilihanb_wayang_idle
-        hover pilihanb_wayang_hover
-        action Jump("pilihan_wayang_b")
-        xalign 0.5
-        yalign 0.5
-    
-    imagebutton:
-        idle pilihanc_wayang_idle
-        hover pilihanc_wayang_hover
-        action Jump("pilihan_wayang_c")
-        xalign 0.5
-        yalign 0.7
+    show screen show_points
+    call screen pilihan_wayang
     
     label pilihan_wayang_a:
-        imagebutton:
-        idle pilihana_wayang_idle
-        hover pilihana_wayang_hover
-        action Jump("pilihan_wayang_a")
-        xalign 0.5
-        yalign 0.3
         $ player_points += 25
-        hide pilihana_wayang_idle
-        hide pilihanb_wayang_idle
-        hide pilihanc_wayang_idle
-        
+        scene visualpilihanA_wayang
+        with dissolve
         wira "Lo tau nggak, Dimas, karakter Arjuna yang dipaksa milih antara keluarga dan kebenaran itu…mirip banget sama dilema di film superhero kesukaan lo."
-        wira "Wayang bukan cuma bayang-bayang, bro. Itu cerita manusia yang udah dipikirin ribuan tahun lalu sebelum kita lahir."
+        wira "Wayang bukan cuma bayangbayang, bro. Itu cerita manusia yang udah dipikirin ribuan tahun lalu sebelum kita lahir."
         
-        Pak_Sugeng "Ia menerangkan wayang dengan bahasa anak muda…Kakekku dulu bilang, dalang yang baik bisa bicara dalam bahasa siapapun yang duduk di depannya."
+        Pak_Sugeng "Ia menerangkan wayang dengan bahasa anak muda...Kakekku dulu bilang, dalang yang baik bisa bicara dalam bahasa siapapun yang duduk di depannya."
         
-        Dimas "Pak…Arjuna itu ceritanya gimana sih sebenernya?"
+        Dimas "Pak...Arjuna itu ceritanya gimana sih sebenernya?"
         
         Pak_Sugeng "(tersenyum dan mulai mengangkat wayang Arjuna ke depan layar)"
         
@@ -1142,10 +1298,9 @@ imagebutton:
         jump lanjut_ke_keraton
     
     label pilihan_wayang_b:
-        $ player_points -= 10
-        hide pilihana_wayang_idle
-        hide pilihanb_wayang_idle
-        hide pilihanc_wayang_idle
+        $ player_points = 10
+        scene visualpilihanb_wiramemaksa
+        with dissolve
         
         wira "Dimas, lo nggak boleh gitu. Ini budaya nenek moyang kita. Harus dihormatin, suka atau nggak suka."
         
@@ -1159,12 +1314,11 @@ imagebutton:
         jump lanjut_ke_keraton
     
     label pilihan_wayang_c:
-        $ player_points -= 15
-        hide pilihana_wayang_idle
-        hide pilihanb_wayang_idle
-        hide pilihanc_wayang_idle
+        $ player_points = 15
+        scene scenevisualpilihanc_wiramembujukadaptasi
+        with dissolve
         
-        wira "Pak Sugeng, mungkin wayangnya bisa di-dubbing pakai suara yang lebih kekinian? Atau ceritanya diganti yang lebih relevan gitu? Biar anak muda tertarik."
+        wira "Pak Sugeng, mungkin wayangnya bisa didubbing pakai suara yang lebih kekinian? Atau ceritanya diganti yang lebih relevan gitu? Biar anak muda tertarik."
         
         Pak_Sugeng "(kecewa) Kalau ceritanya diganti…itu bukan wayang lagi, Nak. Itu hanya boneka kayu."
         
@@ -1179,27 +1333,27 @@ imagebutton:
     # ===== TRANSISI MEMASUKI KERATON JAWA =====
     scene visualmasuk_keratonjawa
     with fade
-    
-    narrator "Cahaya festival Betawi perlahan memudar. Wira dan Garuda terangkat ke udara. Lampu-lampu kampung mengecil seperti kunang-kunang. Perlahan-lahan, kompleks bangunan besar muncul di bawah cahaya bulan."
-    narrator "Atap joglo berlapis-lapis berwarna hijau tua dan emas. Alun-alun luas dengan dua pohon beringin kembar yang berdiri seperti penjaga."
+    play music "sound/sarwolaras.mp3" fadein 1.0 loop
+    narrator "Cahaya festival Betawi perlahan memudar. Wira dan Garuda terangkat ke udara. Lampulampu kampung mengecil seperti kunangkunang. Perlahanlahan, kompleks bangunan besar muncul di bawah cahaya bulan."
+    narrator "Atap joglo berlapislapis berwarna hijau tua dan emas. Alunalun luas dengan dua pohon beringin kembar yang berdiri seperti penjaga."
     
     window hide
     pause 2.0
     window show
     
-    wira "Gue ngerasain sesuatu…tempat ini beda. Kerasa lebih…berat."
+    wira "Gue ngerasain sesuatu...tempat ini beda. Kerasa lebih...berat."
     
-    garuda "Karena di sini, setiap hal bermakna. Cara kamu berdiri, berjalan, berbicara, bahkan cara kamu diam. Tempat ini memiliki bahasa yang dibangun selama berabad-abad untuk menunjukkan rasa hormat kepada sesama dan kepada Sang Pencipta."
+    garuda "Karena di sini, setiap hal bermakna. Cara kamu berdiri, berjalan, berbicara, bahkan cara kamu diam. Tempat ini memiliki bahasa yang dibangun selama berabadabad untuk menunjukkan rasa hormat kepada sesama dan kepada Sang Pencipta."
     
-    wira "Berarti gue harus hati-hati banget?"
+    wira "Berarti gue harus hatihati banget?"
     
-    garuda "Bukan hanya hati-hati, kamu harus hadir sepenuhnya."
+    garuda "Bukan hanya hatihati, kamu harus hadir sepenuhnya."
     
     window hide
     pause 1.0
     window show
     
-    scene visual_hormatdenganmaubelajar
+    scene wira_disambutraden
     with dissolve
     
     Kanjeng_Raden "Poro tamu ingkang kinurmatan…sugeng rawuh ing Keraton. Mugi saged manggih karaharjan lan kawicaksanan ing mriki."
@@ -1207,12 +1361,12 @@ imagebutton:
     wira "Itu artinya apa?"
     
     garuda "Beliau menyambut kamu dengan doa agar kamu menemukan keselamatan dan kebijaksanaan di sini. Di Keraton, bahasa bukan hanya komunikasi. Bahasa adalah penghormatan."
-    
+    stop music fadeout 1.0
     # ===== SCENE TATA KRAMA (BAHASA YANG BERBICARA) =====
-    scene visual_tidakpeduli
+    scene radenajak_masukkeraton
     with dissolve
-    
-    narrator "Kanjeng Raden membawa Wira dan Garuda memasuki Pendopo utama Keraton. Ruangan besar beratap tinggi dengan tiang-tiang kayu jati besar."
+    play sound "sound/gamelansebelah.mp3" fadein 1.0 loop
+    narrator "Kanjeng Raden membawa Wira dan Garuda memasuki Pendopo utama Keraton. Ruangan besar beratap tinggi dengan tiangtiang kayu jati besar."
     narrator "Raden Mas Bagas sedang berlatih memainkan wayang sendirian. Ia penerus tradisi dalang Keraton, penerus generasi ketujuh belas."
     
     Raden_Mas_Bagas "Tamu dari luar. Jarang ada yang masuk sejauh ini. Saya Bagas, calon dalang Keraton generasi ketujuh belas."
@@ -1221,43 +1375,19 @@ imagebutton:
     
     Kanjeng_Raden "Nggih, mboten menopo. Tamu ingkang sae punika ingkang purun nyuwun pirsa."
     
-    garuda "Di Keraton, ada tata cara yang disebut unggah-ungguh. Bukan untuk mempermalukan tamu, tapi untuk menjaga keselarasan ruang dan relasi antar manusia."
+    garuda "Di Keraton, ada tata cara yang disebut unggahungguh. Bukan untuk mempermalukan tamu, tapi untuk menjaga keselarasan ruang dan relasi antar manusia."
     garuda "Kamu akan menghadapi beberapa situasi. Bagaimana kamu merespons akan mencerminkan siapa kamu."
     garuda "Wira, Kanjeng Raden akan melewatimu. Apa yang kamu lakukan?"
     
     # ===== PILIHAN TATA KRAMA =====
-    show pilihana_scenetatakrama_button at xcenter, yalign(0.3)
-    show pilihanb_scenetatakrama_button at xcenter, yalign(0.5)
-    show pilihanc_scenetatakrama_button at xcenter, yalign(0.7)
-    
-    imagebutton:
-        idle pilihana_scenetatakrama_button
-        hover pilihana_scenetatakrama_button
-        action Jump("pilihan_krama_a")
-        xalign 0.5
-        yalign 0.3
-    
-    imagebutton:
-        idle pilihanb_scenetatakrama_button
-        hover pilihanb_scenetatakrama_button
-        action Jump("pilihan_krama_b")
-        xalign 0.5
-        yalign 0.5
-    
-    imagebutton:
-        idle pilihanc_scenetatakrama_button
-        hover pilihanc_scenetatakrama_button
-        action Jump("pilihan_krama_c")
-        xalign 0.5
-        yalign 0.7
+    show screen show_points
+    call screen pilihan_tata_krama
     
     label pilihan_krama_a:
         $ player_points += 30
-        hide pilihana_scenetatakrama_button
-        hide pilihanb_scenetatakrama_button
-        hide pilihanc_scenetatakrama_button
-        
-        wira "Kanjeng, maaf…tadi saya harusnya ngapaian ya yang bener? Saya mau belajar tata caranya di sini."
+        scene visual_hormatdenganmaubelajar
+        with dissolve
+        wira "Kanjeng, maaf…tadi saya harusnya ngapain ya yang bener? Saya mau belajar tata caranya di sini."
         
         wira "(segera menyingkir ke tepi, sedikit membungkuk badan sebagai tanda hormat)"
         
@@ -1273,11 +1403,9 @@ imagebutton:
         jump lanjut_ke_dialog_bagas
     
     label pilihan_krama_b:
-        $ player_points -= 20
-        hide pilihana_scenetatakrama_button
-        hide pilihanb_scenetatakrama_button
-        hide pilihanc_scenetatakrama_button
-        
+        $ player_points = 20
+        scene visual_tidakpeduli
+        with dissolve
         wira "(berdiri saja di tempatnya, membiarkan Kanjeng Raden yang menyesuaikan jalan, sambil melihat ke arah lain)"
         
         Raden_Mas_Bagas "Di sini, cara kamu berdiri dan memberikan jalan itu bukan formalitas. Ini sebuah cara kamu bilang \"Saya tahu tempat saya dan saya menghormati orang lain\" Kalau kamu nggak melakukan itu…"
@@ -1291,9 +1419,6 @@ imagebutton:
     
     label pilihan_krama_c:
         $ player_points += 10
-        hide pilihana_scenetatakrama_button
-        hide pilihanb_scenetatakrama_button
-        hide pilihanc_scenetatakrama_button
         
         wira "(menyingkir dan membungkuk hormat, tapi tidak bertanya lebih lanjut dan hanya berdiam diri)"
         
@@ -1308,6 +1433,7 @@ imagebutton:
     label lanjut_ke_dialog_bagas:
     
     # ===== SCENE DIALOG RADEN MAS BAGAS =====
+    stop sound fadeout 1.0
     scene visual_hormatdenganmaubelajar
     with dissolve
     
@@ -1321,7 +1447,7 @@ imagebutton:
     
     Raden_Mas_Bagas "Saya balik dan sekarang saya lagi belajar untuk membawa dunia luar masuk ke sini. Bukan untuk mengubah Keraton tetapi untuk membuat lebih banyak orang dapat merasakan apa yang bisa saya rasakan waktu duduk di sini pertama kali."
     
-    garuda "Dengarkan baik-baik, Wira. Ini bukan cerita tentang masa lalu melawan masa depan. Ini tentang menemukan apa yang tidak bisa digantikan lalu menjaganya dengan kedua tanganmu."
+    garuda "Dengarkan baikbaik, Wira. Ini bukan cerita tentang masa lalu melawan masa depan. Ini tentang menemukan apa yang tidak bisa digantikan lalu menjaganya dengan kedua tanganmu."
     
     window hide
     pause 2.0
@@ -1330,7 +1456,8 @@ imagebutton:
     # ===== AKHIR CHECKPOINT =====
     # Menampilkan skor akhir
     $ skor_akhir = player_points
-    
+    play sound "sound/gamelankeras.mp3" fadein 1.0 loop
+    Raden_Mas_Bagas "Checkpoint Checkpoint Betawi dan Keraton Jawa selesai, Wira. Mari kita lihat hasil perjalananmu."
     if skor_akhir >= 50:
         scene skor_tinggi_daerahjawa
         with fade
@@ -1342,13 +1469,14 @@ imagebutton:
     else:
         scene skor_rendah_daerahjawa
         with fade
-        narrator "Perjalananmu menunjukkan bahwa masih banyak yang perlu dipelajari tentang menghargai tradisi dan mendengarkan orang lain. Warisan budaya memerlukan lebih dari sekedar niat - ia memerlukan kehadiran dan kepedulian yang sejati."
+        narrator "Perjalananmu menunjukkan bahwa masih banyak yang perlu dipelajari tentang menghargai tradisi dan mendengarkan orang lain. Warisan budaya memerlukan lebih dari sekedar niat  ia memerlukan kehadiran dan kepedulian yang sejati."
     
     window hide
     pause 3.0
     window show
     
-    narrator "Checkpoint 2 Selesai: Betawi & Keraton Jawa"
     narrator "Poin yang dikumpulkan: [player_points]"
-    
+    scene ending_jawabetawi
+    garuda "Masih ada tiga gerbang lagi. Yang berikutnya akan membawamu ke pulau terindah di Indonesia, Bali."
+    stop sound fadeout 2.0
     return
