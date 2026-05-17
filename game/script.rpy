@@ -1334,8 +1334,9 @@ label chapter_jawa_betawi:
     scene visualmasuk_keratonjawa
     with fade
     play music "sound/sarwolaras.mp3" fadein 1.0 loop
-    narrator "Cahaya festival Betawi perlahan memudar. Wira dan Garuda terangkat ke udara. Lampulampu kampung mengecil seperti kunangkunang. Perlahanlahan, kompleks bangunan besar muncul di bawah cahaya bulan."
-    narrator "Atap joglo berlapislapis berwarna hijau tua dan emas. Alunalun luas dengan dua pohon beringin kembar yang berdiri seperti penjaga."
+    narrator "Cahaya festival Betawi perlahan memudar. Wira dan Garuda terangkat ke udara."
+    narrator " Lampu lampu kampung mengecil seperti kunang kunang. Perlahan lahan, kompleks bangunan besar muncul di bawah cahaya bulan."
+    narrator "Atap joglo berlapis lapis berwarna hijau tua dan emas. Alunalun luas dengan dua pohon beringin kembar yang berdiri seperti penjaga."
     
     window hide
     pause 2.0
@@ -1343,7 +1344,8 @@ label chapter_jawa_betawi:
     
     wira "Gue ngerasain sesuatu...tempat ini beda. Kerasa lebih...berat."
     
-    garuda "Karena di sini, setiap hal bermakna. Cara kamu berdiri, berjalan, berbicara, bahkan cara kamu diam. Tempat ini memiliki bahasa yang dibangun selama berabadabad untuk menunjukkan rasa hormat kepada sesama dan kepada Sang Pencipta."
+    garuda "Karena di sini, setiap hal bermakna. Cara kamu berdiri, berjalan, berbicara, bahkan cara kamu diam."
+    garuda "Tempat ini memiliki bahasa yang dibangun selama berabadabad untuk menunjukkan rasa hormat kepada sesama dan kepada Sang Pencipta."
     
     wira "Berarti gue harus hatihati banget?"
     
@@ -1356,7 +1358,8 @@ label chapter_jawa_betawi:
     scene wira_disambutraden
     with dissolve
     
-    Kanjeng_Raden "Poro tamu ingkang kinurmatan…sugeng rawuh ing Keraton. Mugi saged manggih karaharjan lan kawicaksanan ing mriki."
+    Kanjeng_Raden "Poro tamu ingkang kinurmatan sugeng rawuh ing Keraton." 
+    Kanjeng_Raden "Mugi saged manggih karaharjan lan kawicaksanan ing mriki."
     
     wira "Itu artinya apa?"
     
@@ -1375,7 +1378,8 @@ label chapter_jawa_betawi:
     
     Kanjeng_Raden "Nggih, mboten menopo. Tamu ingkang sae punika ingkang purun nyuwun pirsa."
     
-    garuda "Di Keraton, ada tata cara yang disebut unggahungguh. Bukan untuk mempermalukan tamu, tapi untuk menjaga keselarasan ruang dan relasi antar manusia."
+    garuda "Di Keraton, ada tata cara yang disebut unggahungguh." 
+    garuda "Bukan untuk mempermalukan tamu, tapi untuk menjaga keselarasan ruang dan relasi antar manusia."
     garuda "Kamu akan menghadapi beberapa situasi. Bagaimana kamu merespons akan mencerminkan siapa kamu."
     garuda "Wira, Kanjeng Raden akan melewatimu. Apa yang kamu lakukan?"
     
@@ -1395,7 +1399,8 @@ label chapter_jawa_betawi:
         
         Raden_Mas_Bagas "Jujur, saya kuliah di luar negeri empat tahun dan baru bisa nyantai di sini setelah enam bulan balik. Kamu baru masuk tapi udah nanya yang bener."
         
-        garuda "Tata krama bukan tentang tunduk. Akan tetapi, tentang mengakui bahwa ada sesuatu yang lebih besar dari dirimu sendiri di dalam ruangan ini dan kamu memilih untuk hadir dengan hormat bukan dengan ego."
+        garuda "Tata krama bukan tentang tunduk. Akan tetapi, tentang mengakui bahwa ada sesuatu yang lebih besar dari dirimu sendiri di dalam ruangan ini"
+        garuda " dan kamu memilih untuk hadir dengan hormat bukan dengan ego."
         
         window hide
         pause 1.0
@@ -1424,7 +1429,8 @@ label chapter_jawa_betawi:
         
         Raden_Mas_Bagas "Kamu tahu caranya hormat. Tapi kamu belum tahu alasannya. Itu beda tipis, tapi beda."
         
-        garuda "Menghormati tanpa memahami adalah ritual. Menghormati dengan memahami adalah kesadaran. Keraton tidak butuh robot yang tahu gerakannya. Keraton butuh manusia yang tahu mengapa."
+        garuda "Menghormati tanpa memahami adalah ritual. Menghormati dengan memahami adalah kesadaran."
+        garuda "Keraton tidak butuh robot yang tahu gerakannya. Keraton butuh manusia yang tahu mengapa."
         
         window hide
         pause 1.0
@@ -1438,9 +1444,11 @@ label chapter_jawa_betawi:
     with dissolve
     
     Raden_Mas_Bagas "Saya mau jujur denganmu, Wira. Saya sempat mau meninggalkan semua ini."
-    Raden_Mas_Bagas "Waktu di luar negeri, saya belajar teknik pertunjukan modern yang lebih efektif dan lebih relevan. Saya pikir, kenapa saya harus balik ke sini dan mengikat diri dengan aturan yang rasanya kuno?"
+    Raden_Mas_Bagas "Waktu di luar negeri, saya belajar teknik pertunjukan modern yang lebih efektif dan lebih relevan."
+    Raden_Mas_Bagas "Saya pikir, kenapa saya harus balik ke sini dan mengikat diri dengan aturan yang rasanya kuno?"
     
-    Raden_Mas_Bagas "Tapi saya menyadari satu hal. Di negara manapun saya pergi, nggak ada yang punya wayang. Nggak ada yang punya gamelan, dan nggak ada yang punya filosofi tentang keselarasan kayak yang ada di sini."
+    Raden_Mas_Bagas "Tapi saya menyadari satu hal. Di negara manapun saya pergi, nggak ada yang punya wayang."
+    Raden_Mas_Bagas "Nggak ada yang punya gamelan, dan nggak ada yang punya filosofi tentang keselarasan kayak yang ada di sini."
     Raden_Mas_Bagas "Mereka punya banyak hal yang saya kagumi, tapi nggak punya ini semua."
     
     wira "Terus kamu balik."
@@ -1461,21 +1469,25 @@ label chapter_jawa_betawi:
     if skor_akhir >= 50:
         scene skor_tinggi_daerahjawa
         with fade
-        narrator "Keputusanmu selama perjalanan di Betawi dan Keraton Jawa menunjukkan pemahaman mendalam tentang keseimbangan antara tradisi dan modernitas. Kamu telah membuktikan bahwa mendengarkan dan memahami adalah kunci untuk mempertahankan warisan budaya di tengah perubahan zaman."
+        garuda "Keputusanmu selama perjalanan di Betawi dan Keraton Jawa menunjukkan pemahaman mendalam tentang keseimbangan antara tradisi dan modernitas."
+        garuda "Kamu telah membuktikan bahwa mendengarkan dan memahami adalah kunci untuk mempertahankan warisan budaya di tengah perubahan zaman."
+        
     elif skor_akhir >= 0:
         scene skor_sedang_daerahjawa
         with fade
-        narrator "Perjalananmu menunjukkan kesadaran terhadap pentingnya budaya, meski masih ada ruang untuk berkembang. Kamu mulai memahami bahwa setiap keputusan membawa konsekuensi yang mendalam bagi komunitas dan tradisi."
+        garuda "Perjalananmu menunjukkan kesadaran terhadap pentingnya budaya, meski masih ada ruang untuk berkembang."
+        garuda "Kamu mulai memahami bahwa setiap keputusan membawa konsekuensi yang mendalam bagi komunitas dan tradisi."
     else:
         scene skor_rendah_daerahjawa
         with fade
-        narrator "Perjalananmu menunjukkan bahwa masih banyak yang perlu dipelajari tentang menghargai tradisi dan mendengarkan orang lain. Warisan budaya memerlukan lebih dari sekedar niat  ia memerlukan kehadiran dan kepedulian yang sejati."
+        garuda "Perjalananmu menunjukkan bahwa masih banyak yang perlu dipelajari tentang menghargai tradisi dan mendengarkan orang lain."
+        garuda "Warisan budaya memerlukan lebih dari sekedar niat  ia memerlukan kehadiran dan kepedulian yang sejati."
     
     window hide
     pause 3.0
     window show
     
-    narrator "Poin yang dikumpulkan: [player_points]"
+    garuda "Poin yang dikumpulkan: [player_points]"
     scene ending_jawabetawi
     garuda "Masih ada tiga gerbang lagi. Yang berikutnya akan membawamu ke pulau terindah di Indonesia, Bali."
     stop sound fadeout 2.0
