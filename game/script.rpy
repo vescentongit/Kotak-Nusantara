@@ -18,6 +18,7 @@ define pekaseh = Character("Pekaseh Wayan", who_color = "#ffffff", size=37)
 define aldi = Character("Aldi", who_color = "#ffffff")
 define paman_darius = Character("Paman Darius", who_color = "#ffffff", size=37)
 define nenek_rante = Character("Nenek Rante", who_color = "#ffffff", size=37)
+define nenek = Character("Nenek", who_color = "#ffffff")
 define rena = Character("Rena", who_color = "#ffffff")
 define Datuak = Character("Datuak",who_color ="#9E7B54" )
 define Buya_Hamid = Character("Buya Hamid",who_color ="#224989" )
@@ -87,7 +88,7 @@ image pipit hinggap di sangkar = "pipit hinggap di sangkar.png"
 image pipit terbang = "pipit_terbang.png"
 image wira ngejar = "wira_ngejar.png"
 image sangkar = "sangkar.png"
-image wira sedih = "wira sedih.png"
+image wira sedih = "wira_sedih.png"
 
 
 transform wira_megang_sangkar:
@@ -215,7 +216,6 @@ transform hud_stage:
 # DAERAH 1 : MINANGKABAU
 label minangkabau_intro:
     #minangkabau
-
 
     scene black
     scene rumah_gadang
@@ -1606,6 +1606,17 @@ transform wcenter_small:
     yalign 0.5
     zoom 0.6
 
+transform wleft_lower:                                                                         
+    xalign 0.36                                                                             
+    yalign 0.8                                                                              
+    zoom 0.6                                                                                   
+                                                                                         
+transform wright_lower:                                                                        
+    xalign 0.77                                                                                
+    yalign 0.8                                                                             
+    zoom 0.6                                                                                   
+                        
+
 
 # ASET PASAR - PILIHAN BUTTONS
 image pasar_a_idle = im.Scale("pasar_a_idle.png", 700, 800)
@@ -1617,134 +1628,135 @@ image pasar_c_hover = im.Scale("pasar_c_hover.png", 700, 800)
 
 
 label start:
+    jump closing_good_ending
 
-    # # ==========================================================================================================================
-    # # PROLOG / TERAS PAGI
-    # # ==========================================================================================================================
-    # scene bg_prolog_teras_pagi
-    # show pipit standing at pipit_initial
-    # with fade
+    # ==========================================================================================================================
+    # PROLOG / TERAS PAGI
+    # ==========================================================================================================================
+    scene bg_prolog_teras_pagi
+    show pipit standing at pipit_initial
+    with fade
 
-    # narrator "Pada suatu hari..."
+    narrator "Pada suatu hari..."
 
-    # show wira_ceria at wleft_small
-    # with dissolve
+    show wira_ceria at wleft_small
+    with dissolve
 
-    # # These display lines of dialogue.
-    # wira "Wah... hari ini cerah sekali ya!"
+    # These display lines of dialogue.
+    wira "Wah... hari ini cerah sekali ya!"
 
-    # window hide
-    # show wira_ceria at teras
-    # with ease
-    # pause 0.5
-    # window show
+    window hide
+    show wira_ceria at teras
+    with ease
+    pause 0.5
+    window show
 
-    # wira "Pipit... lihat deh. Matahari pagi ini bagus banget, kan?"
+    wira "Pipit... lihat deh. Matahari pagi ini bagus banget, kan?"
 
-    # window hide
+    window hide
 
-    # pause 0.3
-    # show pipit terbang at pipit_initial with dissolve
-    # pause 0.5
+    pause 0.3
+    show pipit terbang at pipit_initial with dissolve
+    pause 0.5
 
-    # scene bg_prolog_teras_pagi
-    # show wiranpipit at teras
-    # with dissolve
-    # window show
+    scene bg_prolog_teras_pagi
+    show wiranpipit at teras
+    with dissolve
+    window show
 
-    # narrator "Wira Terkekeh geli, matanya semakin berbinar"
-    # wira "Ih, geli! Kamu suka ya aku elus elus?"
-    # narrator "Bagi WIRA, dunia luar penuh dengan suara bising dan kebingungan. Namun, di teras ini, bersama Pipit... semuanya terasa benar."
+    narrator "Wira Terkekeh geli, matanya semakin berbinar"
+    wira "Ih, geli! Kamu suka ya aku elus elus?"
+    narrator "Bagi WIRA, dunia luar penuh dengan suara bising dan kebingungan. Namun, di teras ini, bersama Pipit... semuanya terasa benar."
 
-    # window hide
-    # show wiranpipit serius at teras
-    # with dissolve
-    # pause 0.5
-    # window show
+    window hide
+    show wiranpipit serius at teras
+    with dissolve
+    pause 0.5
+    window show
 
-    # wira "Pipit... kalau nanti sayapmu sudah kuat... kalau kamu sudah bisa terbang jauh sampai ke awan..."
+    wira "Pipit... kalau nanti sayapmu sudah kuat... kalau kamu sudah bisa terbang jauh sampai ke awan..."
 
-    # window hide
-    # show wiranpipit nunduk at terasnew
-    # with dissolve
-    # pause 1.5
-    # show wiranpipit terharu at teras
-    # with dissolve
-    # pause 1.5
-    # window show
+    window hide
+    show wiranpipit nunduk at terasnew
+    with dissolve
+    pause 1.5
+    show wiranpipit terharu at teras
+    with dissolve
+    pause 1.5
+    window show
 
-    # wira "...jangan tinggalin aku ya? Janji?"
+    wira "...jangan tinggalin aku ya? Janji?"
 
-    # narrator "Di teras rumah itu, WIRA Kecil mengunci separuh hatinya pada seekor burung peliharaan, menjadikannya satu satunya dunia kecil yang dia miliki."
+    narrator "Di teras rumah itu, WIRA Kecil mengunci separuh hatinya pada seekor burung peliharaan, menjadikannya satu satunya dunia kecil yang dia miliki."
 
-    # window hide
+    window hide
 
-    # # ==========================================================================================================================
-    # # PROLOG / TAMAN KOTA SORE
-    # # ==========================================================================================================================
+    # ==========================================================================================================================
+    # PROLOG / TAMAN KOTA SORE
+    # ==========================================================================================================================
 
-    # scene taman
-    # with dissolve
+    scene taman
+    with dissolve
 
-    # show wira megang sangkar at wira_megang_sangkar
-    # with dissolve
-    # pause 1.0
+    show wira megang sangkar at wira_megang_sangkar
+    with dissolve
+    pause 1.0
 
-    # window show
-    # wira "Kita sudah sampai, Pipit! Lihat, di sini jauh lebih luas daripada kamar aku."
-    # window hide
-    # pause 0.5
+    window show
+    wira "Kita sudah sampai, Pipit! Lihat, di sini jauh lebih luas daripada kamar aku."
+    window hide
+    pause 0.5
 
-    # show wira duduk sangkar at wira_duduk_sangkar
-    # with dissolve
+    show wira duduk sangkar at wira_duduk_sangkar
+    with dissolve
 
-    # pause 1.0
-    # window show
-    # wira "Aku buka ya pintunya? Tapi kamu jangan terbang tinggi tinggi... aku takut nggak bisa liat kamu lagi."
-    # wira "Ayo... keluar sebentar..."
+    pause 1.0
+    window show
+    wira "Aku buka ya pintunya? Tapi kamu jangan terbang tinggi tinggi... aku takut nggak bisa liat kamu lagi."
+    wira "Ayo... keluar sebentar..."
 
-    # window hide
-    # pause 0.5
+    window hide
+    pause 0.5
 
-    # show wira ketiup angin at wira_ketiup_angin
-    # show pipit hinggap di sangkar at pipit_sangkar
-    # with dissolve
+    show wira ketiup angin at wira_ketiup_angin
+    show pipit hinggap di sangkar at pipit_sangkar
+    with dissolve
 
 
-    # pause 1.0
+    pause 1.0
 
-    # window show
+    window show
 
-    # wira "Pipit?! Tunggu!"
+    wira "Pipit?! Tunggu!"
 
-    # window hide
-    # pause 0.5
-    # show sangkar at sangkar_kosong
-    # show wira ngejar at wira_ketiup_angin
-    # show pipit terbang at atas_sangkar
-    # with dissolve
-    # pause 0.5
+    window hide
+    pause 0.5
+    show sangkar at sangkar_kosong
+    show wira ngejar at wira_ketiup_angin
+    show pipit terbang at atas_sangkar
+    with dissolve
+    pause 0.5
 
-    # show pipit terbang at pipit_leaving
-    # with ease
+    show pipit terbang at pipit_leaving
+    with ease
 
-    # hide pipit terbang
+    hide pipit terbang
 
-    # pause 0.5
-    # window show
-    # wira "JANGAN TINGGALIN AKU! PIPIT!!!"
-    # pause 1.0
-    # window hide
-    # scene taman
-    # show wira sedih at wira_ketiup_angin
-    # with dissolve
+    pause 0.5
+    window show
+    wira "JANGAN TINGGALIN AKU! PIPIT!!!"
+    pause 1.0
+    window hide
+    scene taman
+    show wira sedih at wira_ketiup_angin
+    with dissolve
 
-    # pause 2.0
+    pause 2.0
 
-    # scene black
-    # with dissolve
-    # narrator "...."
-    # narrator "Pipit terbang.... entah kemana..."
+    scene black
+    with dissolve
+    narrator "...."
+    narrator "Pipit terbang.... entah kemana..."
 
     # =============================================================
     # PROLOG : KAMAR WIRA
@@ -3576,5 +3588,433 @@ label toraja_end:
     narrator "Cahaya senja Toraja memudar. Tongkonan siluet di balik langit merah. Wira dan Garuda berdiri berdampingan, kecil di bawah langit yang luas."
 
     with fade
+
+
+
+# ==============================================================
+# SECTION 12: ENDING FINAL
+# ==============================================================
+# --- CLOSING: GOOD ENDING ---
+image closing_good_teras        = im.Scale("closing_good_teras.png", 1920, 1080)
+image closing_good_minum_teh    = im.Scale("closing_good_minum_teh.png", 1920, 1080)
+image closing_good_taman        = im.Scale("closing_good_taman.png", 1920, 1080)
+image closing_good_pipit_bahu   = im.Scale("closing_good_pipit_bahu.png", 1920, 1080)
+image closing_flashback_taman   = im.Scale("prolog_taman_kota_sore.png", 1920, 1080)
+image closing_good_zoomout      = im.Scale("closing_good_zoomout.png", 1920, 1080)
+
+# --- CLOSING: BAD ENDING ---
+image closing_bad_kamar         = im.Scale("closing_bad_kamar.png", 1920, 1080)
+image closing_bad_jendela       = im.Scale("closing_bad_jendela.png", 1920, 1080)
+image closing_bad_jalan_sepi    = im.Scale("closing_bad_jalan_sepi.png", 1920, 1080)
+image closing_bad_nenek_jatuh        = im.Scale("closing_bad_nenek_jatuh.png", 1920, 1080)
+image closing_bad_nenek_jatuh_Wira  = im.Scale("closing_bad_nenek_jatuh_Wira.png", 1920, 1080)
+image closing_bad_cermin        = im.Scale("closing_bad_cermin.png", 1920, 1080)
+image closing_bad_sudut_kamar   = im.Scale("closing_bad_sudut_kamar.png", 1920, 1080)
+
+# --- CLOSING: SPRITE BARU ---
+image wira_dewasa_senyum        = "wira_dewasa_senyum.png"
+image wira_dewasa_marah         = "wira_dewasa_marah.png"
+image wira_dewasa_pusing        = "wira_dewasa_pusing.png"
+image wira_sedih                = "wira_sedih.png"
+image nenek_senyum              = "nenek_senyum.png"
+image nenek_melambai            = "nenek_melambai.png"
+image nenek_nunjuk              = "nenek_nunjuk.png"
+
+label ending_final:
+
+    scene black
+    with fade
+    window hide
+    pause 1.5
+
+    if player_points >= 120:
+        jump closing_good_ending
+    else:
+        jump closing_bad_ending
+
+# ==============================================================
+# GOOD ENDING
+# ==============================================================
+transform pipit_kursi:
+    xalign 0.9
+    yalign 0.8
+    zoom 0.3
+
+transform pipit_bahu:
+    xalign 0.5
+    yalign 0.4
+    zoom 0.15
+
+transform wira_taman:
+    xalign 0.35
+    yalign 0.5
+    zoom 0.6
+
+label closing_good_ending:
+
+    # --- Scene 1: Teras Rumah Nenek ---
+    scene black
+    with dissolve
+    pause 0.5
+
+    scene closing_good_teras
+    with dissolve
+
+    window show
+    narrator "Wira membuka mata."
+    narrator "Pemandangan pertama yang ia tangkap adalah teras rumah nenek, tapi kali ini berbeda dari yang ia ingat."
+    narrator "Pagar kayu yang dulu keropos sudah diganti. Bunga bunga tumbuh di pot tanah liat. Anak anak berlarian di jalan."
+    window hide
+
+    pause 1.0
+
+    play sound "suara_kampung_hangat.ogg"    # suara percakapan warga + tawa anak-anak
+
+    window show
+    narrator "Suara tawa anak anak mengalir dari ujung gang. Seseorang menyapa tetangganya. Ada yang berbagi makanan di teras sebelah."
+    window hide
+
+    pause 1.0
+
+    # Nenek masuk
+    show nenek_senyum at wright_small
+    with dissolve
+    window show
+
+    nenek "Nak Wira... sudah bangun? Nenek buatkan teh manis pakai jahe. Dingin dingin begini enak."
+
+    show wira_dewasa_terharu at wleft_small
+    with dissolve
+
+    wira "Iya, Nek. Makasih."
+
+    # --- Scene 2: Minum Teh Bersama ---
+    scene closing_good_minum_teh
+    with dissolve
+    window show
+
+    wira "Nek... kampung kita... kok sekarang jadi lebih... hidup?"
+
+    nenek "Hidup? Memang pernah mati?"
+
+    wira "Bukan gitu, Nek. Maksud aku... dulu kayaknya sepi. Sekarang jadi lebih rame. Orang orang kayak... lebih peduli sama satu sama lain."
+
+    nenek "Mungkin... karena ada yang belajar sesuatu dari perjalanannya. Dan bawa pulang pelajaran itu."
+
+    window hide
+
+    show wira_dewasa_terharu at wleft_small
+    with dissolve
+    pause 1.0
+
+    window show
+    narrator "Wira terdiam. Dia merasa neneknya tahu lebih dari yang dia kira."
+    window hide
+
+    # --- Scene 3: Taman Belakang, Pipit Datang ---
+    scene closing_good_taman
+    with dissolve
+    pause 1.0
+
+    stop sound fadeout 1.0
+    play sound "suara_burung_pipit.ogg"    # suara kicauan + angin
+
+    # 1. Munculkan Wira dan Pipit terlebih dahulu di sini
+    show wira_dewasa_terharu as wira at wira_taman
+    show pipit_standing as pipit at pipit_kursi
+    with dissolve # Berikan efek transisi saat mereka berdua muncul
+
+    # 2. Baru setelah itu teks narasi dimulai
+    window show
+    narrator "Wira pergi menghampiri pohon besar di taman belakang rumah nenek."
+    narrator "Seekor burung pipit kecil hinggap di dekatnya"
+    window hide
+
+    pause 1.0
+
+    window show
+    narrator "Suara kicauannya... familier. Persis seperti suara Garuda setiap kali memberi saran di game."
+    window hide
+
+    pause 0.5
+
+    # 1. Munculkan sprite terharu dan burung pipit
+    show wira_dewasa_terharu as wira at wira_taman
+    show pipit_standing as pipit at pipit_kursi
+    with dissolve
+    
+    window show
+
+    # 2. Dialog ini akan menahan gambar di atas agar tetap terlihat oleh pemain
+    wira "Pipit...?"
+  
+    # 3. Ganti gambar wira dengan ekspresi baru (menggunakan alias 'as wira' agar otomatis menggantikan yang lama)
+    show wira_dewasa_pipit as wira at wira_taman
+    hide pipit 
+    with dissolve
+    window hide
+
+    pause 1.5
+
+    # --- Kilas Balik ---
+    scene black
+    with dissolve
+    pause 0.5
+
+    scene closing_flashback_taman
+    with dissolve
+
+    show wira duduk sangkar at wira_duduk_sangkar
+    with dissolve
+    pause 1.0
+
+    window show
+    wira "Ayo... keluar sebentar..."
+    window hide
+    pause 0.5
+
+    show wira ketiup angin at wira_ketiup_angin
+    show pipit hinggap di sangkar at pipit_sangkar
+    with dissolve
+    pause 1.0
+
+    window show
+    wira "Pipit?! Tunggu!"
+    window hide
+    pause 0.5
+
+    show sangkar at sangkar_kosong
+    show wira ngejar at wira_ketiup_angin
+    show pipit terbang at atas_sangkar
+    with dissolve
+    pause 0.5
+
+    show pipit terbang at pipit_leaving
+    with ease
+    hide pipit terbang
+    pause 0.5
+
+    window show
+    wira "JANGAN TINGGALIN AKU! PIPIT!!!"
+    pause 1.0
+    window hide
+
+    scene closing_flashback_taman
+    show wira sedih at wira_ketiup_angin
+    with dissolve
+    pause 2.0
+
+    scene black
+    with dissolve
+    pause 0.5
+
+    # Kembali ke taman
+    scene closing_good_taman
+    with dissolve
+    pause 1.0
+
+    show wira_dewasa_pipit as wira at wira_taman
+    with dissolve
+
+    window show
+    wira "Kamu... tidak pernah benar benar pergi, ya? Kamu bahkan sampai menemani aku di dalam game itu"
+    window hide
+
+    pause 0.5
+
+    play sound "suara_burung_pipit.ogg"
+    pause 1.0
+
+    window show
+    narrator "Burung pipit itu berkicau riang."
+    window hide
+
+    pause 1.5
+
+    # --- Zoom Out + Quote Penutup ---
+    scene closing_good_zoomout
+    with dissolve
+    pause 2.0
+
+    stop sound fadeout 2.0
+
+    window show
+    narrator "\"Kearifan sejati tidak hanya mendamaikan dunia luar...\""
+    pause 1.0
+    narrator "\"...tetapi juga mempertemukan kita kembali dengan bagian diri kita yang paling murni.\""
+    window hide
+
+    pause 2.0
+
+    scene black
+    with dissolve
+    pause 1.5
+
+    return
+
+
+# ==============================================================
+# BAD ENDING
+# ==============================================================
+
+label closing_bad_ending:
+
+    # --- Scene 1: Kamar Wira, Bangun Kaget ---
+    scene closing_bad_kamar
+    with dissolve
+    pause 0.5
+
+    show wira_dewasa_pusing at wleft_lower
+    with dissolve
+
+    play sound "suara_napas_panik.ogg"    # suara napas tidak teratur
+    pause 1.5
+    stop sound fadeout 1.0
+
+    window show
+    wira "Aku... gagal. Aku gagal total."
+    window hide
+
+    pause 1.0
+
+    # --- Scene 2: Melihat dari Jendela ---
+    scene closing_bad_jendela
+    with dissolve
+    pause 0.5
+
+    play sound "suara_sepi_kampung.ogg"    # keheningan hampa, minim interaksi
+
+    scene closing_bad_jalan_sepi
+    with dissolve
+
+    window show
+    narrator "Di luar, kampung itu terasa asing."
+    narrator "Semua orang yang berlalu lalang memegang handphone masing masing. Headphone di telinga. Mata tertuju ke layar. Tidak ada yang saling menyapa."
+    window hide
+
+    pause 1.5
+
+    # Nenek jatuh, orang-orang merekam
+    scene closing_bad_nenek_jatuh
+    with dissolve
+    pause 0.5
+
+    window show
+    narrator "Seorang nenek jatuh di halaman depan."
+    narrator "Orang orang di sekitarnya mengeluarkan HP. Merekam. Tidak ada yang bergerak untuk membantu."
+    window hide
+
+    pause 1.0
+
+    scene closing_bad_nenek_jatuh_Wira
+    with dissolve
+    window show
+
+    wira "Bantu dia, dong... kenapa kalian cuma lihat?"
+
+    window hide
+    pause 1.0
+
+    window show
+    narrator "Tapi Wira sendiri tidak bergerak."
+    narrator "Dia baru menyadari bahwa dia melakukan hal yang sama. Hanya melihat. Diam."
+    window hide
+
+    pause 1.5
+
+    # --- Scene 3: Nenek Memanggil ---
+    stop sound fadeout 1.0
+    
+    scene closing_bad_kamar
+    with dissolve
+    pause 0.5
+
+    show wira_dewasa_marah at wleft_lower
+    show nenek_senyum as nenek at wright_lower
+    with dissolve
+    
+
+    window show
+    nenek "Wira... kamu sudah bangun? Nenek buatkan teh. Turun, ya."
+
+    wira "Gak usah! Aku gak mau teh! Aku mau sendirian!"
+
+    hide nenek
+    show nenek_melambai at wright_lower
+    with dissolve
+
+    window hide
+    pause 0.5
+
+    window show
+    nenek "Baiklah... nanti kalau kamu mau, ambil saja di meja. Nenek taruh tehnya di meja."
+    window hide
+
+    hide nenek_melambai
+    with dissolve
+    pause 0.5
+
+    play sound "suara_langkah_menjauh.ogg"    # langkah kaki perlahan menjauh
+    pause 1.5
+    stop sound fadeout 1.0
+
+    window show
+    narrator "Keheningan."
+    narrator "Wira terdiam. Tangannya gemetar."
+    narrator "Dia tahu dia bersikap buruk. Tapi dia tidak bisa berbuat lain. Marah adalah satu satunya cara yang dia ketahui untuk bertahan."
+    window hide
+
+    pause 1.5
+
+    # --- Scene 4: Di Depan Cermin ---
+    scene closing_bad_kamar 
+    with dissolve
+    pause 0.5
+
+    scene closing_bad_cermin
+    with dissolve
+    window show
+    narrator "Wira berdiri di depan cermin. Wajahnya lelah, Matanya merah, dan merasa Wira ada kehilangan sesuatu."
+    window hide
+
+    pause 1.0
+
+    window show
+    wira "Kamu... kamu egois!"
+    pause 0.3
+    wira "Kamu kasar! Kamu seenaknya sendiri!"
+    pause 0.3
+    wira "Ga heran semua orang di game benci kamu!"
+    pause 0.3
+    wira "Ga heran... ga heran sekarang semua orang di sini juga jadi egois."
+    pause 0.3
+    wira "Karena siapa? Karena kamu!"
+    window hide
+    with dissolve
+
+    pause 1.0
+
+    # --- Scene 5: Sudut Kamar, Quote Penutup ---
+    scene closing_bad_sudut_kamar
+    with dissolve
+
+    play sound "suara_ac.ogg"    # suara AC yang monoton
+    pause 2.0
+
+    window show
+    narrator "\"Ketika kita memaksa dunia untuk tunduk pada keegoisan kita...\""
+    pause 1.0
+    narrator "\"...kita hanya akan mewariskan kehancuran baik di tanah orang lain, maupun di rumah kita sendiri.\""
+    window hide
+
+    pause 2.0
+
+    stop sound fadeout 2.0
+
+    scene black
+    with dissolve
+    pause 1.5
+
+    return
 
     # This ends the game for now.
