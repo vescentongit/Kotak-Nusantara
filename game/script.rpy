@@ -1214,7 +1214,7 @@ label chapter_jawa_betawi:
 
     wira "Masalah apa?"
 
-    garuda "Kamu akan segera melihatnya sendiri. Di sinilah petualanganmu dimulai. Setelah ini…kita akan melanjutkan ke jantung Keraton Jawa."
+    garuda "Kamu akan segera melihatnya sendiri. Di sinilah petualanganmu dimulai. Setelah ini, kita akan melanjutkan ke jantung Keraton Jawa."
 
     wira "Dua tempat sekaligus?"
 
@@ -1253,9 +1253,9 @@ label chapter_jawa_betawi:
 
     Sari "Tapi kalau nggak ada yang nonton, siapa yang akan mewarisi?"
 
-    Engkong_Ali "Kamu…anak baru di kampung ini ya?"
+    Engkong_Ali "Kamu, anak baru di kampung ini ya?"
 
-    wira "Saya…nggak mau ganggu, Ngkong."
+    wira "Saya, nggak mau ganggu, Ngkong."
 
     Engkong_Ali "(tersenyum) Justru kamu yang paling nggak mengganggu di sini. Dua orang itu sudah lupa caranya mendengar. Kamu, anak muda, belum lupa."
 
@@ -1277,14 +1277,14 @@ label pilihan_festival_a:
         hide pilihanb_festivalkampung_button
         hide pilihanc_festivalkampung_button
 
-        wira "Bang Rojak, Kak Sari…duaduanya ada benarnya."
+        wira "Bang Rojak, Kak Sari, duaduanya ada benarnya."
         wira "Kalau boleh, kita duduk bareng dulu. Bang Rojak bisa ceritain bagian mana dari festival yang paling penting untuk dijaga."
         wira "Kak Sari bisa kasih tau inovasinya yang mana yang bisa jalan tanpa ngorbanin inti acara."
         wira "Engkong Ali bisa jadi penengah. Kita cari format yang jaga akar tapi nggak ngusir generasi baru."
 
-        Engkong_Ali "(tersenyum lebar) Anak ini…tahu caranya membuat orang merasa didengar sebelum meminta mereka mendengar. Ayo, kita coba cara anak ini."
+        Engkong_Ali "(tersenyum lebar) Anak ini, tahu caranya membuat orang merasa didengar sebelum meminta mereka mendengar. Ayo, kita coba cara anak ini."
 
-        Bang_Rojak "Baiklah…tapi lenong tetap harus ada."
+        Bang_Rojak "Baiklah, tapi lenong tetap harus ada."
 
         Sari "Setuju, Bang. Lenong tetap jadi bintang utama. Saya hanya ingin lebih banyak orang yang kenal bintangnya."
 
@@ -1348,13 +1348,13 @@ label lanjut_ke_wayang:
     Pak_Sugeng "Sudah tiga generasi keluargaku menjaga wayang ini. Kakekku yang mengukir Arjuna itu. Kalau aku pergi nanti, tidak ada yang meneruskan."
 
     garuda "Ini lebih dari sekadar pertunjukan, Wira. Pak Sugeng adalah dalang terakhir di kampung ini. Wayang bukan hanya seni, ia adalah ensiklopedia filsafat Jawa."
-    garuda "Lakon Mahabharata dan Ramayana mengandung ajaran tentang dharma, keadilan, dan kesetiaan yang bertahan ribuan tahun. Tapi kalau tidak ada yang mau belajar…"
+    garuda "Lakon Mahabharata dan Ramayana mengandung ajaran tentang dharma, keadilan, dan kesetiaan yang bertahan ribuan tahun. Tapi kalau tidak ada yang mau belajar, "
 
     wira "...semuanya hilang."
 
     garuda "Tepat. Dimas bukan musuhnya. Ia hanya tidak tahu. Belum ada yang pernah jelaskan kepadanya."
 
-    Pak_Sugeng "Anak muda…kamu punya pendapat tentang ini?"
+    Pak_Sugeng "Anak muda, kamu punya pendapat tentang ini?"
 
     garuda "Wira, ini momen penting. Pak Sugeng butuh pembelaan, tetapi Dimas butuh jembatan, bukan tembok. Bagaimana kamu merespons?"
     stop sound fadeout 1.0
@@ -1369,12 +1369,12 @@ label pilihan_wayang_a:
         hide pilihanb_wayang_idle
         hide pilihanc_wayang_idle
 
-        wira "Lo tau nggak, Dimas, karakter Arjuna yang dipaksa milih antara keluarga dan kebenaran itu…mirip banget sama dilema di film superhero kesukaan lo."
+        wira "Lo tau nggak, Dimas, karakter Arjuna yang dipaksa milih antara keluarga dan kebenaran itu, mirip banget sama dilema di film superhero kesukaan lo."
         wira "Wayang bukan cuma bayangbayang, bro. Itu cerita manusia yang udah dipikirin ribuan tahun lalu sebelum kita lahir."
 
-        Pak_Sugeng "Ia menerangkan wayang dengan bahasa anak muda…Kakekku dulu bilang, dalang yang baik bisa bicara dalam bahasa siapapun yang duduk di depannya."
+        Pak_Sugeng "Ia menerangkan wayang dengan bahasa anak muda, Kakekku dulu bilang, dalang yang baik bisa bicara dalam bahasa siapapun yang duduk di depannya."
 
-        Dimas "Pak…Arjuna itu ceritanya gimana sih sebenernya?"
+        Dimas "Pak, Arjuna itu ceritanya gimana sih sebenernya?"
 
         Pak_Sugeng "(tersenyum dan mulai mengangkat wayang Arjuna ke depan layar)"
 
@@ -1410,7 +1410,7 @@ label pilihan_wayang_c:
 
         wira "Pak Sugeng, mungkin wayangnya bisa didubbing pakai suara yang lebih kekinian? Atau ceritanya diganti yang lebih relevan gitu? Biar anak muda tertarik."
 
-        Pak_Sugeng "(kecewa) Kalau ceritanya diganti…itu bukan wayang lagi, Nak. Itu hanya boneka kayu."
+        Pak_Sugeng "(kecewa) Kalau ceritanya diganti, itu bukan wayang lagi, Nak. Itu hanya boneka kayu."
 
         garuda "Ada batas antara adaptasi yang menghidupkan dan perubahan yang menghilangkan jiwa. Kamu baru saja melewati batas itu."
 
@@ -1433,7 +1433,7 @@ label lanjut_ke_keraton:
     pause 2.0
     window show
 
-    wira "Gue ngerasain sesuatu…tempat ini beda. Kerasa lebih…berat."
+    wira "Gue ngerasain sesuatu, tempat ini beda. Kerasa lebih, berat."
 
     garuda "Karena di sini, setiap hal bermakna. Cara kamu berdiri, berjalan, berbicara, bahkan cara kamu diam. Tempat ini memiliki bahasa yang dibangun selama berabadabad untuk menunjukkan rasa hormat kepada sesama dan kepada Sang Pencipta."
 
@@ -1448,7 +1448,7 @@ label lanjut_ke_keraton:
     scene visual_hormatdenganmaubelajar
     with dissolve
 
-    Kanjeng_Raden "Poro tamu ingkang kinurmatan…sugeng rawuh ing Keraton. Mugi saged manggih karaharjan lan kawicaksanan ing mriki."
+    Kanjeng_Raden "Poro tamu ingkang kinurmatan, sugeng rawuh ing Keraton. Mugi saged manggih karaharjan lan kawicaksanan ing mriki."
 
     wira "Itu artinya apa?"
 
@@ -1465,7 +1465,7 @@ label lanjut_ke_keraton:
 
     Raden_Mas_Bagas "Tamu dari luar. Jarang ada yang masuk sejauh ini. Saya Bagas, calon dalang Keraton generasi ketujuh belas."
 
-    wira "Eh, sori…gue harusnya gimana ya di sini?"
+    wira "Eh, sori, gue harusnya gimana ya di sini?"
 
     Kanjeng_Raden "Nggih, mboten menopo. Tamu ingkang sae punika ingkang purun nyuwun pirsa."
 
@@ -1488,7 +1488,7 @@ label pilihan_krama_a:
         hide pilihanb_scenetatakrama_button
         hide pilihanc_scenetatakrama_button
 
-        wira "Kanjeng, maaf…tadi saya harusnya ngapaian ya yang bener? Saya mau belajar tata caranya di sini."
+        wira "Kanjeng, maaf, tadi saya harusnya ngapaian ya yang bener? Saya mau belajar tata caranya di sini."
 
         wira "(segera menyingkir ke tepi, sedikit membungkuk badan sebagai tanda hormat)"
 
@@ -1511,7 +1511,7 @@ label pilihan_krama_b:
 
         wira "(berdiri saja di tempatnya, membiarkan Kanjeng Raden yang menyesuaikan jalan, sambil melihat ke arah lain)"
 
-        Raden_Mas_Bagas "Di sini, cara kamu berdiri dan memberikan jalan itu bukan formalitas. Ini sebuah cara kamu bilang \"Saya tahu tempat saya dan saya menghormati orang lain\" Kalau kamu nggak melakukan itu…"
+        Raden_Mas_Bagas "Di sini, cara kamu berdiri dan memberikan jalan itu bukan formalitas. Ini sebuah cara kamu bilang \"Saya tahu tempat saya dan saya menghormati orang lain\" Kalau kamu nggak melakukan itu, "
 
         garuda "...kamu bukan orang yang kasar. Akan tetapi, kamu tidak hadir dan ini adalah kehilangan terbesar."
 
@@ -1692,15 +1692,15 @@ default scene2_choice = None
 default scene3_choice = None
 
 # BALI PILIHAN IMAGES
-image bali_scene1_pilihan_A_img = "bali_scene1_pilihan_A.png"
-image bali_scene1_pilihan_B_img = "bali_scene1_pilihan_B.png"
-image bali_scene1_pilihan_C_img = "bali_scene1_piliihan_C.png"
-image bali_scene2_pilihan_A_img = "bali_scene2_pilihan_A.png"
-image bali_scene2_pilihan_B_img = "bali_scene2_pilihan_B.png"
-image bali_scene2_pilihan_C_img = "bali_scene2_pilihan_C.png"
-image bali_scene3_pilihan_A_img = "bali_scene3_pilihan_A.png"
-image bali_scene3_pilihan_B_img = "bali_scene3_pilihan_B.png"
-image bali_scene3_pilihan_C_img = "bali_scene3_pilihan_C.png"
+# image bali_scene1_pilihan_A_img = "bali_scene1_pilihan_A.png"
+# image bali_scene1_pilihan_B_img = "bali_scene1_pilihan_B.png"
+# image bali_scene1_pilihan_C_img = "bali_scene1_piliihan_C.png"
+# image bali_scene2_pilihan_A_img = "bali_scene2_pilihan_A.png"
+# image bali_scene2_pilihan_B_img = "bali_scene2_pilihan_B.png"
+# image bali_scene2_pilihan_C_img = "bali_scene2_pilihan_C.png"
+# image bali_scene3_pilihan_A_img = "bali_scene3_pilihan_A.png"
+# image bali_scene3_pilihan_B_img = "bali_scene3_pilihan_B.png"
+# image bali_scene3_pilihan_C_img = "bali_scene3_pilihan_C.png"
 
 # TORAJA PILIHAN IMAGES
 image toraja_scene1_pilihan_A_img = "toraja_scene1_pilihan_A.png"
