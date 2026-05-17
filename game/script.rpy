@@ -223,6 +223,9 @@ transform hud_stage:
 label minangkabau_intro:
     #minangkabau
 
+    play music "sound/talempongminang1.MP3" fadein 1.0 loop
+    play ambient "sound/aliran air.mp3" fadein 1.0 loop
+
     scene black
     scene rumah_gadang
     with dissolve
@@ -234,6 +237,7 @@ label minangkabau_intro:
     wira "Bangunannya gede banget! Tapi kelihatannya udah lama nggak dirawat."
 
     window hide
+    play sound "sound/Flapping Wing SFX.mp3"
     show garuda_berdiri at wright_small
     with dissolve
     pause 0.5
@@ -348,6 +352,9 @@ label minangkabau_intro:
     image poin_rendah = im.Scale("poin_rendah.png",1920,1080)
     image poin_sedang = im.Scale("poin_sedang.png",1920,1080)
     image poin_tinggi = im.Scale("poin_tinggi.png",1920,1080)
+    stop ambient fadeout 1.0
+    play sound "sound/langkahkayu.mp3"
+    play ambient "sound/berdebat.MP3" fadein 0.8 loop
     scene forum
     with dissolve
     window show
@@ -379,6 +386,7 @@ label minangkabau_intro:
     with dissolve
     Rosma "Anak anak kita yang pergi merantau, mereka akan pulang jika nagari ini punya jiwa. Tanpa keselarasan antara adat, agama, dan ilmu, nagari ini hanya kulit tanpa isi."
     window hide
+    stop ambient fadeout 1.0
     scene bingungsemua
     with dissolve
     window show
@@ -633,6 +641,8 @@ label scene_rumahgadang_krisis:
     window hide
     pause 1.0
 
+    play sound "sound/langkahtanah.mp3"
+    play ambient "sound/angin.mp3" fadein 1.0 loop
     scene openingscene_rumahgadang
     with dissolve
     window show
@@ -791,6 +801,9 @@ label scene_pasar_krisis:
     window hide
     pause 1.0
 
+    stop ambient fadeout 1.0
+    play ambient "sound/suara_pasar.MP3" fadein 1.0 loop
+    play music "sound/talempongminang2.MP3" fadein 1.0 loop
     scene visual_awal_scenepasar
     with dissolve
     window show
@@ -890,6 +903,7 @@ label ending_minangkabau:
     scene black
     with fade
 
+    stop ambient fadeout 1.0
     window hide
     pause 1.5
 
@@ -986,6 +1000,10 @@ call chapter_jawa_betawi
 label chapter_jawa_betawi:
 
     # ===== TRANSISI MEMASUKI BETAWI & KERATON JAWA =====
+    stop music fadeout 1.0
+    stop ambient fadeout 1.0
+    play music "sound/jalijali.MP3" fadein 1.0 loop
+    play sound "sound/adzan.MP3"
     scene bg_pewayangan_pilihan
     with fade
     pause 1.0
@@ -1026,6 +1044,7 @@ label chapter_jawa_betawi:
     window show
 
     # ===== SCENE FESTIVAL KAMPUNG (KEPANITIAAN YANG RETAK) =====
+    play sound "sound/berdebat.MP3"
     scene penjelasan_misi_betawi
     with fade
 
@@ -1119,6 +1138,7 @@ label pilihan_festival_c:
 label lanjut_ke_wayang:
 
     # ===== SCENE WAYANG YANG DIANGGAP KUNO =====
+    play music "sound/gamelanpelan.mp3" fadein 1.0 loop
     scene pilihana_wayang_idle
     with dissolve
 
@@ -1210,6 +1230,8 @@ label pilihan_wayang_c:
 label lanjut_ke_keraton:
 
     # ===== TRANSISI MEMASUKI KERATON JAWA =====
+    play sound "sound/Flapping Wing (Berat) SFX.mp3"
+    play music "sound/sarwolaras.MP3" fadein 1.0 loop
     scene visualmasuk_keratonjawa
     with fade
 
@@ -1242,6 +1264,8 @@ label lanjut_ke_keraton:
     garuda "Beliau menyambut kamu dengan doa agar kamu menemukan keselamatan dan kebijaksanaan di sini. Di Keraton, bahasa bukan hanya komunikasi. Bahasa adalah penghormatan."
 
     # ===== SCENE TATA KRAMA (BAHASA YANG BERBICARA) =====
+    play sound "sound/langkahkayu.mp3"
+    play ambient "sound/gamelansebelah.MP3" fadein 1.0 loop
     scene visual_tidakpeduli
     with dissolve
 
@@ -1324,6 +1348,8 @@ label pilihan_krama_c:
 label lanjut_ke_dialog_bagas:
 
     # ===== SCENE DIALOG RADEN MAS BAGAS =====
+    stop ambient fadeout 1.0
+    play music "sound/gamelanpelan.mp3" fadein 1.0 loop
     scene visual_hormatdenganmaubelajar
     with dissolve
 
@@ -1367,6 +1393,7 @@ label lanjut_ke_dialog_bagas:
     narrator "Checkpoint 2 Selesai: Betawi & Keraton Jawa"
     narrator "Poin yang dikumpulkan: [player_points]"
 
+    stop music fadeout 1.0
     jump bali_intro
 
 # DAERAH 3 : BALI
