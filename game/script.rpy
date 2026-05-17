@@ -1320,7 +1320,7 @@ label chapter_jawa_betawi:
         
         wira "Pak Sugeng, mungkin wayangnya bisa didubbing pakai suara yang lebih kekinian? Atau ceritanya diganti yang lebih relevan gitu? Biar anak muda tertarik."
         
-        Pak_Sugeng "(kecewa) Kalau ceritanya diganti…itu bukan wayang lagi, Nak. Itu hanya boneka kayu."
+        Pak_Sugeng "(kecewa) Kalau ceritanya diganti, itu bukan wayang lagi, Nak. Itu hanya boneka kayu."
         
         garuda "Ada batas antara adaptasi yang menghidupkan dan perubahan yang menghilangkan jiwa. Kamu baru saja melewati batas itu."
         
@@ -1403,7 +1403,7 @@ label chapter_jawa_betawi:
         jump lanjut_ke_dialog_bagas
     
     label pilihan_krama_b:
-        $ player_points = 20
+        $ player_points -= 20
         scene visual_tidakpeduli
         with dissolve
         wira "(berdiri saja di tempatnya, membiarkan Kanjeng Raden yang menyesuaikan jalan, sambil melihat ke arah lain)"
@@ -1447,7 +1447,7 @@ label chapter_jawa_betawi:
     
     Raden_Mas_Bagas "Saya balik dan sekarang saya lagi belajar untuk membawa dunia luar masuk ke sini. Bukan untuk mengubah Keraton tetapi untuk membuat lebih banyak orang dapat merasakan apa yang bisa saya rasakan waktu duduk di sini pertama kali."
     
-    garuda "Dengarkan baikbaik, Wira. Ini bukan cerita tentang masa lalu melawan masa depan. Ini tentang menemukan apa yang tidak bisa digantikan lalu menjaganya dengan kedua tanganmu."
+    garuda "Dengarkan baik baik, Wira. Ini bukan cerita tentang masa lalu melawan masa depan. Ini tentang menemukan apa yang tidak bisa digantikan lalu menjaganya dengan kedua tanganmu."
     
     window hide
     pause 2.0
@@ -1457,7 +1457,7 @@ label chapter_jawa_betawi:
     # Menampilkan skor akhir
     $ skor_akhir = player_points
     play sound "sound/gamelankeras.mp3" fadein 1.0 loop
-    Raden_Mas_Bagas "Checkpoint Checkpoint Betawi dan Keraton Jawa selesai, Wira. Mari kita lihat hasil perjalananmu."
+    Raden_Mas_Bagas "Checkpoint Betawi dan Keraton Jawa selesai, Wira. Mari kita lihat hasil perjalananmu."
     if skor_akhir >= 50:
         scene skor_tinggi_daerahjawa
         with fade
