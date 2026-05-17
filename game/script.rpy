@@ -1315,7 +1315,7 @@ label chapter_jawa_betawi:
     
     label pilihan_wayang_c:
         $ player_points = 15
-        scene scenevisualpilihanc_wiramembujukadaptasi
+        scene visualpilihanc_wiramembujukadaptasi
         with dissolve
         
         wira "Pak Sugeng, mungkin wayangnya bisa didubbing pakai suara yang lebih kekinian? Atau ceritanya diganti yang lebih relevan gitu? Biar anak muda tertarik."
