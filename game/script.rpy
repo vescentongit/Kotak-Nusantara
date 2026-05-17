@@ -531,9 +531,9 @@ label pilihan_a:
     scene pilihan_a
     with dissolve
     window show
-
+    
     narrator "Wira duduk tenang di sudut ruangan, mendengarkan satu per satu pendapat semua tokoh dengan seksama, tidak menyela, dan mencatat dalam ingatannya sebelum mengambil kesimpulan apa pun."
-
+    
     pause 1.0
 
     scene forum2
@@ -592,7 +592,7 @@ label pilihan_b:
     show garuda_berbicara_minang at wcenter_small
     with dissolve
     garuda "Adat Minangkabau bukan hierarki buta, Wira. Ia adalah harmoni. Ketika kamu memilih untuk hanya mendengar satu suara, kamu merusak keseimbangan yang dibangun berabad abad."
-
+    
     window hide
     pause 1.0
     window show
@@ -623,7 +623,7 @@ label pilihan_c:
     show garuda_berbicara_minang at wcenter_small
     with dissolve
     garuda "Wira....Kehadiranmu di ruangan ini punya arti. Ketika kamu memilih untuk tidak hadir sepenuhnya, kamu membiarkan konflik tumbuh tanpa ada yang mau memahami semua sisi."
-
+    
     window hide
     pause 1.0
     window show
@@ -646,9 +646,14 @@ label scene_rumahgadang_krisis:
     scene openingscene_rumahgadang
     with dissolve
     window show
-
-    Amelia "Pak Rizky, saya setuju dindingnya harus diperbaiki. Tapi saya rasa kita bisa sekalian renovasi total. Tambah kaca panoramik di sisi timuR, ganti material atap dengan bahan modern yang lebih tahan lama, dan buat interior yang lebih minimalis. Lebih estetik dan fungsional!"
-
+    
+   
+    play music "sound/langkahtanah.mp3" fadein 1.0 loop
+    play sound "sound/angin.mp3" fadein 1.0 loop
+    Amelia "Pak Rizky, saya setuju dindingnya harus diperbaiki. Tapi saya rasa kita bisa sekalian renovasi total. Tambah kaca panoramik di sisi timuR, ganti material atap dengan bahan modern yang lebih tahan lama, dan buat interior yang lebih minimalis." 
+    Amelia "Lebih estetik dan fungsional!"
+    stop music fadeout 1.0
+    stop sound fadeout 1.0
     Rizky "Secara teknis bisa dan lebih efisien biayanya dibanding restorasi ukiran lama satu per satu."
     pause 1.0
 
@@ -662,7 +667,9 @@ label scene_rumahgadang_krisis:
     scene percakapan_awal_rumahgadang
     Amelia "Tapi bu, struktur bangunannya sudah tidak aman! Kalau tidak diperbaiki sekarang, bisa roboh. Lebih baik diperbarui daripada dibiarkan rusak."
     Rosma "Setiap ukiran di dinding itu punya nama. Punya cerita. Kalau diganti dengan kaca dan beton, yang tersisa hanya bentuknya saja. Bukan Rohnya."
-    garuda "Rumah Gadang bukan sekadar bangunan, Wira. Ia adalah silsilah keluarga yang tertulis dalam kayu. Setiap ruangan mencerminkan posisi perempuan sebagai pemegang harta pusaka. Setiap ukiran adalah bahasa yang berbicara tentang falsafah hidup."
+    garuda "Rumah Gadang bukan sekadar bangunan, Wira. Ia adalah silsilah keluarga yang tertulis dalam kayu." 
+    garuda "Setiap ruangan mencerminkan posisi perempuan sebagai pemegang harta pusaka."
+    garuda "Setiap ukiran adalah bahasa yang berbicara tentang falsafah hidup."
     wira "Tapi kalau memang sudah mau roboh...?"
     garuda "Tepat sekali pertanyaannya. Di sinilah keputusanmu diuji"
 
@@ -687,7 +694,7 @@ label pilihan_rumahgadang_a:
     Rosma "Anak ini...mengerti bahwa warisan buka beban. Warisan adalah identitas."
     Amelia "Mungkin, saya terlalu fokus pada yang rusak, sampai lupa apa yang masih utuh dan berharga. Baiklah, kita cari ahli restorasi."
     garuda "Kamu baru saja memahami bahwa menjaga identitas budaya bukan berarti menolak perubahan. Ini berarti memastikan perubahan tidak menghapus siapa kita."
-
+    
     window hide
     pause 1.0
     window show
@@ -705,7 +712,7 @@ label pilihan_rumahgadang_b:
 
     wira "Mungkin bisa diambil jalan tengah? Bagian yang lapuk diganti material modern, tetapi ukirannya tetap dipertahankan. Jadi lebih aman tetapi masih ada nuansa tradisionalnya."
     garuda "Niatmu baik, Wira. Tapi jalan tengah yang tidak dipikirkan matang bisa menjadi solusi yang tidak memuaskan semua pihak. Warisan budaya butuh perlindungan penuh, bukan kompromi setengah hati"
-
+    
     window hide
     pause 1.0
     window show
@@ -874,6 +881,8 @@ label pilihan_pasar_b:
     pause 1.0
 
     garuda "Diam di antara yang benar dan salah, Wira, bukan kebijaksanaan. Itu kebimbangan yang membiarkan yang salah berjalan terus. Kadang, keberanian terbesar adalah berani mengambil sikap."
+    stop music fadeout 1.0
+    stop sound fadeout 1.0
     window hide
     pause 1.0
     window show
@@ -916,28 +925,28 @@ label ending_minangkabau:
         hide garuda_berbicara_minang
         scene poin_tinggi
         with dissolve
-
-
+        
+        
         garuda "Kamu mulai memahami bahwa demokrasi yang sesungguhnya bukan tentang suara terbanyak. Ini tentang keselarasan semua unsur dan bahwa prinsip bukan penghalang kemajuan, ini adalah kompas yang memastikan kita tidak tersesat di tengah perjalanan."
-
+        
     elif player_points >= 25:
         # POIN SEDANG (25-60)
         hide garuda_berbicara_minang
         scene poin_sedang
         with dissolve
-
-
+        
+        
         garuda "Ada momen di mana kamu membuka matamu dan momen di mana kamu masih memilih jalan yang mudah. Nagari ini mengajarkan bahwa setengah hadir lebih berbahaya dari tidak hadir sama sekali."
-
+        
     else:
         # POIN RENDAH (<25)
         hide garuda_berbicara_minang
         scene poin_rendah
         with dissolve
-
-
-        garuda "Wira...di setiap piluhan yang kamu anggap pragmatis, kamu sebenarnya sedang membiarkan sesuatu yang orang lain jaga dengan nyawa mereka selama berabad-abad runtuh perlahan. Adat bukan museum."
-
+        
+        
+        garuda "Wira...di setiap piluhan yang kamu anggap pragmatis, kamu sebenarnya sedang membiarkan sesuatu yang orang lain jaga dengan nyawa mereka selama berabadabad runtuh perlahan. Adat bukan museum."
+    
     window hide
     pause 2.0
 
@@ -1049,10 +1058,10 @@ label chapter_jawa_betawi:
     with fade
 
     narrator "Sore menjelang petang. Di halaman rumah di kampung, warga berkumpul mengelilingi meja kayu penuh kertas dan jadwal."
-
-    Bang_Rojak "(marah) Sudah dari dulu festivalnya pakai format yang sama! Lenong, tanjidor, ondel-ondel, lalu makan bersama. Itu sudah pakem! Sari mau nubah apa lagi?"
-
-    Sari "Bang, tahun lalu cuma dua puluh orang yang nonton sampai selesai! Generasi muda nggak tertarik kalau formatnya gitu-gitu aja."
+    
+    Bang_Rojak "(marah) Sudah dari dulu festivalnya pakai format yang sama! Lenong, tanjidor, ondel ondel, lalu makan bersama. Itu sudah pakem! Sari mau nubah apa lagi?"
+    
+    Sari "Bang, tahun lalu cuma dua puluh orang yang nonton sampai selesai! Generasi muda nggak tertarik kalau formatnya gitu gitu aja."
     Sari "Saya usul kita gabungin sama pertunjukan modern, ada sesi story telling dan dokumentasi di media sosial."
 
     Bang_Rojak "Itu bukan festival budaya! Itu konten TikTok! Budaya bukan tontonan, budaya adalah kehidupan!"
