@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define narrator =  Character("???", who_color = "#000000")
+define narrator =  Character("Narator", who_color = "#000000")
 define wira = Character("Wira", who_color = "#ffffff")
 define ibu = Character("Ibu", who_color = "#ffacc2")
 define ayah = Character("Ayah", who_color = "#b5e5ff")
@@ -1830,6 +1830,7 @@ screen toraja_scene3_pilih:
         action Jump("toraja_scene3_choice_c")
 
 label start:
+    jump closing_bad_ending
     # ==========================================================================================================================
     # PROLOG / TERAS PAGI
     # ==========================================================================================================================
@@ -3834,6 +3835,7 @@ label closing_good_ending:
     with dissolve
     pause 0.5
 
+    play sound "sound/percakapan_warga_goodend.mp3" fadein 1.0   # suara percakapan warga + tawa anak-anak
     scene closing_good_teras
     with dissolve
 
@@ -3845,7 +3847,6 @@ label closing_good_ending:
 
     pause 1.0
 
-    play sound "sound/Kota BGM.mp3"    # suara percakapan warga + tawa anak-anak
 
     window show
     narrator "Suara tawa anak anak mengalir dari ujung gang. Seseorang menyapa tetangganya. Ada yang berbagi makanan di teras sebelah."
@@ -3887,7 +3888,6 @@ label closing_good_ending:
     window show
     narrator "Wira terdiam. Dia merasa neneknya tahu lebih dari yang dia kira."
     window hide
-
     # --- Scene 3: Taman Belakang, Pipit Datang ---
     scene closing_good_taman
     with dissolve
