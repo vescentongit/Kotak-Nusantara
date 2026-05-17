@@ -17,7 +17,13 @@ define paman_darius = Character("Paman Darius", who_color = "#ffffff", size=37)
 define nenek_rante = Character("Nenek Rante", who_color = "#ffffff", size=37)
 define rena = Character("Rena", who_color = "#ffffff")
 
-
+init python:
+    def glow_hover(img):
+        return im.MatrixColor(img, im.matrix.brightness(0.3) * im.matrix.saturation(1.1))
+    
+    renpy.music.register_channel("sfx1", mixer="sfx", loop=True)
+    renpy.music.register_channel("sfx2", mixer="sfx", loop=True)
+    renpy.music.register_channel("sfx3", mixer="sfx", loop=True)
 
 # PROLOG / TERAS PAGI
 image wira_ceria = "wira_ceria.png"
@@ -71,7 +77,7 @@ image bali_bima_normal = "bali_bima.png"
 image bali_bima_persuasif = "bali_bima_persuasif.png"
 image bali_bu_nyoman = "bali_bu_nyoman.png"
 image bali_bu_nyoman_tegas = "bali_bu_nyoman_tegas.png"
-image bali_bu_nyoman_terluka = "bali_bu_nyoman_kecewa.png"
+image bali_bu_nyoman_kecewa = "bali_bu_nyoman_kecewa.png"
 image bali_bu_nyoman_lega = "bali_bu_nyoman_lega.png"
 image bali_pak_made_normal = "bali_pak_made.png"
 image bali_pak_made_bekerja = "bali_pak_made_bekerja.png"
@@ -152,6 +158,104 @@ default bali_points = 0
 default scene1_choice = None
 default scene2_choice = None
 default scene3_choice = None
+
+# BALI PILIHAN IMAGES
+image bali_scene1_pilihan_A_img = "bali_scene1_pilihan_A.png"
+image bali_scene1_pilihan_B_img = "bali_scene1_pilihan_B.png"
+image bali_scene1_pilihan_C_img = "bali_scene1_piliihan_C.png"
+image bali_scene2_pilihan_A_img = "bali_scene2_pilihan_A.png"
+image bali_scene2_pilihan_B_img = "bali_scene2_pilihan_B.png"
+image bali_scene2_pilihan_C_img = "bali_scene2_pilihan_C.png"
+image bali_scene3_pilihan_A_img = "bali_scene3_pilihan_A.png"
+image bali_scene3_pilihan_B_img = "bali_scene3_pilihan_B.png"
+image bali_scene3_pilihan_C_img = "bali_scene3_pilihan_C.png"
+
+# TORAJA PILIHAN IMAGES
+image toraja_scene1_pilihan_A_img = "toraja_scene1_pilihan_A.png"
+image toraja_scene1_pilihan_B_img = "toraja_scene1_pilihan_B.png"
+image toraja_scene1_pilihan_C_img = "toraja_scene1_pilihan_C.png"
+image toraja_scene2_pilihan_A_img = "toraja_scene2_pilihan_A.png"
+image toraja_scene2_pilihan_B_img = "toraja_scene2_pilihan_B.png"
+image toraja_scene2_pilihan_C_img = "toraja_scene2_pilihan_C.png"
+image toraja_scene3_pilihan_A_img = "toraja_scene3_pilihan_A.png"
+image toraja_scene3_pilihan_B_img = "toraja_scene3_pilihan_B.png"
+image toraja_scene3_pilihan_C_img = "toraja_scene3_pilihan_C.png"
+
+# Transform for glow effect on hover
+transform pilihan_glow(idle_img):
+    contains:
+        idle_img
+        zoom 1.05
+    contains:
+        idle_img
+        zoom 1.0
+        matrixcolor BrightnessMatrix(0.3)
+    time 0.15
+    contains:
+        idle_img
+        zoom 1.08
+        matrixcolor BrightnessMatrix(0.5)
+    time 0.15
+
+
+
+# BALI PILIHAN SCREENS - Horizontal layout, scaled down
+screen bali_scene1_pilih:
+    imagebutton:
+        idle im.Scale("bali_scene1_pilihan_A.png", 450, 700)
+        hover glow_hover(im.Scale("bali_scene1_pilihan_A.png", 450, 700))
+        xpos 0.25 ypos 0.5 anchor (0.5, 0.5)
+        action [SetVariable("bali_points", bali_points + 20), SetVariable("scene1_choice", "A"), Jump("scene1_ending_a")]
+
+    imagebutton:
+        idle im.Scale("bali_scene1_pilihan_B.png", 450, 700)
+        hover glow_hover(im.Scale("bali_scene1_pilihan_B.png", 450, 700))
+        xpos 0.5 ypos 0.5 anchor (0.5, 0.5)
+        action [SetVariable("bali_points", bali_points - 5), SetVariable("scene1_choice", "B"), Jump("scene1_ending_b")]
+
+    imagebutton:
+        idle im.Scale("bali_scene1_piliihan_C.png", 450, 700)
+        hover glow_hover(im.Scale("bali_scene1_piliihan_C.png", 450, 700))
+        xpos 0.75 ypos 0.5 anchor (0.5, 0.5)
+        action [SetVariable("bali_points", bali_points - 20), SetVariable("scene1_choice", "C"), Jump("scene1_ending_c")]
+
+screen bali_scene2_pilih:
+    imagebutton:
+        idle im.Scale("bali_scene2_pilihan_A.png", 450, 700)
+        hover glow_hover(im.Scale("bali_scene2_pilihan_A.png", 450, 700))
+        xpos 0.25 ypos 0.5 anchor (0.5, 0.5)
+        action [SetVariable("bali_points", bali_points + 20), SetVariable("scene2_choice", "A"), Jump("scene2_ending_a")]
+
+    imagebutton:
+        idle im.Scale("bali_scene2_pilihan_B.png", 450, 700)
+        hover glow_hover(im.Scale("bali_scene2_pilihan_B.png", 450, 700))
+        xpos 0.5 ypos 0.5 anchor (0.5, 0.5)
+        action [SetVariable("bali_points", bali_points + 0), SetVariable("scene2_choice", "B"), Jump("scene2_ending_b")]
+
+    imagebutton:
+        idle im.Scale("bali_scene2_pilihan_C.png", 450, 700)
+        hover glow_hover(im.Scale("bali_scene2_pilihan_C.png", 450, 700))
+        xpos 0.75 ypos 0.5 anchor (0.5, 0.5)
+        action [SetVariable("bali_points", bali_points - 20), SetVariable("scene2_choice", "C"), Jump("scene2_ending_c")]
+
+screen bali_scene3_pilih:
+    imagebutton:
+        idle im.Scale("bali_scene3_pilihan_A.png", 450, 700)
+        hover glow_hover(im.Scale("bali_scene3_pilihan_A.png", 450, 700))
+        xpos 0.25 ypos 0.5 anchor (0.5, 0.5)
+        action [SetVariable("bali_points", bali_points + 30), SetVariable("scene3_choice", "A"), Jump("scene3_ending_a")]
+
+    imagebutton:
+        idle im.Scale("bali_scene3_pilihan_B.png", 450, 700)
+        hover glow_hover(im.Scale("bali_scene3_pilihan_B.png", 450, 700))
+        xpos 0.5 ypos 0.5 anchor (0.5, 0.5)
+        action [SetVariable("bali_points", bali_points - 5), SetVariable("scene3_choice", "B"), Jump("scene3_ending_b")]
+
+    imagebutton:
+        idle im.Scale("bali_scene3_pilihan_C.png", 450, 700)
+        hover glow_hover(im.Scale("bali_scene3_pilihan_C.png", 450, 700))
+        xpos 0.75 ypos 0.5 anchor (0.5, 0.5)
+        action [SetVariable("bali_points", bali_points - 15), SetVariable("scene3_choice", "C"), Jump("scene3_ending_c")]
 
 # DAERAH 4 : TORAJA
 
@@ -273,6 +377,64 @@ transform kamar_leluhur_tautau:
 
 default toraja_points = 0
 
+# TORAJA PILIHAN SCREENS - Horizontal layout, scaled down
+screen toraja_scene1_pilih:
+    imagebutton:
+        idle im.Scale("toraja_scene1_pilihan_A.png", 500, 720)
+        hover glow_hover(im.Scale("toraja_scene1_pilihan_A.png", 500, 720))
+        xpos 0.25 ypos 0.5 anchor (0.5, 0.5)
+        action Jump("toraja_scene1_choice_a")
+
+    imagebutton:
+        idle im.Scale("toraja_scene1_pilihan_B.png", 500, 720)
+        hover glow_hover(im.Scale("toraja_scene1_pilihan_B.png", 500, 720))
+        xpos 0.5 ypos 0.5 anchor (0.5, 0.5)
+        action Jump("toraja_scene1_choice_b")
+
+    imagebutton:
+        idle im.Scale("toraja_scene1_pilihan_C.png", 500, 720)
+        hover glow_hover(im.Scale("toraja_scene1_pilihan_C.png", 500, 720))
+        xpos 0.75 ypos 0.5 anchor (0.5, 0.5)
+        action Jump("toraja_scene1_choice_c")
+
+screen toraja_scene2_pilih:
+    imagebutton:
+        idle im.Scale("toraja_scene2_pilihan_A.png", 500, 720)
+        hover glow_hover(im.Scale("toraja_scene2_pilihan_A.png", 500, 720))
+        xpos 0.25 ypos 0.5 anchor (0.5, 0.5)
+        action Jump("toraja_scene2_choice_a")
+
+    imagebutton:
+        idle im.Scale("toraja_scene2_pilihan_B.png", 500, 720)
+        hover glow_hover(im.Scale("toraja_scene2_pilihan_B.png", 500, 720))
+        xpos 0.5 ypos 0.5 anchor (0.5, 0.5)
+        action Jump("toraja_scene2_choice_b")
+
+    imagebutton:
+        idle im.Scale("toraja_scene2_pilihan_C.png", 500, 720)
+        hover glow_hover(im.Scale("toraja_scene2_pilihan_C.png", 500, 720))
+        xpos 0.75 ypos 0.5 anchor (0.5, 0.5)
+        action Jump("toraja_scene2_choice_c")
+
+screen toraja_scene3_pilih:
+    imagebutton:
+        idle im.Scale("toraja_scene3_pilihan_A.png", 500, 720)
+        hover glow_hover(im.Scale("toraja_scene3_pilihan_A.png", 500, 720))
+        xpos 0.25 ypos 0.5 anchor (0.5, 0.5)
+        action Jump("toraja_scene3_choice_a")
+
+    imagebutton:
+        idle im.Scale("toraja_scene3_pilihan_B.png", 500, 720)
+        hover glow_hover(im.Scale("toraja_scene3_pilihan_B.png", 500, 720))
+        xpos 0.5 ypos 0.5 anchor (0.5, 0.5)
+        action Jump("toraja_scene3_choice_b")
+
+    imagebutton:
+        idle im.Scale("toraja_scene3_pilihan_C.png", 500, 720)
+        hover glow_hover(im.Scale("toraja_scene3_pilihan_C.png", 500, 720))
+        xpos 0.75 ypos 0.5 anchor (0.5, 0.5)
+        action Jump("toraja_scene3_choice_c")
+
 # PROLOG / TAMAN KOTA SORE
 image taman = im.Scale("prolog_taman_kota_sore.png", 1920, 1080)
 
@@ -349,6 +511,7 @@ label start:
 # DAERAH 3 : BALI
 label bali_intro:
     # BALI INTRODUCTION   JATILUWIH & SUBAK
+    play music "sound/Gambuh Gamelan BGM.mp3"
     scene bg_bali_terasering_sore
     with fade
     pause 0.5
@@ -506,6 +669,9 @@ label bali_intro:
 
 label bali_scene1:
     # SCENE 1 : PERTEMUAN DI HULU: PAK MADE DAN KONFLIK AIR
+    play sfx1 "sound/Cangkul SFX.mp3"
+    play sfx2 "sound/Suara Burung SFX.mp3"
+    play sfx3 "sound/Suara air (bisa diganti ke yg di Minangkabau) SFX.mp3"
     scene bg_bali_pematang
     with fade
     pause 0.8
@@ -642,22 +808,7 @@ label bali_scene1:
     pause 1.0
 
     # PILIHAN 1   SCENE 1
-    menu:
-        "Pak Made, saya ngerti kondisinya berat. Tapi kalau saluran ini diperlebar tanpa izin, petani lain di bawah juga akan susah. Gimana kalau kita lapor bareng ke Pekaseh, minta solusi yang adil untuk semua?":
-            $ bali_points += 20
-            $ scene1_choice = "A"
-            jump scene1_ending_a
-
-        "Yaudah sih, Pak. Mungkin emang perlu dibesarin biar cukup airnya.":
-            $ bali_points  = 5
-            $ scene1_choice = "B"
-            jump scene1_ending_b
-
-        "Pak Made berhak dong ambil lebih banyak air, itu sawah Bapak. Urusan yang di bawah, terserah mereka aja.":
-            $ bali_points  = 20
-            $ scene1_choice = "C"
-            jump scene1_ending_c
-
+    call screen bali_scene1_pilih
 
 label scene1_ending_a:
     window show
@@ -742,6 +893,11 @@ label scene1_ending_c:
 
 # SCENE 2   PERTEMUAN DI HILIR
 label bali_scene2:
+    stop sfx1
+    stop sfx2
+    stop sfx3
+    play sfx1 "sound/Drone SFX.mp3" volume 0.8
+    play sfx2 "sound/AnginKuat SFX.mp3"
     scene bg_bali_hilir
     with fade
     pause 1.0
@@ -774,7 +930,7 @@ label bali_scene2:
     nyoman "Tidak. Lahan ini sudah ada sejak kakek buyut saya. Ini bukan hanya soal harga."
 
     window hide
-    hide bali_bima
+    hide bali_bima_normal
     show bali_bima_persuasif at hilir_bima
     with dissolve
     pause 0.3
@@ -792,9 +948,6 @@ label bali_scene2:
     wira "Cuma numpang lewat."
 
     window hide
-    show bali_bu_nyoman_tegas at hilir_nyoman
-    with dissolve
-    pause 0.3
     window show
 
     nyoman "Anak muda, kamu lihat sendiri. Sawah ini kering karena air sudah diambil dari hulu. Sekarang ada yang mau beli lahannya dan jadikan vila. Kalau saya jual, sistem Subak di sini hancur, tidak ada lagi sawah, tidak ada lagi aliran air bersama."
@@ -826,9 +979,6 @@ label bali_scene2:
     garuda "Tepat sekali. Dan itu kenapa masalah di hulu harus diselesaikan dulu. Keduanya terhubung."
 
     window hide
-    show bali_bima_persuasif at hilir_bima
-    with dissolve
-    pause 0.3
     window show
 
     narrator "Bima menunggu jawaban. Nyoman menatap Wira dengan harapan."
@@ -839,27 +989,12 @@ label bali_scene2:
     pause 1.0
 
     # PILIHAN 2   SCENE 2
-    menu:
-        "Bu Nyoman, saya setuju dengan Ibu. Subak ini Warisan Dunia, sekali dirusak, tidak bisa dikembalikan. Pak Bima, banyak wisatawan justru datang ke Bali karena pemandangan sawah ini. Kalau hilang, nilai wisatanya juga hilang.":
-            $ bali_points += 20
-            $ scene2_choice = "A"
-            jump scene2_ending_a
-
-        "Hmm... ini susah. Dua duanya ada benarnya juga sih.":
-            $ bali_points += 0
-            $ scene2_choice = "B"
-            jump scene2_ending_b
-
-        "Mending jual aja, Bu. Duitnya lebih pasti daripada nunggu panen.":
-            $ bali_points  = 20
-            $ scene2_choice = "C"
-            jump scene2_ending_c
-
+    call screen bali_scene2_pilih
 
 label scene2_ending_a:
     window show
     window hide
-    hide bali_bu_nyoman
+    hide bali_bu_nyoman_tegas
     show bali_bu_nyoman_lega at hilir_nyoman
     with dissolve
     pause 0.5
@@ -868,10 +1003,6 @@ label scene2_ending_a:
     nyoman "Terima kasih, anak. Tidak banyak anak muda yang masih peduli soal ini."
 
     window hide
-    hide bali_bima
-    show bali_bima_normal at hilir_bima
-    with dissolve
-    pause 0.5
     window show
 
     narrator "Bima terlihat keberatan tapi diam, kemudian pergi sambil bergumam."
@@ -894,12 +1025,6 @@ label scene2_ending_a:
 
 label scene2_ending_b:
     window show
-    window hide
-    hide bali_bima
-    show bali_bima_normal at hilir_bima
-    with dissolve
-    pause 0.5
-    window show
 
     narrator "Bima tersenyum kecil, mencium peluang dari kebimbangan Wira."
     window hide
@@ -907,9 +1032,6 @@ label scene2_ending_b:
     bima "Nah, berarti kamu juga setuju kalau ini bisa didiskusikan lagi, kan? Bu Nyoman, kita bisa duduk lagi"
 
     window hide
-    show bali_bu_nyoman_tegas at hilir_nyoman
-    with dissolve
-    pause 0.3
     window show
 
     nyoman "Tidak. Jawaban saya tetap sama."
@@ -937,10 +1059,6 @@ label scene2_ending_b:
 label scene2_ending_c:
     window show
     window hide
-    hide bali_bima
-    show bali_bima_normal at hilir_bima
-    with dissolve
-    pause 0.5
     window show
 
     narrator "Bima langsung tersenyum lebar dan menepuk bahu Wira."
@@ -949,8 +1067,8 @@ label scene2_ending_c:
     bima "Nah, ini baru anak muda yang realistis! Bu Nyoman, dengarkan teman kamu ini"
 
     window hide
-    hide bali_bu_nyoman
-    show bali_bu_nyoman_terluka at hilir_nyoman
+    hide bali_bu_nyoman_tegas
+    show bali_bu_nyoman_kecewa at hilir_nyoman
     with dissolve
     pause 1.0
     window show
@@ -974,6 +1092,11 @@ label scene2_ending_c:
 
 # SCENE 3   MUSYAWARAH SUBAK: HADAPAN PEKASEH
 label bali_scene3:
+    stop sfx1
+    stop sfx2
+    stop music fadeout 1.0
+    play music "sound/Gambuh Gamelan (Khidmat) BGM.mp3" fadein 1.0
+    play sfx1 "sound/AnginKuat SFX.mp3"
     window hide
     pause 1.0
     
@@ -1049,22 +1172,7 @@ label bali_scene3:
     pause 1.0
 
     # PILIHAN 3   SCENE 3
-    menu:
-        "Menurut saya, sistem subak harus dikembalikan ke jalurnya, semua saluran air dikembalikan ke kondisi awal, lalu ada jadwal rotasi yang disepakati bersama. Untuk masalah lahan, desa bisa mengajukan status perlindungan budaya agar tidak bisa dijual sembarangan. Semua keputusan lewat musyawarah, bukan sepihak.":
-            $ bali_points += 30
-            $ scene3_choice = "A"
-            jump scene3_ending_a
-
-        "Mungkin bisa dibagi bagi airnya secara merata? Tapi soal lahan terserah Bu Nyoman sendiri aja.":
-            $ bali_points  = 5
-            $ scene3_choice = "B"
-            jump scene3_ending_b
-
-        "Ini urusan bapak bapak petani sendiri. Saya nggak tahu apa apa soal pertanian.":
-            $ bali_points  = 15
-            $ scene3_choice = "C"
-            jump scene3_ending_c
-
+    call screen bali_scene3_pilih
 
 label scene3_ending_a:
     window show
@@ -1217,6 +1325,9 @@ label scene3_ending_c:
 
 
 label bali_ending:
+    stop sfx1
+    stop music fadeout 1.0
+    play music "sound/Gambuh Gamelan (Semangat) BGM.mp3" fadein 1.0
     window hide
     pause 1.0
 
@@ -1309,6 +1420,10 @@ label bali_ending:
 
 # DAERAH 4 : TORAJA
 label toraja_intro:
+    stop music fadeout 1.0
+    play music "sound/Pa_Pompang BGM.mp3" fadein 1.0
+    window hide
+    pause 1.0
     scene bg_toraja_lembah
     with fade
     pause 1.0
@@ -1410,14 +1525,7 @@ label toraja_scene1:
     pause 0.5
 
     # PILIHAN 1   SCENE 1
-    menu:
-        "Pa'tedong adalah simbol kesejahteraan dan leluhur":
-            jump toraja_scene1_choice_a
-        "Kerbau itu penting, mungkin simbol kekuatan":
-            jump toraja_scene1_choice_b
-        "Ya, ukiran ini memang tidak relevan":
-            jump toraja_scene1_choice_c
-
+    call screen toraja_scene1_pilih
 
 label toraja_scene1_choice_a:
     $ toraja_points += 25
@@ -1594,14 +1702,7 @@ label toraja_scene2:
     pause 1.0
 
     # PILIHAN 2   SCENE 2
-    menu:
-        "Karena kematian adalah perpindahan, bukan perpisahan":
-            jump toraja_scene2_choice_a
-        "Mungkin karena adat mereka memang seperti itu":
-            jump toraja_scene2_choice_b
-        "Itu berlebihan, terlalu banyak kerbau":
-            jump toraja_scene2_choice_c
-
+    call screen toraja_scene2_pilih
 
 label toraja_scene2_choice_a:
     $ toraja_points += 25
@@ -1779,14 +1880,7 @@ label toraja_scene3:
     pause 1.0
 
     # PILIHAN 3   SCENE 3 (KEPUTUSAN AKHIR)
-    menu:
-        "Kelola sendiri dengan koperasi budaya, jual wisata lokal":
-            jump toraja_scene3_choice_a
-        "Coba negosiasi kontrak, minta beberapa syarat diubah":
-            jump toraja_scene3_choice_b
-        "Serahkan ke perusahaan demi uang yang besar":
-            jump toraja_scene3_choice_c
-
+    call screen toraja_scene3_pilih
 
 label toraja_scene3_choice_a:
     $ toraja_points += 30
@@ -1975,7 +2069,7 @@ label toraja_end:
         window show
         garuda "Checkpoint Toraja selesai. Total poinmu di Toraja: [toraja_points]"
     else:
-        garuda "Checkpoint Toraja selesai. Total poinmu di Toraja: Minus [toraja_points]"
+        garuda "Checkpoint Toraja selesai. Total poinmu di Toraja: Minus [-1 * toraja_points]"
 
     window hide
     pause 1.0
