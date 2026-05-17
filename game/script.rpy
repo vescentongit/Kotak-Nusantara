@@ -1220,7 +1220,7 @@ label chapter_jawa_betawi:
         $ player_points = 15
         
         wira "Menurut gue, Bang Rojak yang bener. Festival tradisional ya harus tradisional. Format lama dipertahanin aja, nggak perlu diubah ubah."
-        
+        scene ibu_sari_marah
         Sari "(kecewa, pergi dengan ekspresi marah)"
         
         garuda "Memihak memang terasa tegas. Tapi dalam komunitas yang hidupnya dari kebersamaan, memilih satu pihak tanpa mendengar yang lain bukan ketegasan."
@@ -1233,9 +1233,9 @@ label chapter_jawa_betawi:
     
     label pilihan_festival_c:
         $ player_points = 5
-        
+        scene visualpilihanC_wiraberide
         wira "Udah, gini aja. Gue punya ide. Kita bikin festival hybrid, separuh tradisional separuh modern, terus live streaming semuanya. Nggak perlu debat panjang."
-        
+        scene visualpilihanC_pakrojakmarah
         Bang_Rojak "Siapa kamu mau memutuskan urusan kampung kami?"
         
         garuda "Ide yang baik pun bisa ditolak kalau datang tanpa menghormati proses. Di komunitas yang menghargai adat, cara kamu mengajukan sesuatu sama pentingnya dengan isi usulanmu."
