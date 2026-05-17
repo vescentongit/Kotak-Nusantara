@@ -35,6 +35,7 @@ define Pak_Sugeng = Character("Pak Sugeng",who_color ="#A0522D" )
 define Kanjeng_Raden = Character("Kanjeng Raden",who_color ="#D4AF37" )
 define Raden_Mas_Bagas = Character("Raden Mas Bagas",who_color ="#8B4513" )
 define Dimas = Character("Dimas",who_color ="#4A4A4A" )
+define Teman_Dimas = Character("Teman Dimas",who_color ="#b00404" )
 
 # ================= SISTEM POIN =================
 default player_points = 0
@@ -1149,17 +1150,18 @@ label pilihan_festival_c:
 label lanjut_ke_wayang:
 
     # ===== SCENE WAYANG YANG DIANGGAP KUNO =====
-    play music "sound/gamelanpelan.mp3" fadein 1.0 loop
-    scene pilihana_wayang_idle
+    scene bg_pewayangan_pilihan
     with dissolve
 
     narrator "Malam hari, festival sudah berdiri. Lampu kelap-kelip menghiasi panggung. Terdapat sekelompok remaja di depan panggung menonton namun tidak antusias."
-
-    Dimas "Bro, ini acara apaan sih. Bayangannya doang yang keliatan, suaranya lebay, nggak ngerti ceritanya apa. Nonton anime aja lebih seru."
-
     window hide
     pause 0.5
     window show
+
+    scene scenewayang_kekecewaanPakSugeng
+    play sound "sound/gamelanpelan.mp3" fadein 1.0 loop
+    Dimas "Bro, ini acara apaan sih. Bayangannya doang yang keliatan, suaranya lebay, nggak ngerti ceritanya apa. Nonton anime aja lebih seru."
+    Teman_Dimas "Ssst...nanti didenger Pak Sugeng."
 
     Pak_Sugeng "Sudah tiga generasi keluargaku menjaga wayang ini. Kakekku yang mengukir Arjuna itu. Kalau aku pergi nanti, tidak ada yang meneruskan."
 
@@ -1173,8 +1175,10 @@ label lanjut_ke_wayang:
     Pak_Sugeng "Anak muda…kamu punya pendapat tentang ini?"
 
     garuda "Wira, ini momen penting. Pak Sugeng butuh pembelaan, tetapi Dimas butuh jembatan, bukan tembok. Bagaimana kamu merespons?"
-
+    stop sound fadeout 1.0
     # ===== PILIHAN WAYANG =====
+    show screen show_points
+    call screen pilihan_wayang
     menu:
         "Jelaskan wayang dengan bahasa anak muda.":
             jump pilihan_wayang_a
