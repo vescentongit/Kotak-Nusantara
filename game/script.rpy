@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define narrator =  Character("Narator", who_color = "#000000")
+define narrator =  Character("", who_color = "#000000")
 define wira = Character("Wira", who_color = "#ffffff")
 define ibu = Character("Ibu", who_color = "#ffffff")
 define ayah = Character("Ayah", who_color = "#ffffff")
@@ -1259,7 +1259,7 @@ label chapter_jawa_betawi:
     Engkong_Ali "(tersenyum) Justru kamu yang paling nggak mengganggu di sini. Dua orang itu sudah lupa caranya mendengar. Kamu, anak muda, belum lupa."
 
     garuda "Ini masalah yang lebih dalam dari sekadar format festival. Bang Rojak mewakili mereka yang takut kehilangan akar. Sari mewakili mereka yang takut mati karena tidak relevan."
-    garuda "Kamu ada di tengah-tengah. Tentukan cara kamu merespons konflik ini."
+    garuda "Kamu ada di tengahtengah. Tentukan cara kamu merespons konflik ini."
 
     # ===== PILIHAN FESTIVAL KAMPUNG =====
     menu:
@@ -1276,7 +1276,7 @@ label pilihan_festival_a:
         hide pilihanb_festivalkampung_button
         hide pilihanc_festivalkampung_button
 
-        wira "Bang Rojak, Kak Sari…dua-duanya ada benarnya."
+        wira "Bang Rojak, Kak Sari…duaduanya ada benarnya."
         wira "Kalau boleh, kita duduk bareng dulu. Bang Rojak bisa ceritain bagian mana dari festival yang paling penting untuk dijaga."
         wira "Kak Sari bisa kasih tau inovasinya yang mana yang bisa jalan tanpa ngorbanin inti acara."
         wira "Engkong Ali bisa jadi penengah. Kita cari format yang jaga akar tapi nggak ngusir generasi baru."
@@ -1300,7 +1300,7 @@ label pilihan_festival_b:
         hide pilihanb_festivalkampung_button
         hide pilihanc_festivalkampung_button
 
-        wira "Menurut gue, Bang Rojak yang bener. Festival tradisional ya harus tradisional. Format lama dipertahanin aja, nggak perlu diubah-ubah."
+        wira "Menurut gue, Bang Rojak yang bener. Festival tradisional ya harus tradisional. Format lama dipertahanin aja, nggak perlu diubahubah."
 
         Sari "(kecewa, pergi dengan ekspresi marah)"
 
@@ -1334,7 +1334,7 @@ label lanjut_ke_wayang:
     scene bg_pewayangan_pilihan
     with dissolve
 
-    narrator "Malam hari, festival sudah berdiri. Lampu kelap-kelip menghiasi panggung. Terdapat sekelompok remaja di depan panggung menonton namun tidak antusias."
+    narrator "Malam hari, festival sudah berdiri. Lampu kelapkelip menghiasi panggung. Terdapat sekelompok remaja di depan panggung menonton namun tidak antusias."
     window hide
     pause 0.5
     window show
@@ -1369,7 +1369,7 @@ label pilihan_wayang_a:
         hide pilihanc_wayang_idle
 
         wira "Lo tau nggak, Dimas, karakter Arjuna yang dipaksa milih antara keluarga dan kebenaran itu…mirip banget sama dilema di film superhero kesukaan lo."
-        wira "Wayang bukan cuma bayang-bayang, bro. Itu cerita manusia yang udah dipikirin ribuan tahun lalu sebelum kita lahir."
+        wira "Wayang bukan cuma bayangbayang, bro. Itu cerita manusia yang udah dipikirin ribuan tahun lalu sebelum kita lahir."
 
         Pak_Sugeng "Ia menerangkan wayang dengan bahasa anak muda…Kakekku dulu bilang, dalang yang baik bisa bicara dalam bahasa siapapun yang duduk di depannya."
 
@@ -1407,7 +1407,7 @@ label pilihan_wayang_c:
         hide pilihanb_wayang_idle
         hide pilihanc_wayang_idle
 
-        wira "Pak Sugeng, mungkin wayangnya bisa di-dubbing pakai suara yang lebih kekinian? Atau ceritanya diganti yang lebih relevan gitu? Biar anak muda tertarik."
+        wira "Pak Sugeng, mungkin wayangnya bisa didubbing pakai suara yang lebih kekinian? Atau ceritanya diganti yang lebih relevan gitu? Biar anak muda tertarik."
 
         Pak_Sugeng "(kecewa) Kalau ceritanya diganti…itu bukan wayang lagi, Nak. Itu hanya boneka kayu."
 
@@ -1425,8 +1425,8 @@ label lanjut_ke_keraton:
     scene visualmasuk_keratonjawa
     with fade
 
-    narrator "Cahaya festival Betawi perlahan memudar. Wira dan Garuda terangkat ke udara. Lampu-lampu kampung mengecil seperti kunang-kunang. Perlahan-lahan, kompleks bangunan besar muncul di bawah cahaya bulan."
-    narrator "Atap joglo berlapis-lapis berwarna hijau tua dan emas. Alun-alun luas dengan dua pohon beringin kembar yang berdiri seperti penjaga."
+    narrator "Cahaya festival Betawi perlahan memudar. Wira dan Garuda terangkat ke udara. Lampulampu kampung mengecil seperti kunangkunang. Perlahanlahan, kompleks bangunan besar muncul di bawah cahaya bulan."
+    narrator "Atap joglo berlapislapis berwarna hijau tua dan emas. Alunalun luas dengan dua pohon beringin kembar yang berdiri seperti penjaga."
 
     window hide
     pause 2.0
@@ -1434,11 +1434,11 @@ label lanjut_ke_keraton:
 
     wira "Gue ngerasain sesuatu…tempat ini beda. Kerasa lebih…berat."
 
-    garuda "Karena di sini, setiap hal bermakna. Cara kamu berdiri, berjalan, berbicara, bahkan cara kamu diam. Tempat ini memiliki bahasa yang dibangun selama berabad-abad untuk menunjukkan rasa hormat kepada sesama dan kepada Sang Pencipta."
+    garuda "Karena di sini, setiap hal bermakna. Cara kamu berdiri, berjalan, berbicara, bahkan cara kamu diam. Tempat ini memiliki bahasa yang dibangun selama berabadabad untuk menunjukkan rasa hormat kepada sesama dan kepada Sang Pencipta."
 
-    wira "Berarti gue harus hati-hati banget?"
+    wira "Berarti gue harus hatihati banget?"
 
-    garuda "Bukan hanya hati-hati, kamu harus hadir sepenuhnya."
+    garuda "Bukan hanya hatihati, kamu harus hadir sepenuhnya."
 
     window hide
     pause 1.0
@@ -1459,7 +1459,7 @@ label lanjut_ke_keraton:
     scene visual_tidakpeduli
     with dissolve
 
-    narrator "Kanjeng Raden membawa Wira dan Garuda memasuki Pendopo utama Keraton. Ruangan besar beratap tinggi dengan tiang-tiang kayu jati besar."
+    narrator "Kanjeng Raden membawa Wira dan Garuda memasuki Pendopo utama Keraton. Ruangan besar beratap tinggi dengan tiangtiang kayu jati besar."
     narrator "Raden Mas Bagas sedang berlatih memainkan wayang sendirian. Ia penerus tradisi dalang Keraton, penerus generasi ketujuh belas."
 
     Raden_Mas_Bagas "Tamu dari luar. Jarang ada yang masuk sejauh ini. Saya Bagas, calon dalang Keraton generasi ketujuh belas."
@@ -1468,7 +1468,7 @@ label lanjut_ke_keraton:
 
     Kanjeng_Raden "Nggih, mboten menopo. Tamu ingkang sae punika ingkang purun nyuwun pirsa."
 
-    garuda "Di Keraton, ada tata cara yang disebut unggah-ungguh. Bukan untuk mempermalukan tamu, tapi untuk menjaga keselarasan ruang dan relasi antar manusia."
+    garuda "Di Keraton, ada tata cara yang disebut unggahungguh. Bukan untuk mempermalukan tamu, tapi untuk menjaga keselarasan ruang dan relasi antar manusia."
     garuda "Kamu akan menghadapi beberapa situasi. Bagaimana kamu merespons akan mencerminkan siapa kamu."
     garuda "Wira, Kanjeng Raden akan melewatimu. Apa yang kamu lakukan?"
 
@@ -1553,7 +1553,7 @@ label lanjut_ke_dialog_bagas:
 
     Raden_Mas_Bagas "Saya balik dan sekarang saya lagi belajar untuk membawa dunia luar masuk ke sini. Bukan untuk mengubah Keraton tetapi untuk membuat lebih banyak orang dapat merasakan apa yang bisa saya rasakan waktu duduk di sini pertama kali."
 
-    garuda "Dengarkan baik-baik, Wira. Ini bukan cerita tentang masa lalu melawan masa depan. Ini tentang menemukan apa yang tidak bisa digantikan lalu menjaganya dengan kedua tanganmu."
+    garuda "Dengarkan baikbaik, Wira. Ini bukan cerita tentang masa lalu melawan masa depan. Ini tentang menemukan apa yang tidak bisa digantikan lalu menjaganya dengan kedua tanganmu."
 
     window hide
     pause 2.0
@@ -1574,7 +1574,7 @@ label lanjut_ke_dialog_bagas:
     else:
         scene skor_rendah_daerahjawa
         with fade
-        narrator "Perjalananmu menunjukkan bahwa masih banyak yang perlu dipelajari tentang menghargai tradisi dan mendengarkan orang lain. Warisan budaya memerlukan lebih dari sekedar niat - ia memerlukan kehadiran dan kepedulian yang sejati."
+        narrator "Perjalananmu menunjukkan bahwa masih banyak yang perlu dipelajari tentang menghargai tradisi dan mendengarkan orang lain. Warisan budaya memerlukan lebih dari sekedar niat  ia memerlukan kehadiran dan kepedulian yang sejati."
 
     window hide
     pause 3.0
@@ -1596,7 +1596,7 @@ image bg_bali_pematang = "bali_pematang_subak.png"
 
 image garuda_default = "garuda_default.png"
 image garuda_terbang = "garuda_terbang.png"
-image garuda_berbicara = "garuda_berbicara.png"
+image garuda_berbicara = Transform("garuda_berbicara.png", zoom=0.5)
 image wira_dewasa_default = "wira_dewasa_default.png"
 image wira_dewasa_bingung = "wira_dewasa_bingung.png"
 image wira_dewasa_sinis = "wira_dewasa_sinis.png"
@@ -2377,7 +2377,7 @@ label start:
     ayah "Kalau besok kamu tidak berangkat, Papa potong uang jajan dan sita semua peralatan game mu!"
     show wira bingung at chara_wira_sinis
     # wira "(Mengepalkan tangan, ekspresi kesal)"
-    wira "Apa-apaan sih? Kok jadi ngancem gitu?!"
+    wira "Apaapaan sih? Kok jadi ngancem gitu?!"
     ibu "Ini untuk kebaikanmu, Sayang. Besok berangkat ya. Dadah!"
     play sound "sound/TUT TUT SFX.mp3" volume 0.7
     # wira "(Membanting HP ke kasur)"
@@ -2428,7 +2428,7 @@ label start:
     play sound "sound/Flapping Wing (Berat) SFX.mp3" volume 0.8
 
     # TODO SFX: Angin menderu, gesekan logam ajaib, sayap mengepak sangat keras.
-    wira "H-hei! Apa-apaan ini?! Lantainya... lantainya ilang?!"
+    wira "Hhei! Apaapaan ini?! Lantainya... lantainya ilang?!"
 
     # TODO VFX: Tubuh Wira transparan lalu berubah menjadi butiran data/cahaya.
     hide wira panik
@@ -2454,7 +2454,7 @@ label start:
     play ambient "sound/Angin SFX.mp3" fadein 1.0 volume 0.4
 
     wira "Gue... gue di mana? Barusan tadi... gue di gudang..."
-    wira "Gue masuk ke dalem game?! Gak mungkin, ini pasti gara-gara gue kurang tidur..."
+    wira "Gue masuk ke dalem game?! Gak mungkin, ini pasti garagara gue kurang tidur..."
 
     # TODO SFX: Kepakan sayap besar mendarat tepat di belakang Wira.
     play sound "sound/Flapping Wing (Berat) SFX.mp3" volume 0.85
@@ -2467,7 +2467,7 @@ label start:
     with dissolve
 
     wira "WOW! Burung apaan lo?! Bisa ngomong?!"
-    wira "Jangan deket-deket! Gue nggak kenal lo, ya! Gue mau pulang sekarang!"
+    wira "Jangan deketdeket! Gue nggak kenal lo, ya! Gue mau pulang sekarang!"
 
     garuda "Justru itu masalahnya, Wira. Kamu menutup hatimu begitu rapat sampai kamu tidak mengenali siapa yang berada di depanmu."
 
@@ -2498,7 +2498,7 @@ label start:
 
     garuda "Naiklah. Waktu terus berjalan, hanya ada satu jalan keluar. Tunjukkan nilaimu melalui lima gerbang Nusantara dan pilihan pertamamu sudah menanti di Minangkabau."
 
-    wira "Ck! Selalu aja maksa. Oke, fine! Tapi jangan macem-macem ya!"
+    wira "Ck! Selalu aja maksa. Oke, fine! Tapi jangan macemmacem ya!"
 
     # TODO IMAGE: Wira berjalan ke Garuda. Garuda merendahkan tubuh agar Wira bisa naik.
     # TODO IMAGE: Wira memanjat ke punggung Garuda dengan canggung.
@@ -2530,7 +2530,7 @@ label start:
     elif poin_karakter >= 25:
         garuda "Ada momen di mana kamu membuka matamu dan momen di mana kamu masih memilih jalan yang mudah. Nagari ini mengajarkan bahwa setengah hadir lebih berbahaya dari tidak hadir sama sekali."
     else:
-        garuda "Wira... di setiap pilihan yang kamu anggap pragmatis, kamu sebenarnya sedang membiarkan sesuatu yang orang lain jaga dengan nyawa mereka selama berabad-abad runtuh perlahan. Adat bukan museum."
+        garuda "Wira... di setiap pilihan yang kamu anggap pragmatis, kamu sebenarnya sedang membiarkan sesuatu yang orang lain jaga dengan nyawa mereka selama berabadabad runtuh perlahan. Adat bukan museum."
 
     # Continue to the next merged checkpoint.
     stop ambient fadeout 1.0
@@ -4577,7 +4577,7 @@ label chapter_papua:
     show wira_bingung at wleft_small
     with dissolve
 
-    narrator "Terdengar suara percikan air. Tiba-tiba suara teriakan dan perkelahian memecah suasana."
+    narrator "Terdengar suara percikan air. Tibatiba suara teriakan dan perkelahian memecah suasana."
 
     wira "Loh, itu ada apa? Aku harus sembunyi sekarang."
 
@@ -4585,7 +4585,7 @@ label chapter_papua:
 
     narrator "Setelah beberapa lama bersembunyi, keadaan sedikit mereda tetapi Garuda belum muncul."
 
-    wira "Mana sih Garuda, kok nggak muncul-muncul. Masa aku harus ngelewatin misi ini sendirian?"
+    wira "Mana sih Garuda, kok nggak munculmuncul. Masa aku harus ngelewatin misi ini sendirian?"
 
     hide wira_bingung
 
@@ -4599,7 +4599,7 @@ label chapter_papua:
 
     garuda "Seperti yang kamu lihat, ada pertikaian antara 5 suku yang tinggal di sekitar Danau Sentani karena permasalahan wilayah tangkap ikan."
 
-    garuda "Kamu adalah satu-satunya kunci agar konflik ini dapat selesai dan kehidupan mereka kembali normal."
+    garuda "Kamu adalah satusatunya kunci agar konflik ini dapat selesai dan kehidupan mereka kembali normal."
 
     wira "Jadi aku harus apa, Gar? Nemuin mereka satu per satu? Aku orang luar, apa mereka mau dengerin pendapatku?"
 
@@ -4626,11 +4626,11 @@ label chapter_papua:
 
     Perempuan_Tua "Belajar? Belajar apa? Tidak ada yang menarik di sini."
 
-    wira "Aku ingin belajar tentang danau ini. Tentang suku-suku di sini. Aku dengar... ada konflik? Mungkin aku bisa membantu."
+    wira "Aku ingin belajar tentang danau ini. Tentang sukusuku di sini. Aku dengar... ada konflik? Mungkin aku bisa membantu."
 
     Perempuan_Tua "Membantu? Banyak orang datang mau membantu. Semua pergi setelah dapat apa yang mereka mau."
 
-    wira "Tidak, Nek. Aku akan menunjukkan bahwa aku benar-benar berbeda dari mereka."
+    wira "Tidak, Nek. Aku akan menunjukkan bahwa aku benarbenar berbeda dari mereka."
 
     narrator "Wira membantu memindahkan daun sagu hingga pekerjaannya selesai."
 
@@ -4706,11 +4706,11 @@ label pilihan_pendekatan_c:
 
     garuda "Wira! Kesombongan hanya akan membakar jembatan yang belum sempat kau bangun!"
 
-    wira "Kalian ini bodoh sekali! Tinggal bagi saja daerah-daerah perairan di sini, apa susahnya?! Kumpul sekarang atau kalian semua rugi!"
+    wira "Kalian ini bodoh sekali! Tinggal bagi saja daerahdaerah perairan di sini, apa susahnya?! Kumpul sekarang atau kalian semua rugi!"
 
     with hpunch
 
-    narrator "Semua suku marah besar. Mereka merasa dilecehkan dan mengusir Wira secara bersama-sama."
+    narrator "Semua suku marah besar. Mereka merasa dilecehkan dan mengusir Wira secara bersamasama."
 
     $ player_points -= 25
     $ papua_points -= 25
@@ -4730,7 +4730,7 @@ label scene_barapen:
     scene bg_barapen
     with fade
 
-    narrator "Batu-batu panas membara. Asap mengepul. Kelima suku sudah duduk melingkar."
+    narrator "Batubatu panas membara. Asap mengepul. Kelima suku sudah duduk melingkar."
 
     show tetua_asei at wright_small
     show wira_bingung at wleft_small
@@ -4766,7 +4766,7 @@ label pilihan_barapen_a:
 
     narrator "Ritual berjalan biasa saja. Tidak ada yang salah, tapi tidak ada maknanya."
 
-    narrator "Orang-orang makan dalam diam. Perdamaian secara tertulis tercapai, namun tidak ada suasana kekeluargaan. Dingin."
+    narrator "Orangorang makan dalam diam. Perdamaian secara tertulis tercapai, namun tidak ada suasana kekeluargaan. Dingin."
 
     jump scene_ukiran_asmat
 
@@ -4780,13 +4780,13 @@ label pilihan_barapen_b:
     show tetua_asei at wright_small
     with dissolve
 
-    wira "Ambil tiga batu saja, itu sudah cukup panas! Tidak usah repot-repot berdoa panjang lebar, kita semua lapar. Masukkan umbinya sekarang!"
+    wira "Ambil tiga batu saja, itu sudah cukup panas! Tidak usah repotrepot berdoa panjang lebar, kita semua lapar. Masukkan umbinya sekarang!"
 
     with hpunch
 
     Tetua_Asei "Ini penghinaan! Batu dari selatan kau buang, doa kau lupakan! Kau tidak menghargai roh nenek moyang kami!"
 
-    narrator "Suku-suku kecewa berat. Beberapa ketua marah dan meninggalkan lapangan. Barapen dianggap tidak sah. Perdamaian hancur berantakan."
+    narrator "Sukusuku kecewa berat. Beberapa ketua marah dan meninggalkan lapangan. Barapen dianggap tidak sah. Perdamaian hancur berantakan."
 
     $ player_points -= 25
     $ papua_points -= 25
@@ -4848,9 +4848,9 @@ label scene_ukiran_asmat:
 
     wira "Aku yakin, Mama."
 
-    Mama_Tita "Kalau kamu mau cari Air Suci... kamu harus pecahkan teka-teki ukiran ini dulu."
+    Mama_Tita "Kalau kamu mau cari Air Suci... kamu harus pecahkan tekateki ukiran ini dulu."
 
-    narrator "Mama Tita mengulurkan sebatang kayu ukiran sepanjang lengan. Motifnya berlapis-lapis: binatang, manusia, lalu lingkaran kosong di ujungnya."
+    narrator "Mama Tita mengulurkan sebatang kayu ukiran sepanjang lengan. Motifnya berlapislapis: binatang, manusia, lalu lingkaran kosong di ujungnya."
 
     Mama_Tita "Ukiran ini bicara. Tapi dia hanya bicara pada yang mau mendengar. Bukan dengan telinga... tapi dengan hati dan ingatan. Bawa ini. Pecahkan maknanya."
 
@@ -4912,11 +4912,11 @@ label pilihan_ukiran_b:
 
     wira "Aku butuh waktu untuk memahami ini."
 
-    narrator "Wira duduk bersila berjam-jam di bawah pohon besar. Dia menutup mata, mengusap permukaan ukiran kayu itu perlahan."
+    narrator "Wira duduk bersila berjamjam di bawah pohon besar. Dia menutup mata, mengusap permukaan ukiran kayu itu perlahan."
 
     wira "Binatang... manusia... bersatu. Tapi kenapa di ujungnya kosong? Kosong... tempat yang tidak ada di peta para suku Sentani."
 
-    narrator "Wira mengingat semua pelajaran dari suku-suku di Sentani. Lalu dia sadar: lingkaran kosong itu mewakili Rawa Tanpa Nama di belakang desa lama — wilayah netral yang tak bertuan."
+    narrator "Wira mengingat semua pelajaran dari sukusuku di Sentani. Lalu dia sadar: lingkaran kosong itu mewakili Rawa Tanpa Nama di belakang desa lama — wilayah netral yang tak bertuan."
 
     narrator "Dia berlari ke sana, menyelam ke dasar rawa yang dingin, dan menemukan sebuah gua kristal tersembunyi."
 
@@ -4951,9 +4951,9 @@ label pilihan_ukiran_c:
     show wira_bingung at wleft_small
     with dissolve
 
-    wira "Aduh, aku paling tidak bisa teka-teki sastra begini."
+    wira "Aduh, aku paling tidak bisa tekateki sastra begini."
 
-    narrator "Wira keliling desa menanyai orang-orang yang lewat sambil membawa ukiran itu."
+    narrator "Wira keliling desa menanyai orangorang yang lewat sambil membawa ukiran itu."
 
     wira "Permisi, Bapak tahu air suci? Ibu, pernah lihat simbol ini?"
 
@@ -4965,7 +4965,7 @@ label pilihan_ukiran_c:
     show garuda_berbicara at wright_small
     with dissolve
 
-    narrator "Wira keluar membawa air yang warnanya abu-abu keruh. Tidak ada cahaya."
+    narrator "Wira keluar membawa air yang warnanya abuabu keruh. Tidak ada cahaya."
 
     garuda "Wira... air apa ini? Mengapa rasanya hampa?"
 
