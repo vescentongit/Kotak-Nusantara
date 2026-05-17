@@ -1618,160 +1618,160 @@ image pasar_c_hover = im.Scale("pasar_c_hover.png", 700, 800)
 
 label start:
 
-    # # ==========================================================================================================================
-    # # PROLOG / TERAS PAGI
-    # # ==========================================================================================================================
-    # scene bg_prolog_teras_pagi
-    # show pipit standing at pipit_initial
-    # with fade
+    # ==========================================================================================================================
+    # PROLOG / TERAS PAGI
+    # ==========================================================================================================================
+    scene bg_prolog_teras_pagi
+    show pipit standing at pipit_initial
+    with fade
 
-    # narrator "Pada suatu hari..."
+    narrator "Pada suatu hari..."
 
-    # show wira_ceria at wleft_small
-    # with dissolve
+    show wira_ceria at wleft_small
+    with dissolve
 
-    # # These display lines of dialogue.
-    # wira "Wah... hari ini cerah sekali ya!"
+    # These display lines of dialogue.
+    wira "Wah... hari ini cerah sekali ya!"
 
-    # window hide
-    # show wira_ceria at teras
-    # with ease
-    # pause 0.5
-    # window show
+    window hide
+    show wira_ceria at teras
+    with ease
+    pause 0.5
+    window show
 
-    # wira "Pipit... lihat deh. Matahari pagi ini bagus banget, kan?"
+    wira "Pipit... lihat deh. Matahari pagi ini bagus banget, kan?"
 
-    # window hide
+    window hide
 
-    # pause 0.3
-    # show pipit terbang at pipit_initial with dissolve
-    # pause 0.5
+    pause 0.3
+    show pipit terbang at pipit_initial with dissolve
+    pause 0.5
 
-    # scene bg_prolog_teras_pagi
-    # show wiranpipit at teras
-    # with dissolve
-    # window show
+    scene bg_prolog_teras_pagi
+    show wiranpipit at teras
+    with dissolve
+    window show
 
-    # narrator "Wira Terkekeh geli, matanya semakin berbinar"
-    # wira "Ih, geli! Kamu suka ya aku elus elus?"
-    # narrator "Bagi WIRA, dunia luar penuh dengan suara bising dan kebingungan. Namun, di teras ini, bersama Pipit... semuanya terasa benar."
+    narrator "Wira Terkekeh geli, matanya semakin berbinar"
+    wira "Ih, geli! Kamu suka ya aku elus elus?"
+    narrator "Bagi WIRA, dunia luar penuh dengan suara bising dan kebingungan. Namun, di teras ini, bersama Pipit... semuanya terasa benar."
 
-    # window hide
-    # show wiranpipit serius at teras
-    # with dissolve
-    # pause 0.5
-    # window show
+    window hide
+    show wiranpipit serius at teras
+    with dissolve
+    pause 0.5
+    window show
 
-    # wira "Pipit... kalau nanti sayapmu sudah kuat... kalau kamu sudah bisa terbang jauh sampai ke awan..."
+    wira "Pipit... kalau nanti sayapmu sudah kuat... kalau kamu sudah bisa terbang jauh sampai ke awan..."
 
-    # window hide
-    # show wiranpipit nunduk at terasnew
-    # with dissolve
-    # pause 1.5
-    # show wiranpipit terharu at teras
-    # with dissolve
-    # pause 1.5
-    # window show
+    window hide
+    show wiranpipit nunduk at terasnew
+    with dissolve
+    pause 1.5
+    show wiranpipit terharu at teras
+    with dissolve
+    pause 1.5
+    window show
 
-    # wira "...jangan tinggalin aku ya? Janji?"
+    wira "...jangan tinggalin aku ya? Janji?"
 
-    # narrator "Di teras rumah itu, WIRA Kecil mengunci separuh hatinya pada seekor burung peliharaan, menjadikannya satu satunya dunia kecil yang dia miliki."
+    narrator "Di teras rumah itu, WIRA Kecil mengunci separuh hatinya pada seekor burung peliharaan, menjadikannya satu satunya dunia kecil yang dia miliki."
 
-    # window hide
+    window hide
 
-    # # ==========================================================================================================================
-    # # PROLOG / TAMAN KOTA SORE
-    # # ==========================================================================================================================
+    # ==========================================================================================================================
+    # PROLOG / TAMAN KOTA SORE
+    # ==========================================================================================================================
 
-    # scene taman
-    # with dissolve
+    scene taman
+    with dissolve
 
-    # show wira megang sangkar at wira_megang_sangkar
-    # with dissolve
-    # pause 1.0
+    show wira megang sangkar at wira_megang_sangkar
+    with dissolve
+    pause 1.0
 
-    # window show
-    # wira "Kita sudah sampai, Pipit! Lihat, di sini jauh lebih luas daripada kamar aku."
-    # window hide
-    # pause 0.5
+    window show
+    wira "Kita sudah sampai, Pipit! Lihat, di sini jauh lebih luas daripada kamar aku."
+    window hide
+    pause 0.5
 
-    # show wira duduk sangkar at wira_duduk_sangkar
-    # with dissolve
+    show wira duduk sangkar at wira_duduk_sangkar
+    with dissolve
 
-    # pause 1.0
-    # window show
-    # wira "Aku buka ya pintunya? Tapi kamu jangan terbang tinggi tinggi... aku takut nggak bisa liat kamu lagi."
-    # wira "Ayo... keluar sebentar..."
+    pause 1.0
+    window show
+    wira "Aku buka ya pintunya? Tapi kamu jangan terbang tinggi tinggi... aku takut nggak bisa liat kamu lagi."
+    wira "Ayo... keluar sebentar..."
 
-    # window hide
-    # pause 0.5
+    window hide
+    pause 0.5
 
-    # show wira ketiup angin at wira_ketiup_angin
-    # show pipit hinggap di sangkar at pipit_sangkar
-    # with dissolve
+    show wira ketiup angin at wira_ketiup_angin
+    show pipit hinggap di sangkar at pipit_sangkar
+    with dissolve
 
 
-    # pause 1.0
+    pause 1.0
 
-    # window show
+    window show
 
-    # wira "Pipit?! Tunggu!"
+    wira "Pipit?! Tunggu!"
 
-    # window hide
-    # pause 0.5
-    # show sangkar at sangkar_kosong
-    # show wira ngejar at wira_ketiup_angin
-    # show pipit terbang at atas_sangkar
-    # with dissolve
-    # pause 0.5
+    window hide
+    pause 0.5
+    show sangkar at sangkar_kosong
+    show wira ngejar at wira_ketiup_angin
+    show pipit terbang at atas_sangkar
+    with dissolve
+    pause 0.5
 
-    # show pipit terbang at pipit_leaving
-    # with ease
+    show pipit terbang at pipit_leaving
+    with ease
 
-    # hide pipit terbang
+    hide pipit terbang
 
-    # pause 0.5
-    # window show
-    # wira "JANGAN TINGGALIN AKU! PIPIT!!!"
-    # pause 1.0
-    # window hide
-    # scene taman
-    # show wira sedih at wira_ketiup_angin
-    # with dissolve
+    pause 0.5
+    window show
+    wira "JANGAN TINGGALIN AKU! PIPIT!!!"
+    pause 1.0
+    window hide
+    scene taman
+    show wira sedih at wira_ketiup_angin
+    with dissolve
 
-    # pause 2.0
+    pause 2.0
 
-    # scene black
-    # with dissolve
-    # narrator "...."
-    # narrator "Pipit terbang.... entah kemana..."
+    scene black
+    with dissolve
+    narrator "...."
+    narrator "Pipit terbang.... entah kemana..."
 
-    # =============================================================
-    # PROLOG : KAMAR WIRA
-    # =============================================================
+    =============================================================
+    PROLOG : KAMAR WIRA
+    =============================================================
 
-    # scene kamarwira
-    # with dissolve
+    scene kamarwira
+    with dissolve
 
-    # show wira sinis at chara_wira_sinis
-    # narrator "(Telepon berdering)"
-    # show wira bingung at chara_wira_sinis
-    # with dissolve
-    # wira "Halo?"
-    # ibu "Wira, besok kamu ke desa Nenek ya. Sudah Ibu siapkan semuanya."
-    # # wira "(Mendengus)"
-    # show wira sinis at chara_wira_sinis
-    # with dissolve
-    # wira "Ma, aku bukan anak kecil lagi yang bisa disuruh suruh ke desa nggak jelas gitu. Males."
+    show wira sinis at chara_wira_sinis
+    narrator "(Telepon berdering)"
+    show wira bingung at chara_wira_sinis
+    with dissolve
+    wira "Halo?"
+    ibu "Wira, besok kamu ke desa Nenek ya. Sudah Ibu siapkan semuanya."
+    # wira "(Mendengus)"
+    show wira sinis at chara_wira_sinis
+    with dissolve
+    wira "Ma, aku bukan anak kecil lagi yang bisa disuruh suruh ke desa nggak jelas gitu. Males."
 
-    # ayah "Wira! Turuti kata Ibu! Kamu terlalu banyak membuang waktu dengan hal hal nggak berguna di sana."
-    # ayah "Kalau besok kamu tidak berangkat, Papa potong uang jajan dan sita semua peralatan game mu!"
-    # show wira bingung at chara_wira_sinis
-    # # wira "(Mengepalkan tangan, ekspresi kesal)"
-    # wira "Apa-apaan sih? Kok jadi ngancem gitu?!"
-    # ibu "Ini untuk kebaikanmu, Sayang. Besok berangkat ya. Dadah!"
-    # # wira "(Membanting HP ke kasur)"
-    # wira "Males deh, selalu aja kayak gini."
+    ayah "Wira! Turuti kata Ibu! Kamu terlalu banyak membuang waktu dengan hal hal nggak berguna di sana."
+    ayah "Kalau besok kamu tidak berangkat, Papa potong uang jajan dan sita semua peralatan game mu!"
+    show wira bingung at chara_wira_sinis
+    # wira "(Mengepalkan tangan, ekspresi kesal)"
+    wira "Apa-apaan sih? Kok jadi ngancem gitu?!"
+    ibu "Ini untuk kebaikanmu, Sayang. Besok berangkat ya. Dadah!"
+    # wira "(Membanting HP ke kasur)"
+    wira "Males deh, selalu aja kayak gini."
 
     # =============================================================
     # SCENE 5: GUDANG NENEK - KOTAK "PETUALANGAN NUSANTARA"
